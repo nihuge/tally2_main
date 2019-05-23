@@ -1,0 +1,221 @@
+<!DOCTYPE HTML>
+<div component="$model/UI2/system/components/justep/window/window" design="device:m;" xid="window" class="window cfErEva" data-bind="component:{name:'$model/UI2/system/components/justep/window/window'}" __justepbasexid__="__baseID__" __cid="cfErEva" components="$model/UI2/system/components/justep/loadingBar/loadingBar,$model/UI2/system/components/justep/windowReceiver/windowReceiver,$model/UI2/system/components/justep/labelEdit/labelEdit,$model/UI2/system/components/justep/row/row,$model/UI2/system/components/justep/panel/panel,$model/UI2/system/components/justep/list/list,$model/UI2/system/components/justep/window/window,$model/UI2/system/components/justep/controlGroup/controlGroup,$model/UI2/system/components/justep/data/data,$model/UI2/system/components/justep/titleBar/titleBar,$model/UI2/system/components/justep/panel/child,$model/UI2/system/components/justep/scrollView/scrollView,$model/UI2/system/components/justep/model/model,$model/UI2/system/components/justep/button/button,$model/UI2/system/components/justep/output/output,">  
+  <div component="$model/UI2/system/components/justep/model/model" xid="model" style="display:none" data-bind="component:{name:'$model/UI2/system/components/justep/model/model'}" __cid="cfErEva" class="cfErEva"></div>  
+  <script src="@justepContextPath@/costacoSecond/ajax/baas.js" type="text/javascript" __cid="cfErEva" class="cfErEva"></script>  
+  <div component="$model/UI2/system/components/justep/panel/panel" class="x-panel x-full p9d0ad79a65ab4db89b44a6466f53d47f-iosstatusbar cfErEva" xid="panel1" data-bind="component:{name:'$model/UI2/system/components/justep/panel/panel'}" __cid="cfErEva"> 
+    <div class="x-panel-top cfErEva" xid="top1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cfErEva"> 
+      <div component="$model/UI2/system/components/justep/titleBar/titleBar" class="x-titlebar cfErEva" data-bind="component:{name:'$model/UI2/system/components/justep/titleBar/titleBar'}" data-config="{&#34;title&#34;:&#34;指令详情&#34;}" __cid="cfErEva"> 
+        <div class="x-titlebar-left cfErEva" __cid="cfErEva"> 
+          <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-only-icon cfErEva" xid="backBtn" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:backBtnClick" data-config="{&#34;icon&#34;:&#34;icon-chevron-left&#34;,&#34;label&#34;:&#34;&#34;}" __cid="cfErEva"> 
+            <i class="icon-chevron-left cfErEva" __cid="cfErEva"></i>  
+            <span __cid="cfErEva" class="cfErEva"></span> 
+          </a> 
+        </div>  
+        <div class="x-titlebar-title cfErEva" __cid="cfErEva">指令详情</div>  
+        <div class="x-titlebar-right  cfErEva" __cid="cfErEva">
+          <div class="empty cfErEva" __cid="cfErEva"></div>
+        </div> 
+      </div> 
+    </div>  
+    <div class="x-panel-content cfErEva" xid="content1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cfErEva">
+      <div component="$model/UI2/system/components/justep/panel/panel" class="x-panel x-full p393d049eb8644550a13f355f49710f84-iosstatusbar cfErEva" xid="panel2" data-bind="component:{name:'$model/UI2/system/components/justep/panel/panel'}" __cid="cfErEva"> 
+        <div class="x-panel-content  x-scroll-view cfErEva" xid="content2" style="top: 0px; bottom: 0px;" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cfErEva"> 
+          <div class="x-scroll cfErEva" component="$model/UI2/system/components/justep/scrollView/scrollView" xid="scrollView1" data-bind="component:{name:'$model/UI2/system/components/justep/scrollView/scrollView'}" __cid="cfErEva"> 
+            <div class="x-content-center x-pull-down container cfErEva" xid="div1" __cid="cfErEva"> 
+              <i class="x-pull-down-img glyphicon x-icon-pull-down cfErEva" xid="i1" __cid="cfErEva"></i>  
+              <span class="x-pull-down-label cfErEva" xid="span1" __cid="cfErEva">下拉刷新...</span>
+            </div>  
+            <div class="x-scroll-content cfErEva" xid="div2" __cid="cfErEva">
+              <div component="$model/UI2/system/components/justep/list/list" class="x-list cfErEva" xid="list2" data-bind="component:{name:'$model/UI2/system/components/justep/list/list'}" data-config="{&#34;data&#34;:&#34;InsDetails&#34;}" __cid="cfErEva"> 
+                <ul class="x-list-template hide cfErEva" xid="listTemplateUl2" __cid="cfErEva" data-bind="foreach:{data:$model.foreach_list2($element),afterRender:$model.foreach_afterRender_list2.bind($model,$element)}"> 
+                  <li xid="li2" __cid="cfErEva" class="cfErEva">
+                    <div component="$model/UI2/system/components/justep/row/row" class="x-row cfErEva" xid="row1" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cfErEva"> 
+                      <div class="x-col cfErEva" xid="col1" __cid="cfErEva">
+                        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cfErEva" xid="labelOutput1" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cfErEva"> 
+                          <label class="x-label cfErEva" xid="label1" __cid="cfErEva" data-bind="text:label('shipname')"></label>  
+                          <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cfErEva" xid="output1" data-bind="component:{ref:ref('shipname'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cfErEva"></div>
+                        </div>
+                      </div> 
+                    </div>  
+                    <div component="$model/UI2/system/components/justep/row/row" class="x-row cfErEva" xid="row2" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cfErEva"> 
+                      <div class="x-col cfErEva" xid="col4" __cid="cfErEva"> 
+                        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cfErEva" xid="labelOutput2" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cfErEva"> 
+                          <label class="x-label cfErEva" xid="label2" __cid="cfErEva" data-bind="text:label('voyage')"></label>  
+                          <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cfErEva" xid="output2" data-bind="component:{ref:ref('voyage'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cfErEva"></div>
+                        </div> 
+                      </div> 
+                    </div>  
+                    <div component="$model/UI2/system/components/justep/row/row" class="x-row cfErEva" xid="row3" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cfErEva"> 
+                      <div class="x-col cfErEva" xid="col5" __cid="cfErEva"> 
+                        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cfErEva" xid="labelOutput3" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cfErEva"> 
+                          <label class="x-label cfErEva" xid="label3" __cid="cfErEva" data-bind="text:label('date')"></label>  
+                          <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cfErEva" xid="output3" data-bind="component:{ref:ref('date'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cfErEva"></div>
+                        </div> 
+                      </div> 
+                    </div>  
+                    <div component="$model/UI2/system/components/justep/row/row" class="x-row cfErEva" xid="row4" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cfErEva"> 
+                      <div class="x-col cfErEva" xid="col6" __cid="cfErEva"> 
+                        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cfErEva" xid="labelOutput4" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cfErEva"> 
+                          <label class="x-label cfErEva" xid="label4" __cid="cfErEva" data-bind="text:label('locationname')"></label>  
+                          <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cfErEva" xid="output4" data-bind="component:{ref:ref('locationname'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cfErEva"></div>
+                        </div> 
+                      </div> 
+                    </div>  
+                    <div component="$model/UI2/system/components/justep/row/row" class="x-row cfErEva" xid="row5" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cfErEva"> 
+                      <div class="x-col cfErEva" xid="col7" __cid="cfErEva"> 
+                        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cfErEva" xid="labelOutput5" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cfErEva"> 
+                          <label class="x-label cfErEva" xid="label5" __cid="cfErEva" data-bind="text:label('status_zh')"></label>  
+                          <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cfErEva" xid="output5" data-bind="component:{ref:ref('status_zh'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cfErEva"></div>
+                        </div> 
+                      </div> 
+                    </div>  
+                    <div component="$model/UI2/system/components/justep/row/row" class="x-row cfErEva" xid="row6" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cfErEva"> 
+                      <div class="x-col cfErEva" xid="col8" __cid="cfErEva"> 
+                        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cfErEva" xid="labelOutput6" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cfErEva"> 
+                          <label class="x-label cfErEva" xid="label6" __cid="cfErEva" data-bind="text:label('operation_type_zh')"></label>  
+                          <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cfErEva" xid="output6" data-bind="component:{ref:ref('operation_type_zh'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cfErEva"></div>
+                        </div> 
+                      </div> 
+                    </div>  
+                    <div component="$model/UI2/system/components/justep/row/row" class="x-row cfErEva" xid="row7" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cfErEva"> 
+                      <div class="x-col cfErEva" xid="col9" __cid="cfErEva"> 
+                        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cfErEva" xid="labelOutput7" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cfErEva"> 
+                          <label class="x-label cfErEva" xid="label7" __cid="cfErEva" data-bind="text:label('department')"></label>  
+                          <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cfErEva" xid="output7" data-bind="component:{ref:ref('department'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cfErEva"></div>
+                        </div> 
+                      </div> 
+                    </div>
+                  </li>
+                </ul> 
+              </div>
+              <div component="$model/UI2/system/components/justep/controlGroup/controlGroup" class="x-control-group cfErEva" xid="controlGroup1" style="height:54px;" data-bind="component:{name:'$model/UI2/system/components/justep/controlGroup/controlGroup'}" data-config="{&#34;title&#34;:&#34;货列表&#34;}" __cid="cfErEva"> 
+                <div class="x-control-group-title cfErEva" xid="controlGroupTitle1" __cid="cfErEva"> 
+                  <span xid="span3" __cid="cfErEva" class="cfErEva">title</span>
+                </div> 
+              </div>
+              <div component="$model/UI2/system/components/justep/list/list" class="x-list x-cards cfErEva" xid="list1" data-bind="component:{name:'$model/UI2/system/components/justep/list/list'}" data-config="{&#34;data&#34;:&#34;goods&#34;,&#34;limit&#34;:5}" __cid="cfErEva"> 
+                <ul class="x-list-template x-min-height list-group hide cfErEva" xid="listTemplateUl1" componentname="$UI/system/components/justep/list/list#listTemplateUl" id="undefined_listTemplateUl1" __cid="cfErEva" data-bind="foreach:{data:$model.foreach_list1($element),afterRender:$model.foreach_afterRender_list1.bind($model,$element)}"> 
+                  <li xid="li1" class="x-min-height list-group-item cfErEva" componentname="li(html)" id="undefined_li1" __cid="cfErEva">
+                    <div component="$model/UI2/system/components/justep/row/row" class="x-row cfErEva" xid="row8" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cfErEva"> 
+                      <div class="x-col cfErEva" xid="col10" __cid="cfErEva"> 
+                        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cfErEva" xid="labelOutput8" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cfErEva"> 
+                          <label class="x-label cfErEva" xid="label8" __cid="cfErEva" data-bind="text:label('name')"></label>  
+                          <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cfErEva" xid="output8" data-bind="component:{ref:ref('name'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cfErEva"></div>
+                        </div> 
+                      </div> 
+                    </div>  
+                    <div component="$model/UI2/system/components/justep/row/row" class="x-row cfErEva" xid="row10" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cfErEva"> 
+                      <div class="x-col cfErEva" xid="col12" __cid="cfErEva"> 
+                        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cfErEva" xid="labelOutput10" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cfErEva"> 
+                          <label class="x-label cfErEva" xid="label10" __cid="cfErEva" data-bind="text:label('package')"></label>  
+                          <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cfErEva" xid="output10" data-bind="component:{ref:ref('package'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cfErEva"></div>
+                        </div> 
+                      </div> 
+                    </div>  
+                    <div component="$model/UI2/system/components/justep/row/row" class="x-row cfErEva" xid="row12" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cfErEva"> 
+                      <div class="x-col cfErEva" xid="col14" __cid="cfErEva"> 
+                        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cfErEva" xid="labelOutput12" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cfErEva"> 
+                          <label class="x-label cfErEva" xid="label12" __cid="cfErEva" data-bind="text:label('number')"></label>  
+                          <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cfErEva" xid="output12" data-bind="component:{ref:ref('number'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cfErEva"></div>
+                        </div> 
+                      </div> 
+                    </div>  
+                    <div component="$model/UI2/system/components/justep/row/row" class="x-row cfErEva" xid="row13" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cfErEva"> 
+                      <div class="x-col cfErEva" xid="col15" __cid="cfErEva"> 
+                        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cfErEva" xid="labelOutput13" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cfErEva"> 
+                          <label class="x-label cfErEva" xid="label13" __cid="cfErEva" data-bind="text:label('blno')"></label>  
+                          <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cfErEva" xid="output13" data-bind="component:{ref:ref('blno'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cfErEva"></div>
+                        </div> 
+                      </div> 
+                    </div>  
+                    <div component="$model/UI2/system/components/justep/row/row" class="x-row cfErEva" xid="row14" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cfErEva"> 
+                      <div class="x-col cfErEva" xid="col16" __cid="cfErEva"> 
+                        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cfErEva" xid="labelOutput14" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cfErEva"> 
+                          <label class="x-label cfErEva" xid="label14" __cid="cfErEva" data-bind="text:label('crgno')"></label>  
+                          <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cfErEva" xid="output14" data-bind="component:{ref:ref('crgno'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cfErEva"></div>
+                        </div> 
+                      </div> 
+                    </div>  
+                    <div component="$model/UI2/system/components/justep/row/row" class="x-row cfErEva" xid="row17" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cfErEva"> 
+                      <div class="x-col cfErEva" xid="col19" __cid="cfErEva"> 
+                        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cfErEva" xid="labelOutput17" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cfErEva"> 
+                          <label class="x-label cfErEva" xid="label17" __cid="cfErEva" data-bind="text:label('po')"></label>  
+                          <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cfErEva" xid="output17" data-bind="component:{ref:ref('po'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cfErEva"></div>
+                        </div> 
+                      </div> 
+                    </div>
+                  </li>
+                </ul> 
+              </div>  
+              <div component="$model/UI2/system/components/justep/controlGroup/controlGroup" class="x-control-group cfErEva" xid="controlGroup2" style="height:54px;" data-bind="component:{name:'$model/UI2/system/components/justep/controlGroup/controlGroup'}" data-config="{&#34;title&#34;:&#34;箱列表&#34;}" __cid="cfErEva"> 
+                <div class="x-control-group-title cfErEva" xid="controlGroupTitle2" __cid="cfErEva"> 
+                  <span xid="span4" __cid="cfErEva" class="cfErEva">箱列表</span>
+                </div> 
+              </div>  
+              <div component="$model/UI2/system/components/justep/list/list" class="x-list x-cards cfErEva" xid="list3" data-bind="component:{name:'$model/UI2/system/components/justep/list/list'}" data-config="{&#34;data&#34;:&#34;boxDetails&#34;,&#34;limit&#34;:5}" __cid="cfErEva"> 
+                <ul class="x-list-template x-min-height list-group hide cfErEva" xid="listTemplateUl3" componentname="$UI/system/components/justep/list/list#listTemplateUl" id="undefined_listTemplateUl1" __cid="cfErEva" data-bind="foreach:{data:$model.foreach_list3($element),afterRender:$model.foreach_afterRender_list3.bind($model,$element)}"> 
+                  <li xid="li3" class="x-min-height list-group-item cfErEva" componentname="li(html)" id="undefined_li1" __cid="cfErEva"> 
+                    <div component="$model/UI2/system/components/justep/row/row" class="x-row cfErEva" xid="row15" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cfErEva"> 
+                      <div class="x-col cfErEva" xid="col2" __cid="cfErEva"> 
+                        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cfErEva" xid="labelOutput11" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cfErEva"> 
+                          <label class="x-label cfErEva" xid="label9" __cid="cfErEva" data-bind="text:label('ctnno')"></label>  
+                          <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cfErEva" xid="output16" data-bind="component:{ref:ref('ctnno'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cfErEva"></div>
+                        </div> 
+                      </div> 
+                    </div>  
+                    <div component="$model/UI2/system/components/justep/row/row" class="x-row cfErEva" xid="row11" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cfErEva"> 
+                      <div class="x-col cfErEva" xid="col3" __cid="cfErEva"> 
+                        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cfErEva" xid="labelOutput9" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cfErEva"> 
+                          <label class="x-label cfErEva" xid="label11" __cid="cfErEva" data-bind="text:label('ctn_size')"></label>  
+                          <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cfErEva" xid="output15" data-bind="component:{ref:ref('ctn_size'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cfErEva"></div>
+                        </div> 
+                      </div> 
+                    </div>  
+                    <div component="$model/UI2/system/components/justep/row/row" class="x-row cfErEva" xid="row9" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cfErEva"> 
+                      <div class="x-col cfErEva" xid="col2" __cid="cfErEva"> 
+                        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cfErEva" xid="labelOutput16" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cfErEva"> 
+                          <label class="x-label cfErEva" xid="label11" __cid="cfErEva" data-bind="text:label('lcl')"></label>  
+                          <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cfErEva" xid="output11" data-bind="component:{ref:ref('lcl'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cfErEva"></div>
+                        </div> 
+                      </div> 
+                    </div>  
+                    <div component="$model/UI2/system/components/justep/row/row" class="x-row cfErEva" xid="row9" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cfErEva"> 
+                      <div class="x-col cfErEva" xid="col11" __cid="cfErEva"> 
+                        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cfErEva" xid="labelOutput18" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cfErEva"> 
+                          <label class="x-label cfErEva" xid="label15" __cid="cfErEva" data-bind="text:label('status')"></label>  
+                          <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cfErEva" xid="output9" data-bind="component:{ref:ref('status_zh'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cfErEva"></div>
+                        </div> 
+                      </div> 
+                    </div>  
+                    <div component="$model/UI2/system/components/justep/row/row" class="x-row cfErEva" xid="row16" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cfErEva"> 
+                      <div class="x-col cfErEva" xid="col11" __cid="cfErEva"> 
+                        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cfErEva" xid="labelOutput15" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cfErEva"> 
+                          <label class="x-label cfErEva" xid="label16" __cid="cfErEva" data-bind="text:label('pre_number')"></label>  
+                          <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cfErEva" xid="output18" data-bind="component:{ref:ref('pre_number'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cfErEva"></div>
+                        </div> 
+                      </div> 
+                    </div>  
+                    <div component="$model/UI2/system/components/justep/row/row" class="x-row cfErEva" xid="row18" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cfErEva"> 
+                      <div class="x-col cfErEva" xid="col13" __cid="cfErEva"> 
+                        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cfErEva" xid="labelOutput19" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cfErEva"> 
+                          <label class="x-label cfErEva" xid="label18" __cid="cfErEva" data-bind="text:label('cmaster')"></label>  
+                          <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cfErEva" xid="output19" data-bind="component:{ref:ref('cmaster'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cfErEva"></div>
+                        </div> 
+                      </div> 
+                    </div>
+                  </li> 
+                </ul> 
+              </div>
+            </div>  
+            <div class="x-content-center x-pull-up cfErEva" xid="div3" __cid="cfErEva"> 
+              <span class="x-pull-up-label cfErEva" xid="span2" __cid="cfErEva">加载更多...</span>
+            </div> 
+          </div>
+        </div>  
+        <style __cid="cfErEva" class="cfErEva">.x-panel.p393d049eb8644550a13f355f49710f84-iosstatusbar >.x-panel-top {height: 0px;}.x-panel.p393d049eb8644550a13f355f49710f84-iosstatusbar >.x-panel-content { top: 0px;bottom: nullpx;}.x-panel.p393d049eb8644550a13f355f49710f84-iosstatusbar >.x-panel-bottom {height: nullpx;}.iosstatusbar .x-panel.p393d049eb8644550a13f355f49710f84-iosstatusbar >.x-panel-top {height: 0px;}.iosstatusbar .x-panel.p393d049eb8644550a13f355f49710f84-iosstatusbar >.x-panel-content { top: 0px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p393d049eb8644550a13f355f49710f84-iosstatusbar >.x-panel-top {height: 0px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p393d049eb8644550a13f355f49710f84-iosstatusbar >.x-panel-content {top: 0px;}</style>
+      </div>
+    </div>  
+    <style __cid="cfErEva" class="cfErEva">.x-panel.p9d0ad79a65ab4db89b44a6466f53d47f-iosstatusbar >.x-panel-top {height: 48px;}.x-panel.p9d0ad79a65ab4db89b44a6466f53d47f-iosstatusbar >.x-panel-content { top: 48px;bottom: nullpx;}.x-panel.p9d0ad79a65ab4db89b44a6466f53d47f-iosstatusbar >.x-panel-bottom {height: nullpx;}.iosstatusbar .x-panel.p9d0ad79a65ab4db89b44a6466f53d47f-iosstatusbar >.x-panel-top {height: 68px;}.iosstatusbar .x-panel.p9d0ad79a65ab4db89b44a6466f53d47f-iosstatusbar >.x-panel-content { top: 68px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p9d0ad79a65ab4db89b44a6466f53d47f-iosstatusbar >.x-panel-top {height: 48px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p9d0ad79a65ab4db89b44a6466f53d47f-iosstatusbar >.x-panel-content {top: 48px;}</style>
+  </div>  
+  <span component="$model/UI2/system/components/justep/windowReceiver/windowReceiver" xid="windowReceiver1" style="left:142px;top:23px;" data-bind="component:{name:'$model/UI2/system/components/justep/windowReceiver/windowReceiver'}" __cid="cfErEva" class="cfErEva"></span>
+</div>

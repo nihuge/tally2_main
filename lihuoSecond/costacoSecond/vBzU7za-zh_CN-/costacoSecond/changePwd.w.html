@@ -1,0 +1,57 @@
+<!DOCTYPE HTML>
+<div component="$model/UI2/system/components/justep/window/window" design="device:m;" xid="window" class="window c6Fvmym" data-bind="component:{name:'$model/UI2/system/components/justep/window/window'}" __justepbasexid__="__baseID__" __cid="c6Fvmym" components="$model/UI2/system/components/justep/loadingBar/loadingBar,$model/UI2/system/components/justep/labelEdit/labelEdit,$model/UI2/system/components/justep/row/row,$model/UI2/system/components/justep/panel/panel,$model/UI2/system/components/justep/panel/child,$model/UI2/system/components/justep/model/model,$model/UI2/system/components/justep/window/window,$model/UI2/system/components/justep/input/password,$model/UI2/system/components/justep/titleBar/titleBar,$model/UI2/system/components/justep/data/data,$model/UI2/system/components/justep/button/button,">
+  <style>.tiaomu.c6Fvmym{border-radius: 5px; border-style: solid solid solid solid; border-width: thin thin thin thin; border-color: rgb(255, 255, 255) rgb(255, 255, 255) rgb(255, 255, 255) rgb(255, 255, 255); background-color: rgb(255, 255, 255)} .left-txt.c6Fvmym{margin-left: 10px} .right-txt.c6Fvmym{margin-right: 10px} .right-txt.c6Fvmym{margin-right: 10px} .select-no-border.c6Fvmym{border-style: none none none none}</style>  
+  <div component="$model/UI2/system/components/justep/model/model" xid="model" style="display:none" data-bind="component:{name:'$model/UI2/system/components/justep/model/model'}" __cid="c6Fvmym" class="c6Fvmym"></div>  
+  <script src="@justepContextPath@/costacoSecond/ajax/baas.js" type="text/javascript" __cid="c6Fvmym" class="c6Fvmym"></script>  
+  <div component="$model/UI2/system/components/justep/panel/panel" class="x-panel x-full paec0c64c8691407aa2b3f9653f496b61-iosstatusbar c6Fvmym" xid="panel1" data-bind="component:{name:'$model/UI2/system/components/justep/panel/panel'}" __cid="c6Fvmym"> 
+    <div class="x-panel-top c6Fvmym" xid="top1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="c6Fvmym"> 
+      <div component="$model/UI2/system/components/justep/titleBar/titleBar" class="x-titlebar c6Fvmym" data-bind="component:{name:'$model/UI2/system/components/justep/titleBar/titleBar'}" data-config="{&#34;title&#34;:&#34;修改密码&#34;}" __cid="c6Fvmym"> 
+        <div class="x-titlebar-left c6Fvmym" __cid="c6Fvmym"> 
+          <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-only-icon c6Fvmym" xid="backBtn" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:backBtnClick" data-config="{&#34;icon&#34;:&#34;icon-chevron-left&#34;,&#34;label&#34;:&#34;&#34;}" __cid="c6Fvmym"> 
+            <i class="icon-chevron-left c6Fvmym" __cid="c6Fvmym"></i>  
+            <span __cid="c6Fvmym" class="c6Fvmym"></span> 
+          </a> 
+        </div>  
+        <div class="x-titlebar-title c6Fvmym" __cid="c6Fvmym">修改密码</div>  
+        <div class="x-titlebar-right  c6Fvmym" __cid="c6Fvmym">
+          <div class="empty c6Fvmym" __cid="c6Fvmym"></div>
+        </div> 
+      </div> 
+    </div>  
+    <div class="x-panel-content c6Fvmym" xid="content1" style="background-color:#F1F3F7;" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="c6Fvmym">
+      <div component="$model/UI2/system/components/justep/row/row" class="x-row c6Fvmym" xid="row1" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="c6Fvmym"> 
+        <div class="x-col  c6Fvmym" xid="col3" __cid="c6Fvmym"> 
+          <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30  tiaomu c6Fvmym" xid="labelPassword4" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="c6Fvmym"> 
+            <label class="x-label left-txt  c6Fvmym" xid="label3" __cid="c6Fvmym" data-bind="text:pwdInfo.label('oldPwd')"></label>  
+            <input component="$model/UI2/system/components/justep/input/password" class="form-control input-sm x-edit select-no-border right-txt c6Fvmym" xid="password4" type="password" data-bind="component:{ref:pwdInfo.ref('oldPwd'),name:'$model/UI2/system/components/justep/input/password'}" data-config="{&#34;placeHolder&#34;:&#34;请输入旧密码&#34;}" __cid="c6Fvmym">
+          </div> 
+        </div> 
+      </div>  
+      <div component="$model/UI2/system/components/justep/row/row" class="x-row c6Fvmym" xid="row2" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="c6Fvmym"> 
+        <div class="x-col c6Fvmym" xid="col4" __cid="c6Fvmym"> 
+          <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30  tiaomu c6Fvmym" xid="labelPassword1" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="c6Fvmym"> 
+            <label class="x-label left-txt  c6Fvmym" xid="label4" __cid="c6Fvmym" data-bind="text:pwdInfo.label('newPwd')"></label>  
+            <input component="$model/UI2/system/components/justep/input/password" class="form-control input-sm x-edit select-no-border right-txt c6Fvmym" xid="password1" type="password" data-bind="component:{ref:pwdInfo.ref('newPwd'),name:'$model/UI2/system/components/justep/input/password'}" data-config="{&#34;placeHolder&#34;:&#34;请输入新密码&#34;}" __cid="c6Fvmym">
+          </div> 
+        </div> 
+      </div>  
+      <div component="$model/UI2/system/components/justep/row/row" class="x-row c6Fvmym" xid="row3" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="c6Fvmym"> 
+        <div class="x-col c6Fvmym" xid="col5" __cid="c6Fvmym"> 
+          <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30  tiaomu c6Fvmym" xid="labelPassword2" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="c6Fvmym"> 
+            <label class="x-label left-txt  c6Fvmym" xid="label5" __cid="c6Fvmym" data-bind="text:pwdInfo.label('againNewPwd')"></label>  
+            <input component="$model/UI2/system/components/justep/input/password" class="form-control input-sm x-edit select-no-border right-txt c6Fvmym" xid="password2" type="password" data-bind="component:{ref:pwdInfo.ref('againNewPwd'),name:'$model/UI2/system/components/justep/input/password'}" data-config="{&#34;placeHolder&#34;:&#34;确认新密码&#34;}" __cid="c6Fvmym">
+          </div> 
+        </div> 
+      </div>  
+      <div component="$model/UI2/system/components/justep/row/row" class="x-row c6Fvmym" xid="row4" style="margin-top:20px;" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="c6Fvmym"> 
+        <div class="x-col c6Fvmym" xid="col6" __cid="c6Fvmym"> 
+          <a component="$model/UI2/system/components/justep/button/button" class="btn btn-default c6Fvmym" xid="button2" style="width:100%;" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:submitClick" data-config="{&#34;label&#34;:&#34;完成&#34;}" __cid="c6Fvmym"> 
+            <i xid="i2" __cid="c6Fvmym" class="c6Fvmym"></i>  
+            <span xid="span2" __cid="c6Fvmym" class="c6Fvmym">完成</span>
+          </a> 
+        </div> 
+      </div>
+    </div>  
+    <style __cid="c6Fvmym" class="c6Fvmym">.x-panel.paec0c64c8691407aa2b3f9653f496b61-iosstatusbar >.x-panel-top {height: 48px;}.x-panel.paec0c64c8691407aa2b3f9653f496b61-iosstatusbar >.x-panel-content { top: 48px;bottom: nullpx;}.x-panel.paec0c64c8691407aa2b3f9653f496b61-iosstatusbar >.x-panel-bottom {height: nullpx;}.iosstatusbar .x-panel.paec0c64c8691407aa2b3f9653f496b61-iosstatusbar >.x-panel-top {height: 68px;}.iosstatusbar .x-panel.paec0c64c8691407aa2b3f9653f496b61-iosstatusbar >.x-panel-content { top: 68px;}.iosstatusbar .x-panel .x-panel-content .x-panel.paec0c64c8691407aa2b3f9653f496b61-iosstatusbar >.x-panel-top {height: 48px;}.iosstatusbar .x-panel .x-panel-content .x-panel.paec0c64c8691407aa2b3f9653f496b61-iosstatusbar >.x-panel-content {top: 48px;}</style>
+  </div> 
+</div>

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML>
+<div component="$model/UI2/system/components/justep/window/window" design="device:m;" xid="window" class="window cYf2IB3" data-bind="component:{name:'$model/UI2/system/components/justep/window/window'}" __justepbasexid__="__baseID__" __cid="cYf2IB3" components="$model/UI2/system/components/justep/loadingBar/loadingBar,$model/UI2/system/components/justep/row/row,$model/UI2/system/components/justep/panel/panel,$model/UI2/system/components/justep/panel/child,$model/UI2/system/components/justep/contents/content,$model/UI2/system/components/justep/textarea/textarea,$model/UI2/system/components/justep/model/model,$model/UI2/system/components/justep/window/window,$model/UI2/system/components/justep/contents/contents,$model/UI2/system/components/justep/titleBar/titleBar,$model/UI2/system/components/justep/data/data,$model/UI2/system/components/justep/button/button,">  
+  <div component="$model/UI2/system/components/justep/model/model" xid="model" style="display:none" data-bind="component:{name:'$model/UI2/system/components/justep/model/model'}" __cid="cYf2IB3" class="cYf2IB3"></div>  
+  <script src="@justepContextPath@/costaco/ajax/baas.js" type="text/javascript" __cid="cYf2IB3" class="cYf2IB3"></script>  
+  <div component="$model/UI2/system/components/justep/panel/panel" class="x-panel x-full p39f529b81c26456caf3e48df37da4ac4-iosstatusbar cYf2IB3" xid="panel1" data-bind="component:{name:'$model/UI2/system/components/justep/panel/panel'}" __cid="cYf2IB3"> 
+    <div class="x-panel-top cYf2IB3" xid="top1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cYf2IB3"> 
+      <div component="$model/UI2/system/components/justep/titleBar/titleBar" class="x-titlebar cYf2IB3" xid="titleBar1" data-bind="component:{name:'$model/UI2/system/components/justep/titleBar/titleBar'}" data-config="{&#34;title&#34;:&#34;交班&#34;}" __cid="cYf2IB3"> 
+        <div class="x-titlebar-left cYf2IB3" xid="div1" __cid="cYf2IB3"> 
+          <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-only-icon cYf2IB3" xid="backBtn" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:backBtnClick" data-config="{&#34;icon&#34;:&#34;icon-chevron-left&#34;,&#34;label&#34;:&#34;button&#34;}" __cid="cYf2IB3"> 
+            <i xid="i9" class="icon-chevron-left cYf2IB3" __cid="cYf2IB3"></i>  
+            <span xid="span9" __cid="cYf2IB3" class="cYf2IB3"></span>
+          </a> 
+        </div>  
+        <div class="x-titlebar-title cYf2IB3" xid="div2" __cid="cYf2IB3">交班</div>  
+        <div class="x-titlebar-right  cYf2IB3" xid="div3" __cid="cYf2IB3">
+          <div class="empty cYf2IB3" __cid="cYf2IB3"></div>
+          <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-only-icon cYf2IB3" xid="transferBtn" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:transferBtnClick" data-config="{&#34;icon&#34;:&#34;icon-checkmark-round&#34;,&#34;label&#34;:&#34;交班&#34;}" __cid="cYf2IB3"> 
+            <i xid="i1" class="icon-checkmark-round cYf2IB3" __cid="cYf2IB3"></i>  
+            <span xid="span2" __cid="cYf2IB3" class="cYf2IB3">交班</span>
+          </a>
+        </div> 
+      </div> 
+    </div>  
+    <div class="x-panel-content cYf2IB3" xid="content1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cYf2IB3"> 
+      <div component="$model/UI2/system/components/justep/contents/contents" class="x-contents x-full cYf2IB3" xid="contents1" data-bind="component:{name:'$model/UI2/system/components/justep/contents/contents'}" data-config="{&#34;active&#34;:0}" __cid="cYf2IB3"> 
+        <div class="x-contents-content active cYf2IB3" xid="listContent" component="$model/UI2/system/components/justep/contents/content" data-bind="component:{name:'$model/UI2/system/components/justep/contents/content'}" __cid="cYf2IB3"> 
+          <div component="$model/UI2/system/components/justep/row/row" class="x-row cYf2IB3" xid="row1" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cYf2IB3"> 
+            <div class="x-col x-col-20 cYf2IB3" xid="col1" __cid="cYf2IB3">
+              <span xid="span1" style="width:100%;font-size:medium;float:right;text-align:right;" class="pull-right cYf2IB3" __cid="cYf2IB3">留言：</span>
+            </div>  
+            <div class="x-col cYf2IB3" xid="col3" __cid="cYf2IB3">
+              <textarea component="$model/UI2/system/components/justep/textarea/textarea" class="form-control cYf2IB3" xid="note" style="height:125px;" data-bind="component:{name:'$model/UI2/system/components/justep/textarea/textarea'}" __cid="cYf2IB3"></textarea>
+            </div>
+          </div>  
+          <div component="$model/UI2/system/components/justep/row/row" class="x-row cYf2IB3" xid="row3" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cYf2IB3"> 
+            <div class="x-col cYf2IB3" xid="col7" __cid="cYf2IB3">
+              <label class="x-label cYf2IB3" xid="label1" style="width:100%;text-align:center;margin-top:20px;" __cid="cYf2IB3">友情提示：交班后本工班将无法继续操作！</label> 
+            </div> 
+          </div>
+        </div> 
+      </div> 
+    </div>  
+    <style __cid="cYf2IB3" class="cYf2IB3">.x-panel.p39f529b81c26456caf3e48df37da4ac4-iosstatusbar >.x-panel-top {height: 48px;}.x-panel.p39f529b81c26456caf3e48df37da4ac4-iosstatusbar >.x-panel-content { top: 48px;bottom: nullpx;}.x-panel.p39f529b81c26456caf3e48df37da4ac4-iosstatusbar >.x-panel-bottom {height: nullpx;}.iosstatusbar .x-panel.p39f529b81c26456caf3e48df37da4ac4-iosstatusbar >.x-panel-top {height: 68px;}.iosstatusbar .x-panel.p39f529b81c26456caf3e48df37da4ac4-iosstatusbar >.x-panel-content { top: 68px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p39f529b81c26456caf3e48df37da4ac4-iosstatusbar >.x-panel-top {height: 48px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p39f529b81c26456caf3e48df37da4ac4-iosstatusbar >.x-panel-content {top: 48px;}</style>
+  </div>
+</div>

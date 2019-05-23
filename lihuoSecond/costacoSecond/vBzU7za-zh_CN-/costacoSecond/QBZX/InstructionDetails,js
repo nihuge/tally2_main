@@ -1,0 +1,464 @@
+define(function(require){
+	require("$UI/costaco/ajax/jquery-1");
+	var justep = require("$UI/system/lib/justep");
+	var touch = require("./touch");
+	var Model = function(){
+		this.id = "";
+		this.callParent();
+	};
+	Model.prototype.modelLoad = function(event){
+		this.swipeDelete();
+	};
+	Model.prototype.detailnotaskDataCustomRefresh = function(event){
+		var value = localStorage.getItem('workPlanID_details');
+	localStorage.setItem('insid', value);
+		var detailnotaskData = this.comp("detailnotaskData");
+		$.ajax({
+				"type" : "get",
+				"async" : false,
+				"data" : {
+					
+				//get提交密码字段
+				},
+				"dataType" : "json",
+				"url" : interface_url+"?c=qbzx&a=jifindone&value="+value+"&field=qbzx_JobInstructionId", 
+				"success" : function(data) {
+				detailnotaskData.loadData(data[0]);
+				},
+				"error" : function() {
+					alert("数据传输失败！");
+				}
+
+			});
+	
+	
+	
+	};
+
+	Model.prototype.backClick = function(event){
+		window.location.href = "workplan.w";
+	};
+//箱子列表
+	Model.prototype.boxListCustomRefresh = function(event){
+
+	var value = localStorage.getItem('workPlanID_details');
+	var boxList = this.comp("boxList");
+		$.ajax({
+				"type" : "get",
+				"async" : false,
+				"data" : {
+					
+				//get提交密码字段
+				},
+				"dataType" : "json",
+				//http://192.168.1.91/xztally/app.php/qbzx/allcont?insid=98
+				"url" : interface_url+"?c=qbzx&a=allcont&insid="+value, //PHP数据库校验用户名和密码是否正常
+				"success" : function(data) {
+				
+				boxList.loadData(data);
+				
+				},
+				"error" : function() {
+					alert("数据传输失败！");
+				}
+
+			});
+	
+	};
+//作业指令详情跳转派工界面
+
+	Model.prototype.button2Click = function(event){
+		window.location.href = "dispatching.w";
+	};
+
+	
+//保存修改
+	Model.prototype.button3Click = function(event){
+		
+		
+		var detailnotaskData = this.comp("detailnotaskData");
+		//alert(detailnotaskData.val("locationno")+detailnotaskData.val("qbzx_forecastplanid")+detailnotaskData.val("loadingtype"));
+		var insid = detailnotaskData.val("qbzx_jobinstructionid");
+		var bargeno = detailnotaskData.val("bargeno");
+		var locationno = detailnotaskData.val("locationno");
+		var qbzx_forecastplanid = detailnotaskData.val("qbzx_forecastplanid");
+		var loadingtype = detailnotaskData.val("loadingtype");
+		var uid = localStorage.getItem('userinfoid');
+		//alert(bargeno+locationno);
+		if (/*$.trim(detailnotaskData.val("bargeno")) === "" ||*/ $.trim(detailnotaskData.val("locationno")) === "" || $.trim(detailnotaskData.val("loadingtype")) === "" || $.trim(detailnotaskData.val("qbzx_forecastplanid")) === "" ) {
+			this.comp("messageDialog").show({
+				"title" : "温馨提示",
+				"message" : "值不能为空"
+			});
+		} else {
+		
+		$.ajax({
+				"type" : "get",
+				"async" : false,
+				"data" : {
+					"uid":uid
+				},
+				"dataType" : "json",
+				//http://192.168.1.91/xztally/index.php/index/checkin?username=123456&userpass=111
+				"url" : interface_url+"?c=qbzx&a=insup&insid="+insid+"&locationno="+detailnotaskData.val("locationno")+"&planid="+detailnotaskData.val("qbzx_forecastplanid")+"&loadingtype="+detailnotaskData.val("loadingtype"), //PHP数据库校验用户名和密码是否正常
+				"success" : function(data) {
+				alert("成功")
+				},	
+				"error" : function() {
+					alert("失败");
+				}
+
+			});
+		}
+	
+	
+	};
+
+	
+//预报刷新
+	Model.prototype.forecastPlanIdCustomRefresh = function(event){
+		var value = localStorage.getItem('workPlanID_details');
+	localStorage.setItem('insid', value);
+		var forecastPlanId = this.comp("forecastPlanId");
+		$.ajax({
+				"type" : "get",
+				"async" : false,
+				"data" : {
+					
+				//get提交密码字段
+				},
+				"dataType" : "json",
+				//http://192.168.1.91/xztally/app.php/qbzx/jifindone?value=61&field=qbzx_JobInstructionId
+				"url" : interface_url+"?c=qbzx&a=jifindone&value="+value+"&field=qbzx_JobInstructionId", //PHP数据库校验用户名和密码是否正常
+				"success" : function(data) {
+				forecastPlanId.loadData(data[1]);
+				},
+				"error" : function() {
+					alert("数据传输失败！");
+				}
+
+			});
+	
+	
+	
+	};
+
+	
+//删除箱列表
+	Model.prototype.button1Click = function(event){
+	var id1 = event.bindingContext.$object.val('qbjobcontainerid');
+	this.id = id1;
+	this.comp("messageDialog1").show({
+							"title" : "温馨提示",
+							"message" : "是否删除"
+						});
+	
+	};
+	//确认删除
+	Model.prototype.messageDialog1Yes = function(event){
+	var boxList = this.comp("boxList");
+   var id = this.id;
+	//http://192.168.1.91/xztally/index.php/qbzx/contid?id=1
+	//获取当前行信息
+var uid = localStorage.getItem('userinfoid');
+$.ajax({
+				"type" : "get",
+				"async" : false,
+				"data" : {
+					
+				},
+				"dataType" : "json",
+				       // http://192.168.1.91/xztally/index.php/qbzx/addcont?insid=&containerno=&containertypecode=&containermaster=
+				"url" : interface_url+"?c=qbzx&a=del&contid="+id+"&uid="+uid, //PHP数据库校验用户名和密码是否正常
+				"success" : function(data) {
+				boxList.refreshData();
+				alert("删除成功成功")
+				
+				
+				},	
+				"error" : function() {
+					alert("删除失败");
+				}
+
+			});
+	};
+	//箱号的检验
+Model.prototype.chkcntrno = function (as_cntrno,ai_choice)
+{
+ var fi_ki;
+ var fi_numsum;
+ var fi_nummod;
+ var fai_num = new Array(11);
+ var fb_errcntrno=false;
+
+ if (as_cntrno==null) return true; //null��������֤
+ if (as_cntrno=="") return true; //�ղ�������֤
+ 
+ if (as_cntrno.length == 11)   //��ʱ�׼Ϊ11λ�����һλ��У��λ��������11λ�϶����Ǳ�׼��
+ { for(fi_ki=1;fi_ki<=11;fi_ki++)
+   fai_num[fi_ki] = 0;
+  for(fi_ki=1;fi_ki<=4;fi_ki++)     //��ݹ�ʱ�׼��֤���������ǰ���4��Ӣ����ĸ
+  {
+   fch_char=as_cntrno.charAt(fi_ki-1).toUpperCase();
+   switch(true)
+   { case (fch_char=="A"):{fai_num[fi_ki] = 10;break;}
+    case (fch_char>="V" && fch_char<="Z"):{fai_num[fi_ki] = fch_char.charCodeAt() - 52;break;}
+    case (fch_char>="L" && fch_char<="U"):{fai_num[fi_ki] = fch_char.charCodeAt() - 53;break;}
+    default:{fai_num[fi_ki] = fch_char.charCodeAt() - 54;break;}
+   }
+  }
+  for(fi_ki=5;fi_ki<=11;fi_ki++)
+  {  fch_char=as_cntrno.charAt(fi_ki-1);
+   fai_num[fi_ki] = parseInt(fch_char); //ctype((mid(as_cntrno, fi_ki, 1)), integer)
+      }
+  fi_numsum = 0
+  
+  for(fi_ki=1;fi_ki<=10;fi_ki++)
+  { 
+   fi_sqr = 1;
+   for(i=1;i<fi_ki;i++){fi_sqr *=2;}
+   fi_numsum += fai_num[fi_ki] * fi_sqr;
+  }
+
+  if (as_cntrno.substr(0,4) == "HLCU") fi_numsum = fi_numsum - 2; //hapaq lloyd�Ĺ�����ʱ�׼���2
+  fi_nummod = fi_numsum % 11;
+  if (fi_nummod == 10) fi_nummod = 0;
+  if (fi_nummod == fai_num[11]) fb_errcntrno = true;
+  return fb_errcntrno;
+ }else{
+    return fb_errcntrno;
+ }  
+} 
+	
+	//确认新建箱
+
+	Model.prototype.button23Click = function(event){
+	var me = this;
+	var uid = localStorage.getItem('userinfoid');
+		var insid = localStorage.getItem('workPlanID_details');
+		var containertypecode = this.getElementByXid("select3").value;
+		var containermaster = this.getElementByXid("select2").value;
+		var boxdetails = this.comp("boxdetails");
+		
+		var containerno = $.trim(boxdetails.val("containerno"));
+		//alert(insid+"containerno"+containerno+"containertypecode"+containertypecode+"containermaster"+containermaster);
+			if(true/*this.chkcntrno(containerno, 0)*/){
+			if ($.trim(containermaster) === "" || containerno === "" || $.trim(containertypecode) === "" ) {
+			this.comp("messageDialog").show({
+				"title" : "温馨提示",
+				"message" : "值不能为空"
+			});
+		} else {
+		
+		$.ajax({
+				"type" : "get",
+				"async" : false,
+				"data" : {
+					"uid":uid
+				},
+				"dataType" : "json",
+				       // http://192.168.1.91/xztally/app.php/qbzx/addcont?insid=&containerno=&containertypecode=&containermaster=
+				"url" : interface_url+"?c=qbzx&a=addcont&insid="+insid+"&containerno="+containerno+"&containertypecode="+containertypecode+"&containermaster="+containermaster, //PHP数据库校验用户名和密码是否正常
+				"success" : function(data) {
+				if(data['error_code']==0){
+				alert("成功")
+				}else{
+				alert(data['msg']);
+				}
+				
+				
+				me.tocontentboxlist();
+				},	
+				"error" : function() {
+					alert("新建失败");
+				}
+
+			});
+		}
+	}else{
+	this.comp("messageDialog").show({
+				"title" : "温馨提示",
+				"message" : "箱号不正确"
+			});
+	
+	}
+		
+	};
+//跳转到箱
+Model.prototype.tocontentboxlist = function() {
+var boxList = this.comp("boxList");
+				var contents = this.comp('contents');
+				contents.to('boxlist');
+				boxList.refreshData();
+
+}
+	
+//配像列表返回
+	Model.prototype.button13Click = function(event){
+window.location.href = "workplan.w";
+	};
+
+	//货列表返回
+
+	Model.prototype.button14Click = function(event){
+window.location.href = "workplan.w";
+	};
+
+	
+//指令列表返回
+
+	Model.prototype.button11Click = function(event){
+	var falg = localStorage.getItem("searchInstructionFlag");
+	if(falg == 1){
+	window.location.href = "instructionsearch.w";
+	}else{
+	window.location.href = "workplan.w";
+	}
+
+	};
+
+	
+//提单号列表
+	Model.prototype.ordernolistCustomRefresh = function(event){
+		
+		var qbzx_forecastplanid = localStorage.getItem('qbzx_forecastplanid');
+		var ordernolist = this.comp("ordernolist");
+		$.ajax({
+				"type" : "get",
+				"async" : false,
+				"data" : {
+					
+				//get提交密码字段
+				},
+				"dataType" : "json",
+				//http://192.168.1.91/xztally/index.php/qbzx/ordernolist?planid=1
+				"url" : interface_url+"?c=qbzx&a=ordernolist&planid="+qbzx_forecastplanid, //PHP数据库校验用户名和密码是否正常
+				"success" : function(data) {
+				ordernolist.loadData(data);
+				},
+				"error" : function() {
+					alert("数据传输失败！");
+				}
+
+			});
+	
+	
+	
+	
+	};
+	//获取箱型尺寸
+	Model.prototype.countCustomRefresh = function(event){
+	var count = this.comp("count");
+	var locationNo = this.comp("locationNo");
+		$.ajax({
+				"type" : "get",
+				"async" : false,
+				"data" : {
+					
+				//get提交密码字段
+				},
+				"dataType" : "json",
+				//http://192.168.1.91/xztally/app.php/index/foundation
+				"url" : interface_url+"?c=index&a=foundation", //PHP数据库校验用户名和密码是否正常
+				"success" : function(data) {
+				locationNo.loadData(data['location']);
+				count.loadData(data['cont']);
+				},
+				"error" : function() {
+					alert("数据传输失败！");
+				}
+
+			});
+	};
+	//获取箱主
+	Model.prototype.contmasterCustomRefresh = function(event){
+	
+	var contmaster = this.comp("contmaster");
+		$.ajax({
+				"type" : "get",
+				"async" : false,
+				"data" : {
+					
+				//get提交密码字段
+				},
+				"dataType" : "json",
+				//http://192.168.1.91/xztally/index.php/qbzx/ordernolist?planid=1
+				"url" : interface_url+"?c=index&a=foundation", //PHP数据库校验用户名和密码是否正常
+				"success" : function(data) {
+				contmaster.loadData(data['contmaster']);
+				},
+				"error" : function() {
+					alert("数据传输失败！");
+				}
+
+			});
+
+	};
+	//滑动删除
+	Model.prototype.swipeDelete = function(){
+		var content4 = this.getIDByXID('content4');
+		var swipeAreaSize = 100;
+		var dx;
+		touch.on('#' + content4, 'touchstart', function(ev){
+			ev.preventDefault();
+			var $swipNode = $('#' + content4 + " li").has(ev.target);
+			dx = parseInt($swipNode.attr('swipeX') || "0");
+		});
+		
+		touch.on('#'+ content4, 'drag', function(ev){
+			var $swipNode = $('#' + content4 + " li").has(ev.target);
+			if(ev.direction === "left" || ev.direction === "right"){
+				dx = dx || 0;
+				var offx = dx + ev.x;
+				
+				if(offx < swipeAreaSize*-1){
+					offx = swipeAreaSize*-1;
+				}
+				if(offx > 0){
+					offx = 0;
+				}
+				if(ev.direction === "right" && $swipNode.hasClass('x-swipe-out')){
+					$swipNode.css({'transform':'translate3d('+offx+'px,0,0)'});
+				}else if(ev.direction === "left" && (!$swipNode.hasClass('x-swipe-out'))){
+					$swipNode.css({'transform':'translate3d('+offx+'px,0,0)'});
+				}
+			}
+		});
+		touch.on('#'+ content4, 'dragend', function(ev){
+			var $swipNode = $('#' + content4 + " li").has(ev.target);
+			if(ev.direction === "left"){
+				$swipNode.css({'transform':'translate3d(-'+swipeAreaSize+'px,0,0)'});
+				$swipNode.addClass('x-swipe-out');
+				dx = swipeAreaSize*-1;
+			}else if(ev.direction === "right"){
+				$swipNode.removeClass('x-swipe-out');
+				$swipNode.css({'transform':'translate3d(0,0,0)'});
+				dx = 0;
+			}
+			$swipNode.attr('swipeX',dx);
+		});
+	};
+	
+	
+	
+	//查看箱详情
+	Model.prototype.col8Click = function(event){
+	var ship = event.bindingContext.$object.val('ship');
+	var voyage = event.bindingContext.$object.val('voyage');
+	var containerno = event.bindingContext.$object.val('containerno');
+	var qbzx_operationid = event.bindingContext.$object.val('qbzx_operationid');
+	
+	//alert(ship+voyage+containerno+qbzx_operationid);
+	localStorage.setItem('boxdetails_ship',ship);
+	localStorage.setItem('boxdetails_voyage',voyage);
+	localStorage.setItem('boxdetails_containerno',containerno);
+	localStorage.setItem('boxdetails_qbzx_operationid',qbzx_operationid);
+	
+	window.location.href = "boxsDetails.w";
+	};
+	
+	
+	
+	
+	return Model;
+});

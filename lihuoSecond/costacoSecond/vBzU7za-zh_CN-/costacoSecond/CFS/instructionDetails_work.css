@@ -1,0 +1,14 @@
+.x-swipe-area{
+	right:0;
+	text-align: center;
+	padding-top: 90px;
+    font-size: 1.5em;
+    background: red;
+    color: white;
+    width: 100px;
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transform: translate3d(100%,0,0);
+    -webkit-transform: translate3d(100%,0,0);
+}

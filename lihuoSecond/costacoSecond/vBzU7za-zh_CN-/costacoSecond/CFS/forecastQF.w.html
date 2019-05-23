@@ -1,0 +1,121 @@
+<!DOCTYPE HTML>
+<div component="$model/UI2/system/components/justep/window/window" design="device:m;" xid="window" class="window cm6zQ7v" data-bind="component:{name:'$model/UI2/system/components/justep/window/window'}" __justepbasexid__="__baseID__" __cid="cm6zQ7v" components="$model/UI2/system/components/justep/loadingBar/loadingBar,$model/UI2/system/components/justep/labelEdit/labelEdit,$model/UI2/system/components/justep/row/row,$model/UI2/system/components/justep/panel/panel,$model/UI2/system/components/justep/button/buttonGroup,$model/UI2/system/components/justep/textarea/textarea,$model/UI2/system/components/justep/select/radioGroup,$model/UI2/system/components/justep/window/window,$model/UI2/system/components/justep/data/data,$model/UI2/system/components/justep/contents/contents,$model/UI2/system/components/justep/titleBar/titleBar,$model/UI2/system/components/justep/panel/child,$model/UI2/system/components/justep/contents/content,$model/UI2/system/components/justep/model/model,$model/UI2/system/components/justep/button/radio,$model/UI2/system/components/justep/button/button,$model/UI2/system/components/justep/input/input,">
+  <style>.footer.cm6zQ7v{position: absolute; bottom: 0; left: 0; height: 100%; width: 100%; background-color: white; opacity: 0.9; visibility: hidden} .input-border.cm6zQ7v{border-radius: 5px; border-style: solid solid solid solid; border-width: thin thin thin thin; border-color: rgb(192, 192, 192) rgb(192, 192, 192) rgb(192, 192, 192) rgb(192, 192, 192)} .select-no-border.cm6zQ7v{border-style: none none none none} .left-txt.cm6zQ7v{margin-left: 10px} .right-txt.cm6zQ7v{margin-right: 10px} .floatleft.cm6zQ7v{float: left}</style>  
+  <script src="@justepContextPath@/costacoSecond/ajax/baas.js" type="text/javascript" __cid="cm6zQ7v" class="cm6zQ7v"></script>  
+  <script src="@justepContextPath@/costacoSecond/ajax/db.js" type="text/javascript" __cid="cm6zQ7v" class="cm6zQ7v"></script>  
+  <div component="$model/UI2/system/components/justep/model/model" xid="model" style="display:none" data-bind="component:{name:'$model/UI2/system/components/justep/model/model'}" data-events="onLoad:modelLoad;onActive:modelActive" __cid="cm6zQ7v" class="cm6zQ7v"></div>
+  <div component="$model/UI2/system/components/justep/contents/contents" class="x-contents x-full cm6zQ7v" xid="contents1" data-bind="component:{name:'$model/UI2/system/components/justep/contents/contents'}" data-config="{&#34;active&#34;:0}" __cid="cm6zQ7v"> 
+    <div class="x-contents-content active cm6zQ7v" xid="content2" component="$model/UI2/system/components/justep/contents/content" data-bind="component:{name:'$model/UI2/system/components/justep/contents/content'}" __cid="cm6zQ7v">
+      <div component="$model/UI2/system/components/justep/panel/panel" class="x-panel x-full p25410066b50543eca2ab6b080b8c9d6a-iosstatusbar cm6zQ7v" xid="panel5" data-bind="component:{name:'$model/UI2/system/components/justep/panel/panel'}" __cid="cm6zQ7v"> 
+        <div class="x-panel-top cm6zQ7v" xid="top4" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" data-config="{&#34;height&#34;:48}" __cid="cm6zQ7v"> 
+          <div component="$model/UI2/system/components/justep/titleBar/titleBar" class="x-titlebar cm6zQ7v" xid="titleBar4" data-bind="component:{name:'$model/UI2/system/components/justep/titleBar/titleBar'}" data-config="{&#34;title&#34;:&#34;铅封&#34;}" __cid="cm6zQ7v"> 
+            <div class="x-titlebar-left cm6zQ7v" xid="div13" __cid="cm6zQ7v"> 
+              <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-only-icon cm6zQ7v" xid="button5" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:button5Click" data-config="{&#34;icon&#34;:&#34;icon-chevron-left&#34;,&#34;label&#34;:&#34;button&#34;}" __cid="cm6zQ7v"> 
+                <i xid="i6" class="icon-chevron-left cm6zQ7v" __cid="cm6zQ7v"></i>  
+                <span xid="span4" __cid="cm6zQ7v" class="cm6zQ7v"></span>
+              </a> 
+            </div>  
+            <div class="x-titlebar-title cm6zQ7v" xid="div14" __cid="cm6zQ7v">铅封</div>  
+            <div class="x-titlebar-right  cm6zQ7v" xid="div15" __cid="cm6zQ7v">
+              <div class="empty cm6zQ7v" __cid="cm6zQ7v"></div>
+              <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-only-icon cm6zQ7v" xid="button12" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'},visible:$model.isgoodsbad.val(&#34;isdone&#34;) ==2" data-events="onClick:button12Click" data-config="{&#34;icon&#34;:&#34;icon-checkmark-round&#34;,&#34;label&#34;:&#34;暂不铅封&#34;}" __cid="cm6zQ7v"> 
+                <i xid="i1" class="icon-checkmark-round cm6zQ7v" __cid="cm6zQ7v"></i>  
+                <span xid="span2" __cid="cm6zQ7v" class="cm6zQ7v">暂不铅封</span>
+              </a>
+              <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-only-icon cm6zQ7v" xid="yuding" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'},visible:$model.isgoodsbad.val(&#34;isdone&#34;) ==1" data-events="onClick:yudingClick" data-config="{&#34;icon&#34;:&#34;icon-checkmark-round&#34;,&#34;label&#34;:&#34;预定铅封&#34;}" __cid="cm6zQ7v"> 
+                <i xid="i21" class="icon-checkmark-round cm6zQ7v" __cid="cm6zQ7v"></i>  
+                <span xid="span31" __cid="cm6zQ7v" class="cm6zQ7v">预定铅封</span>
+              </a>
+              <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-only-icon cm6zQ7v" xid="ok" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'},visible:$model.isgoodsbad.val(&#34;isdone&#34;) ==0" data-events="onClick:okClick" data-config="{&#34;icon&#34;:&#34;icon-checkmark-round&#34;,&#34;label&#34;:&#34;铅封&#34;}" __cid="cm6zQ7v"> 
+                <i xid="i19" class="icon-checkmark-round cm6zQ7v" __cid="cm6zQ7v"></i>  
+                <span xid="span30" __cid="cm6zQ7v" class="cm6zQ7v">铅封</span>
+              </a>
+            </div>
+          </div> 
+        </div>  
+        <div class="x-panel-content cm6zQ7v" xid="content7" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cm6zQ7v"> 
+          <div component="$model/UI2/system/components/justep/row/row" class="x-row cm6zQ7v" xid="row2" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cm6zQ7v"> 
+            <div class="x-col cm6zQ7v" xid="col4" __cid="cm6zQ7v">
+              <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 input-border cm6zQ7v" xid="labelRadioGroup2" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cm6zQ7v"> 
+                <label class="x-label left-txt cm6zQ7v" xid="label9" __cid="cm6zQ7v" data-bind="text:isgoodsbad.label('isdone')"></label>  
+                <span component="$model/UI2/system/components/justep/select/radioGroup" class="x-radios x-edit cm6zQ7v" xid="radioGroup2" data-bind="component:{ref:isgoodsbad.ref('isdone'),name:'$model/UI2/system/components/justep/select/radioGroup'},foreach:{data:data3.datas,afterRender:$model.comp($element)['_doUpdate'].bind($model.comp($element))}" __cid="cm6zQ7v">
+                  <span component="$model/UI2/system/components/justep/button/radio" class="x-radio cm6zQ7v" data-config="{&#34;checked&#34;:false,&#34;disabled&#34;:false}" data-bind="component:{name:'$model/UI2/system/components/justep/button/radio',value:ref('qianfencode'),label:ref('qianfen')}" __cid="cm6zQ7v">
+                    <input type="radio" __cid="cm6zQ7v" class="cm6zQ7v">
+                    <label __cid="cm6zQ7v" class="cm6zQ7v"></label>
+                  </span>
+                </span>
+              </div>
+            </div>
+          </div>
+          <div component="$model/UI2/system/components/justep/row/row" class="x-row cm6zQ7v" xid="row6" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cm6zQ7v"> 
+            <div class="x-col cm6zQ7v" xid="col6" __cid="cm6zQ7v" data-bind="visible:$model.isgoodsbad.val(&#34;isdone&#34;) ==0  || $model.isgoodsbad.val(&#34;isdone&#34;) ==2"> 
+              <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 input-border cm6zQ7v" xid="labelInput3" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cm6zQ7v"> 
+                <label class="x-label left-txt cm6zQ7v" xid="label3" __cid="cm6zQ7v">铅封号：</label>  
+                <input component="$model/UI2/system/components/justep/input/input" class="form-control input-sm x-edit select-no-border right-txt cm6zQ7v" xid="input4" data-bind="component:{name:'$model/UI2/system/components/justep/input/input'}" data-config="{&#34;placeHolder&#34;:&#34;请输入铅封号&#34;}" __cid="cm6zQ7v">
+              </div>
+            </div> 
+          </div>
+          <div component="$model/UI2/system/components/justep/row/row" class="x-row cm6zQ7v" xid="row1" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cm6zQ7v"> 
+            <div class="x-col cm6zQ7v" xid="col2" __cid="cm6zQ7v" data-bind="visible:$model.isgoodsbad.val(&#34;isdone&#34;) ==1">
+              <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 input-border cm6zQ7v" xid="labelInput1" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cm6zQ7v"> 
+                <label class="x-label left-txt cm6zQ7v" xid="label1" __cid="cm6zQ7v">货物重量：</label>  
+                <input component="$model/UI2/system/components/justep/input/input" oninput="if(value.length&gt;9)value=value.slice(0,9)" class="form-control input-sm x-edit select-no-border cm6zQ7v" xid="input1" style="margin-right:3px;" data-bind="component:{name:'$model/UI2/system/components/justep/input/input'}" data-config="{&#34;placeHolder&#34;:&#34;请输入货物重量&#34;}" __cid="cm6zQ7v">
+                <label xid="label4" style="font-style:normal;" class="right-txt cm6zQ7v" __cid="cm6zQ7v">kg</label>
+              </div> 
+            </div> 
+          </div>  
+          <div component="$model/UI2/system/components/justep/row/row" class="x-row cm6zQ7v" xid="row26" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cm6zQ7v"> 
+            <div class="x-col cm6zQ7v" xid="col36" __cid="cm6zQ7v"> 
+              <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 input-border cm6zQ7v" xid="labelInput5" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'},visible:$model.isgoodsbad.val(&#34;isdone&#34;)  ==1" __cid="cm6zQ7v"> 
+                <label class="x-label left-txt cm6zQ7v" xid="label10" __cid="cm6zQ7v" data-bind="text:Donebox.label('sealno')"></label>  
+                <input component="$model/UI2/system/components/justep/input/input" class="form-control input-sm x-edit select-no-border right-txt cm6zQ7v" xid="input6" data-bind="component:{name:'$model/UI2/system/components/justep/input/input'}" data-config="{&#34;placeHolder&#34;:&#34;请输入铅封号&#34;}" __cid="cm6zQ7v">
+              </div> 
+            </div> 
+          </div>  
+          <div component="$model/UI2/system/components/justep/row/row" class="x-row cm6zQ7v" xid="row25" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cm6zQ7v"> 
+            <div class="x-col cm6zQ7v" xid="col12" style="background-color:#F1F3F7;" __cid="cm6zQ7v" data-bind="visible:$model.isgoodsbad.val(&#34;isdone&#34;)  !=1"> 
+              <div xid="div19" __cid="cm6zQ7v" class="cm6zQ7v"> 
+                <label xid="label17" style="font-size:12px;color:#C0C0C0;" __cid="cm6zQ7v" class="cm6zQ7v">拍摄铅封照片</label>
+              </div>  
+              <div xid="div1" __cid="cm6zQ7v" class="cm6zQ7v"> 
+                <div xid="div2" id="images35_1" class="floatleft cm6zQ7v" __cid="cm6zQ7v"></div>  
+                <div xid="div21" class="floatleft cm6zQ7v" __cid="cm6zQ7v"> 
+                  <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-lg btn-only-icon cm6zQ7v" xid="button6" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:button22Click" data-config="{&#34;icon&#34;:&#34;icon-android-camera&#34;,&#34;label&#34;:&#34;button&#34;}" __cid="cm6zQ7v"> 
+                    <i xid="i8" class="icon-android-camera cm6zQ7v" __cid="cm6zQ7v"></i>  
+                    <span xid="span15" __cid="cm6zQ7v" class="cm6zQ7v"></span>
+                  </a> 
+                </div> 
+              </div> 
+            </div> 
+          </div>
+          <div component="$model/UI2/system/components/justep/row/row" class="x-row cm6zQ7v" xid="row8" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cm6zQ7v"> 
+            <div class="x-col cm6zQ7v" xid="col13" __cid="cm6zQ7v"> 
+              <textarea component="$model/UI2/system/components/justep/textarea/textarea" class="form-control tiaomu cm6zQ7v" xid="textarea" data-bind="component:{name:'$model/UI2/system/components/justep/textarea/textarea'}" data-config="{&#34;placeHolder&#34;:&#34;批  注&#34;}" __cid="cm6zQ7v"></textarea>
+            </div> 
+          </div>
+        </div>  
+        <style __cid="cm6zQ7v" class="cm6zQ7v">.x-panel.p25410066b50543eca2ab6b080b8c9d6a-iosstatusbar >.x-panel-top {height: 48px;}.x-panel.p25410066b50543eca2ab6b080b8c9d6a-iosstatusbar >.x-panel-content { top: 48px;bottom: nullpx;}.x-panel.p25410066b50543eca2ab6b080b8c9d6a-iosstatusbar >.x-panel-bottom {height: nullpx;}.iosstatusbar .x-panel.p25410066b50543eca2ab6b080b8c9d6a-iosstatusbar >.x-panel-top {height: 68px;}.iosstatusbar .x-panel.p25410066b50543eca2ab6b080b8c9d6a-iosstatusbar >.x-panel-content { top: 68px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p25410066b50543eca2ab6b080b8c9d6a-iosstatusbar >.x-panel-top {height: 48px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p25410066b50543eca2ab6b080b8c9d6a-iosstatusbar >.x-panel-content {top: 48px;}</style>
+      </div> 
+    </div>  
+    <div id="show35" xid="content4" class="footer cm6zQ7v" component="$model/UI2/system/components/justep/contents/content" data-bind="component:{name:'$model/UI2/system/components/justep/contents/content'},visible:false" __cid="cm6zQ7v"> 
+      <div component="$model/UI2/system/components/justep/panel/panel" class="x-panel x-full pe06c57fd03e3409d93dc4467c0bf2528-iosstatusbar cm6zQ7v" xid="panel4" data-bind="component:{name:'$model/UI2/system/components/justep/panel/panel'}" __cid="cm6zQ7v"> 
+        <div class="x-panel-content cm6zQ7v" xid="content3" style="text-align:center;" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cm6zQ7v"> 
+          <img src="" alt="" xid="imageshow" style="width:100%;" height="100%" __cid="cm6zQ7v" class="cm6zQ7v">
+        </div>  
+        <div class="x-panel-bottom cm6zQ7v" xid="bottom1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cm6zQ7v"> 
+          <div component="$model/UI2/system/components/justep/button/buttonGroup" class="btn-group x-card btn-group-justified cm6zQ7v" xid="buttonGroup1" data-bind="component:{name:'$model/UI2/system/components/justep/button/buttonGroup'}" data-config="{&#34;tabbed&#34;:true}" __cid="cm6zQ7v"> 
+            <a component="$model/UI2/system/components/justep/button/button" class="btn btn-default cm6zQ7v" xid="btn1" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:btn_deleteClick" data-config="{&#34;label&#34;:&#34;删除&#34;}" __cid="cm6zQ7v"> 
+              <i xid="i9" __cid="cm6zQ7v" class="cm6zQ7v"></i>  
+              <span xid="span8" __cid="cm6zQ7v" class="cm6zQ7v">删除</span>
+            </a>  
+            <a component="$model/UI2/system/components/justep/button/button" class="btn btn-default cm6zQ7v" xid="button7" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:button11Click" data-config="{&#34;label&#34;:&#34;取消&#34;}" __cid="cm6zQ7v"> 
+              <i xid="i10" __cid="cm6zQ7v" class="cm6zQ7v"></i>  
+              <span xid="span16" __cid="cm6zQ7v" class="cm6zQ7v">取消</span>
+            </a> 
+          </div> 
+        </div>  
+        <style __cid="cm6zQ7v" class="cm6zQ7v">.x-panel.pe06c57fd03e3409d93dc4467c0bf2528-iosstatusbar >.x-panel-top {height: 0px;}.x-panel.pe06c57fd03e3409d93dc4467c0bf2528-iosstatusbar >.x-panel-content { top: 0px;bottom: nullpx;}.x-panel.pe06c57fd03e3409d93dc4467c0bf2528-iosstatusbar >.x-panel-bottom {height: nullpx;}.iosstatusbar .x-panel.pe06c57fd03e3409d93dc4467c0bf2528-iosstatusbar >.x-panel-top {height: 0px;}.iosstatusbar .x-panel.pe06c57fd03e3409d93dc4467c0bf2528-iosstatusbar >.x-panel-content { top: 0px;}.iosstatusbar .x-panel .x-panel-content .x-panel.pe06c57fd03e3409d93dc4467c0bf2528-iosstatusbar >.x-panel-top {height: 0px;}.iosstatusbar .x-panel .x-panel-content .x-panel.pe06c57fd03e3409d93dc4467c0bf2528-iosstatusbar >.x-panel-content {top: 0px;}</style>
+      </div> 
+    </div>
+  </div> 
+</div>

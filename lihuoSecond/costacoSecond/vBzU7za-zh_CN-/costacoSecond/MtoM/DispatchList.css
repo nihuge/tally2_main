@@ -1,0 +1,33 @@
+.footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: white;
+	padding-top:200px;
+	opacity: 0.90;
+	z-index: 999;
+}
+
+.button-jiedan {
+	border-radius: 30px;
+	width: 80px;
+	background-color: #FF8040;
+	border-width: 0 0 0 0;
+	margin-top: 20px;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.button-top {
+	border-radius: 30px;
+}
+
+
+
+.b {
+	visibility: hidden;
+}

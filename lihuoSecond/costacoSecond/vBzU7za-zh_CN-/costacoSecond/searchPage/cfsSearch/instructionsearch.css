@@ -1,0 +1,36 @@
+.account-list-line {
+	border-bottom: 1px solid lightgray;
+	overflow: hidden;
+}
+
+.tiaomu {
+	border-radius: 5px;
+	border-style: solid solid solid solid;
+	border-width: thin thin thin thin;
+	border-color: #C0C0C0 #C0C0C0 #C0C0C0 #C0C0C0;
+}
+
+.left-txt {
+	margin-left: 10px;
+}
+
+.right-txt {
+	margin-right: 10px;
+}
+
+.select-no-border {
+	border-style: none none none none;
+}
+
+.circle {
+	width: 100px;
+	height: 100px;
+	background-color: #F1F3F7;
+	border-radius: 50px;
+}
+
+.bottonsolid {
+	border-radius: 5px;
+	border-style: solid solid solid solid;
+	border-width: thin thin thin thin;
+}

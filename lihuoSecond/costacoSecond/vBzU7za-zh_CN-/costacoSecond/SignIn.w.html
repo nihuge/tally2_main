@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<div xid="window" class="window demo-simpleData cIJvIva" component="$model/UI2/system/components/justep/window/window" design="device:m;" data-bind="component:{name:'$model/UI2/system/components/justep/window/window'}" __justepbasexid__="__baseID__" __cid="cIJvIva" components="$model/UI2/system/components/justep/loadingBar/loadingBar,$model/UI2/system/components/justep/labelEdit/labelEdit,$model/UI2/system/components/justep/row/row,$model/UI2/system/components/justep/panel/panel,$model/UI2/system/components/justep/window/window,$model/UI2/system/components/justep/data/data,$model/UI2/system/components/justep/titleBar/titleBar,$model/UI2/system/components/justep/panel/child,$model/UI2/system/components/justep/messageDialog/messageDialog,$model/UI2/system/components/justep/select/select,$model/UI2/system/components/justep/model/model,$model/UI2/system/components/justep/button/button,$model/UI2/system/components/justep/input/input,">
+  <style>.tiaomu.cIJvIva{border-radius: 5px; border-style: solid solid solid solid; border-width: thin thin thin thin; border-color: rgb(255, 255, 255) rgb(255, 255, 255) rgb(255, 255, 255) rgb(255, 255, 255)} .left-txt.cIJvIva{margin-left: 10px} .right-txt.cIJvIva{margin-right: 10px} .select-no-border.cIJvIva{border-style: none none none none} .right-left.cIJvIva{margin-left: 10px; margin-right: 10px}</style>  
+  <script src="@justepContextPath@/costacoSecond/datajq/jquery/js/jquery-ui-1.10.1.min.js" type="text/javascript" __cid="cIJvIva" class="cIJvIva"></script>  
+  <script src="@justepContextPath@/costacoSecond/datajq/jquery/js/jquery-1.9.1.js" type="text/javascript" __cid="cIJvIva" class="cIJvIva"></script>  
+  <link href="@justepContextPath@/costacoSecond/datajq/jquery/css/vigo.datepicker.css" rel="stylesheet" type="text/css" __cid="cIJvIva" class="cIJvIva">  
+  <link href="@justepContextPath@/costacoSecond/datajq/jquery/css/jquery-ui-1.10.1.css" rel="stylesheet" type="text/css" __cid="cIJvIva" class="cIJvIva">  
+  <div component="$model/UI2/system/components/justep/model/model" xid="model" style="display:none" data-bind="component:{name:'$model/UI2/system/components/justep/model/model'}" data-events="onLoad:modelLoad" __cid="cIJvIva" class="cIJvIva"></div>  
+  <span component="$model/UI2/system/components/justep/messageDialog/messageDialog" xid="messageDialog" style="left:81px;top:8px;" data-bind="component:{name:'$model/UI2/system/components/justep/messageDialog/messageDialog'}" data-events="onYes:messageDialogYes;onNo:messageDialogNo" data-config="{&#34;type&#34;:&#34;YesNo&#34;}" __cid="cIJvIva" class="cIJvIva">
+    <div class="x-modal-overlay cIJvIva" __cid="cIJvIva"></div>
+    <div class="x-modal cIJvIva" __cid="cIJvIva">
+      <div class="x-modal-inner cIJvIva" __cid="cIJvIva">
+        <div class="x-modal-title cIJvIva" __cid="cIJvIva"></div>
+        <div class="x-modal-text cIJvIva" __cid="cIJvIva"></div>
+        <input class="x-modal-prompt-input cIJvIva" type="text" __cid="cIJvIva">
+      </div>
+      <div class="x-modal-buttons cIJvIva" __cid="cIJvIva">
+        <a class="x-modal-button x-modal-button-bold OK cIJvIva" value="ok" __cid="cIJvIva">确定</a>
+        <a class="x-modal-button x-modal-button-bold Yes cIJvIva" value="yes" __cid="cIJvIva">是</a>
+        <a class="x-modal-button x-modal-button-bold No cIJvIva" value="no" __cid="cIJvIva">否</a>
+        <a class="x-modal-button x-modal-button-bold Cancel cIJvIva" value="cancel" __cid="cIJvIva">取消</a>
+      </div>
+    </div>
+  </span>  
+  <script src="@justepContextPath@/costacoSecond/ajax/baas.js" type="text/javascript" __cid="cIJvIva" class="cIJvIva"></script>  
+  <div component="$model/UI2/system/components/justep/panel/panel" class="x-panel x-full p3701eacb4b874d2d801256611480eb49-iosstatusbar cIJvIva" xid="panel1" data-bind="component:{name:'$model/UI2/system/components/justep/panel/panel'}" __cid="cIJvIva"> 
+    <div class="x-panel-top cIJvIva" xid="top1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cIJvIva"> 
+      <div component="$model/UI2/system/components/justep/titleBar/titleBar" class="x-titlebar cIJvIva" xid="titleBar1" data-bind="component:{name:'$model/UI2/system/components/justep/titleBar/titleBar'}" data-config="{&#34;title&#34;:&#34;签到&#34;}" __cid="cIJvIva"> 
+        <div class="x-titlebar-left cIJvIva" xid="div1" __cid="cIJvIva"> 
+          <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-only-icon cIJvIva" xid="back" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:backClick" data-config="{&#34;icon&#34;:&#34;icon-chevron-left&#34;,&#34;label&#34;:&#34;button&#34;}" __cid="cIJvIva"> 
+            <i xid="i7" class="icon-chevron-left cIJvIva" __cid="cIJvIva"></i>  
+            <span xid="span6" __cid="cIJvIva" class="cIJvIva"></span> 
+          </a> 
+        </div>  
+        <div class="x-titlebar-title cIJvIva" xid="div2" __cid="cIJvIva">签到</div>  
+        <div class="x-titlebar-right  cIJvIva" xid="div3" __cid="cIJvIva">
+          <div class="empty cIJvIva" __cid="cIJvIva"></div>
+        </div> 
+      </div> 
+    </div>  
+    <div class="x-panel-content cIJvIva" xid="SignIn" style="background-color:#afdbfc;" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cIJvIva"> 
+      <div xid="div5" class="ll-skin-vigo cIJvIva" style="height:150;" __cid="cIJvIva"></div>  
+      <div component="$model/UI2/system/components/justep/row/row" class="x-row  cIJvIva" xid="row1" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cIJvIva"> 
+        <div class="x-col  cIJvIva" xid="col2" __cid="cIJvIva"> 
+          <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 tiaomu right-left  cIJvIva" xid="labelSelect3" style="background-color:white;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cIJvIva"> 
+            <label class="x-label left-txt cIJvIva" xid="label3" style="width:auto;" __cid="cIJvIva">选择部门：</label>  
+            <select component="$model/UI2/system/components/justep/select/select" class="form-control input-sm x-edit select-no-border right-txt cIJvIva" xid="department" data-bind="component:{name:'$model/UI2/system/components/justep/select/select'},options:departmentData.datas,optionsValue:'id',optionsCaption:' 请选择部门',optionsText:'department_name',optionsAfterRender2:$model.__justep__.selectOptionsAfterRender.bind($model,$element),optionsBeforeRender:$model.__justep__.selectOptionsBeforeRender.bind($model,$element)" data-events="onChange:getGroup" data-config="{&#34;optionsAutoLoad&#34;:true}" __cid="cIJvIva"></select> 
+          </div> 
+        </div> 
+      </div>  
+      <div component="$model/UI2/system/components/justep/row/row" class="x-row cIJvIva" xid="row2" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cIJvIva"> 
+        <div class="x-col cIJvIva" xid="col4" __cid="cIJvIva"> 
+          <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 tiaomu right-left  cIJvIva" xid="labelSelect4" style="background-color:white;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cIJvIva"> 
+            <label class="x-label  left-txt cIJvIva" xid="label4" style="width:auto;" __cid="cIJvIva">选择班组：</label>  
+            <select component="$model/UI2/system/components/justep/select/select" class="form-control input-sm x-edit select-no-border right-txt cIJvIva" xid="group" data-bind="component:{name:'$model/UI2/system/components/justep/select/select'},options:groupData.datas,optionsValue:'id',optionsCaption:'请选择班组',optionsText:'department_name',optionsAfterRender2:$model.__justep__.selectOptionsAfterRender.bind($model,$element),optionsBeforeRender:$model.__justep__.selectOptionsBeforeRender.bind($model,$element)" data-config="{&#34;optionsAutoLoad&#34;:true}" __cid="cIJvIva"></select> 
+          </div> 
+        </div> 
+      </div>  
+      <div component="$model/UI2/system/components/justep/row/row" class="x-row cIJvIva" xid="row4" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cIJvIva"> 
+        <div class="x-col cIJvIva" xid="col1" __cid="cIJvIva"> 
+          <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 tiaomu right-left  cIJvIva" xid="labelInput1" style="background-color:white;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cIJvIva"> 
+            <label class="x-label left-txt cIJvIva" xid="label1" style="width:auto;" __cid="cIJvIva">选择日期：</label>  
+            <input component="$model/UI2/system/components/justep/input/input" class="form-control input-sm x-edit select-no-border right-txt cIJvIva" xid="date" data-bind="component:{ref:localData.ref('date'),name:'$model/UI2/system/components/justep/input/input'}" data-config="{&#34;format&#34;:&#34;yyyyMMdd&#34;,&#34;max&#34;:&#34;js:new Date()&#34;,&#34;placeHolder&#34;:&#34;请选择签到日期&#34;}" __cid="cIJvIva"> 
+          </div> 
+        </div> 
+      </div>  
+      <div component="$model/UI2/system/components/justep/row/row" class="x-row cIJvIva" xid="row3" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cIJvIva"> 
+        <div class="x-col cIJvIva" xid="col7" __cid="cIJvIva"> 
+          <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 tiaomu right-left  cIJvIva" xid="labelSelect5" style="background-color:white;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cIJvIva"> 
+            <label class="x-label left-txt cIJvIva" xid="label5" style="width:auto;" __cid="cIJvIva">选择班次：</label>  
+            <select component="$model/UI2/system/components/justep/select/select" class="form-control input-sm x-edit select-no-border right-txt cIJvIva" xid="classes" data-bind="component:{name:'$model/UI2/system/components/justep/select/select'},options:localData.datas,optionsValue:'code',optionsCaption:'请选择班次',optionsText:'day',optionsAfterRender2:$model.__justep__.selectOptionsAfterRender.bind($model,$element),optionsBeforeRender:$model.__justep__.selectOptionsBeforeRender.bind($model,$element)" __cid="cIJvIva"></select> 
+          </div> 
+        </div> 
+      </div>  
+      <div component="$model/UI2/system/components/justep/row/row" class="x-row cIJvIva" xid="row5" style="margin-top:20px;" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cIJvIva"> 
+        <div class="x-col cIJvIva" xid="col3" style="text-align:center;" __cid="cIJvIva"> 
+          <img src="@justepContextPath@/costacoSecond/img/sign_in.png" alt="" xid="image2" style="width:40%;" __cid="cIJvIva" class="cIJvIva" data-bind="event:{click:$model._callModelFn.bind($model, 'signInClick')}">
+        </div> 
+      </div> 
+    </div>  
+    <style __cid="cIJvIva" class="cIJvIva">.x-panel.p3701eacb4b874d2d801256611480eb49-iosstatusbar >.x-panel-top {height: 48px;}.x-panel.p3701eacb4b874d2d801256611480eb49-iosstatusbar >.x-panel-content { top: 48px;bottom: nullpx;}.x-panel.p3701eacb4b874d2d801256611480eb49-iosstatusbar >.x-panel-bottom {height: nullpx;}.iosstatusbar .x-panel.p3701eacb4b874d2d801256611480eb49-iosstatusbar >.x-panel-top {height: 68px;}.iosstatusbar .x-panel.p3701eacb4b874d2d801256611480eb49-iosstatusbar >.x-panel-content { top: 68px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p3701eacb4b874d2d801256611480eb49-iosstatusbar >.x-panel-top {height: 48px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p3701eacb4b874d2d801256611480eb49-iosstatusbar >.x-panel-content {top: 48px;}</style>
+  </div> 
+</div>

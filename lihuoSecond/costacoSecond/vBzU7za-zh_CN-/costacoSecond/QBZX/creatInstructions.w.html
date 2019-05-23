@@ -1,0 +1,79 @@
+<!DOCTYPE HTML>
+<div component="$model/UI2/system/components/justep/window/window" design="device:m;" xid="window" class="window cviYRVf" data-bind="component:{name:'$model/UI2/system/components/justep/window/window'}" __justepbasexid__="__baseID__" __cid="cviYRVf" components="$model/UI2/system/components/justep/loadingBar/loadingBar,$model/UI2/system/components/justep/labelEdit/labelEdit,$model/UI2/system/components/justep/row/row,$model/UI2/system/components/justep/panel/panel,$model/UI2/system/components/justep/panel/child,$model/UI2/system/components/justep/messageDialog/messageDialog,$model/UI2/system/components/justep/select/select,$model/UI2/system/components/justep/model/model,$model/UI2/system/components/justep/window/window,$model/UI2/system/components/justep/titleBar/titleBar,$model/UI2/system/components/justep/data/data,$model/UI2/system/components/justep/button/button,">
+  <style>null</style>  
+  <script src="@justepContextPath@/costaco/ajax/chkcntrno.js" type="text/javascript" __cid="cviYRVf" class="cviYRVf"></script>  
+  <div component="$model/UI2/system/components/justep/model/model" xid="model" style="display:none" data-bind="component:{name:'$model/UI2/system/components/justep/model/model'}" __cid="cviYRVf" class="cviYRVf"></div>  
+  <script src="@justepContextPath@/costaco/ajax/baas.js" type="text/javascript" __cid="cviYRVf" class="cviYRVf"></script>  
+  <div component="$model/UI2/system/components/justep/panel/panel" class="x-panel x-full p6fc2e41c92b64f34bbfb8962166a357d-iosstatusbar cviYRVf" xid="panel1" data-bind="component:{name:'$model/UI2/system/components/justep/panel/panel'}" __cid="cviYRVf"> 
+    <div class="x-panel-top cviYRVf" xid="top1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cviYRVf"> 
+      <div component="$model/UI2/system/components/justep/titleBar/titleBar" class="x-titlebar cviYRVf" data-bind="component:{name:'$model/UI2/system/components/justep/titleBar/titleBar'}" data-config="{&#34;title&#34;:&#34;新增指令&#34;}" __cid="cviYRVf"> 
+        <div class="x-titlebar-left cviYRVf" __cid="cviYRVf"> 
+          <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-only-icon cviYRVf" xid="backBtn" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:backBtnClick" data-config="{&#34;icon&#34;:&#34;icon-chevron-left&#34;,&#34;label&#34;:&#34;&#34;}" __cid="cviYRVf"> 
+            <i class="icon-chevron-left cviYRVf" __cid="cviYRVf"></i>  
+            <span __cid="cviYRVf" class="cviYRVf"></span> 
+          </a> 
+        </div>  
+        <div class="x-titlebar-title cviYRVf" __cid="cviYRVf">新增指令</div>  
+        <div class="x-titlebar-right  cviYRVf" __cid="cviYRVf">
+          <div class="empty cviYRVf" __cid="cviYRVf"></div>
+          <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-only-icon cviYRVf" xid="button22" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:button22Click" data-config="{&#34;icon&#34;:&#34;icon-checkmark-round&#34;,&#34;label&#34;:&#34;确认&#34;}" __cid="cviYRVf"> 
+            <i xid="i27" class="icon-checkmark-round cviYRVf" __cid="cviYRVf"></i>  
+            <span xid="span34" __cid="cviYRVf" class="cviYRVf">确认</span>
+          </a>
+        </div> 
+      </div> 
+    </div>  
+    <div class="x-panel-content cviYRVf" xid="content1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cviYRVf">
+      <div component="$model/UI2/system/components/justep/panel/panel" class="x-panel p52191f5b37b44ec98519ad22059380f9-iosstatusbar cviYRVf" xid="panel5" style="height:100%;width:100%;" data-bind="component:{name:'$model/UI2/system/components/justep/panel/panel'}" __cid="cviYRVf"> 
+        <div class="x-panel-content cviYRVf" xid="content7" style="bottom: 0px; top: 0px;" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cviYRVf"> 
+          <div component="$model/UI2/system/components/justep/row/row" class="x-row cviYRVf" xid="row1" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cviYRVf"> 
+            <div class="x-col cviYRVf" xid="col1" __cid="cviYRVf">
+              <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cviYRVf" xid="labelSelect1" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cviYRVf"> 
+                <label class="x-label cviYRVf" xid="label1" style="width:170px;" __cid="cviYRVf" data-bind="text:createInstructionData.label('qbzx_forecastplanid')"></label>  
+                <select component="$model/UI2/system/components/justep/select/select" class="form-control x-edit cviYRVf" xid="select1" data-bind="component:{name:'$model/UI2/system/components/justep/select/select',labelRef:createInstructionData.ref('qbzx_forecastplanid')},optionsValue:'qbzx_forecastplanid',options:forecastplanid.datas,optionsCaption:'请选择',optionsText:'qbzx_forecastplanid',optionsAfterRender2:$model.__justep__.selectOptionsAfterRender.bind($model,$element),optionsBeforeRender:$model.__justep__.selectOptionsBeforeRender.bind($model,$element)" __cid="cviYRVf"></select>
+              </div>
+            </div> 
+          </div>
+          <div component="$model/UI2/system/components/justep/row/row" class="x-row cviYRVf" xid="row22" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cviYRVf"></div>  
+          <div component="$model/UI2/system/components/justep/row/row" class="x-row cviYRVf" xid="row24" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cviYRVf"> 
+            <div class="x-col cviYRVf" xid="col39" __cid="cviYRVf"> 
+              <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cviYRVf" xid="labelSelect2" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cviYRVf"> 
+                <label class="x-label cviYRVf" xid="label2" style="width:170px;" __cid="cviYRVf" data-bind="text:createInstructionData.label('locationno')"></label>  
+                <select component="$model/UI2/system/components/justep/select/select" class="form-control x-edit cviYRVf" xid="select2" data-bind="component:{name:'$model/UI2/system/components/justep/select/select'},options:locationno.datas,optionsValue:'operationlocationinfoid',optionsCaption:'请选择',optionsText:'locationname',optionsAfterRender2:$model.__justep__.selectOptionsAfterRender.bind($model,$element),optionsBeforeRender:$model.__justep__.selectOptionsBeforeRender.bind($model,$element)" __cid="cviYRVf"></select>
+              </div>
+            </div> 
+          </div>  
+          <div component="$model/UI2/system/components/justep/row/row" class="x-row cviYRVf" xid="row25" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cviYRVf"> 
+            <div class="x-col cviYRVf" xid="col40" __cid="cviYRVf"> 
+              <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cviYRVf" xid="labelSelect3" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cviYRVf"> 
+                <label class="x-label cviYRVf" xid="label31" style="width:170px;" __cid="cviYRVf" data-bind="text:createInstructionData.label('loadingtype')"></label>  
+                <select component="$model/UI2/system/components/justep/select/select" class="form-control x-edit cviYRVf" xid="select3" data-bind="component:{name:'$model/UI2/system/components/justep/select/select'},options:loadingtype.datas,optionsValue:'loadingcode',optionsCaption:'请选择',optionsText:'loadingtype',optionsAfterRender2:$model.__justep__.selectOptionsAfterRender.bind($model,$element),optionsBeforeRender:$model.__justep__.selectOptionsBeforeRender.bind($model,$element)" __cid="cviYRVf"></select>
+              </div> 
+            </div> 
+          </div>  
+          <div component="$model/UI2/system/components/justep/row/row" class="x-row cviYRVf" xid="row26" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cviYRVf"> 
+            <div class="x-col cviYRVf" xid="col41" __cid="cviYRVf"></div> 
+          </div> 
+        </div>  
+        <style __cid="cviYRVf" class="cviYRVf">.x-panel.p52191f5b37b44ec98519ad22059380f9-iosstatusbar >.x-panel-top {height: 0px;}.x-panel.p52191f5b37b44ec98519ad22059380f9-iosstatusbar >.x-panel-content { top: 0px;bottom: nullpx;}.x-panel.p52191f5b37b44ec98519ad22059380f9-iosstatusbar >.x-panel-bottom {height: nullpx;}.iosstatusbar .x-panel.p52191f5b37b44ec98519ad22059380f9-iosstatusbar >.x-panel-top {height: 0px;}.iosstatusbar .x-panel.p52191f5b37b44ec98519ad22059380f9-iosstatusbar >.x-panel-content { top: 0px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p52191f5b37b44ec98519ad22059380f9-iosstatusbar >.x-panel-top {height: 0px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p52191f5b37b44ec98519ad22059380f9-iosstatusbar >.x-panel-content {top: 0px;}</style>
+      </div>
+    </div>  
+    <style __cid="cviYRVf" class="cviYRVf">.x-panel.p6fc2e41c92b64f34bbfb8962166a357d-iosstatusbar >.x-panel-top {height: 48px;}.x-panel.p6fc2e41c92b64f34bbfb8962166a357d-iosstatusbar >.x-panel-content { top: 48px;bottom: nullpx;}.x-panel.p6fc2e41c92b64f34bbfb8962166a357d-iosstatusbar >.x-panel-bottom {height: nullpx;}.iosstatusbar .x-panel.p6fc2e41c92b64f34bbfb8962166a357d-iosstatusbar >.x-panel-top {height: 68px;}.iosstatusbar .x-panel.p6fc2e41c92b64f34bbfb8962166a357d-iosstatusbar >.x-panel-content { top: 68px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p6fc2e41c92b64f34bbfb8962166a357d-iosstatusbar >.x-panel-top {height: 48px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p6fc2e41c92b64f34bbfb8962166a357d-iosstatusbar >.x-panel-content {top: 48px;}</style>
+  </div>  
+  <span component="$model/UI2/system/components/justep/messageDialog/messageDialog" xid="messageDialog" style="left:69px;top:16px;" data-bind="component:{name:'$model/UI2/system/components/justep/messageDialog/messageDialog'}" data-config="{&#34;type&#34;:&#34;OK&#34;}" __cid="cviYRVf" class="cviYRVf">
+    <div class="x-modal-overlay cviYRVf" __cid="cviYRVf"></div>
+    <div class="x-modal cviYRVf" __cid="cviYRVf">
+      <div class="x-modal-inner cviYRVf" __cid="cviYRVf">
+        <div class="x-modal-title cviYRVf" __cid="cviYRVf"></div>
+        <div class="x-modal-text cviYRVf" __cid="cviYRVf"></div>
+        <input class="x-modal-prompt-input cviYRVf" type="text" __cid="cviYRVf">
+      </div>
+      <div class="x-modal-buttons cviYRVf" __cid="cviYRVf">
+        <a class="x-modal-button x-modal-button-bold OK cviYRVf" value="ok" __cid="cviYRVf">确定</a>
+        <a class="x-modal-button x-modal-button-bold Yes cviYRVf" value="yes" __cid="cviYRVf">是</a>
+        <a class="x-modal-button x-modal-button-bold No cviYRVf" value="no" __cid="cviYRVf">否</a>
+        <a class="x-modal-button x-modal-button-bold Cancel cviYRVf" value="cancel" __cid="cviYRVf">取消</a>
+      </div>
+    </div>
+  </span> 
+</div>

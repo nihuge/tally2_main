@@ -1,0 +1,98 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0029)http://sh.sqdxc.com/xhjc.html -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=GBK">
+
+<title>集装箱号校验</title>
+<script type="text/javascript" async="" src="./集装箱号校验_files/ocxm"></script><script language="javascript">
+//去除字符串的空格
+function gf_trim(as_string)
+{
+   while(as_string.length > 0 && as_string.indexOf(" ")==0) as_string = as_string.substr(1);
+   while(as_string.length > 0 && as_string.lastIndexOf(" ")==(as_string.length-1)) as_string = as_string.substr(0,as_string.length-1);
+   return as_string;
+}
+//集装箱箱号验证
+//功能：验证集装箱箱号：
+//参数：
+//   as_cntrno 是否符合国际标准，
+//返回值：True 符合国际标准或强行通过(特殊箱号)
+//举例：gf_chkcntrno( 'TEXU2982987', 0 )     
+function chkcntrno(as_cntrno,ai_choice)
+{
+ var fi_ki;
+ var fi_numsum;
+ var fi_nummod;
+ var fai_num = new Array(11);
+ var fb_errcntrno=false;
+
+ if (as_cntrno==null) return true; //null不进行验证
+ if (gf_trim(as_cntrno)=="") return true; //空不进行验证
+ 
+ if (as_cntrno.length == 11)   //国际标准为11位，最后一位是校验位，若不是11位肯定不是标准箱
+ { for(fi_ki=1;fi_ki<=11;fi_ki++)
+   fai_num[fi_ki] = 0;
+  for(fi_ki=1;fi_ki<=4;fi_ki++)     //根据国际标准验证法则处理箱号前面的4个英文字母
+  {
+   fch_char=as_cntrno.charAt(fi_ki-1).toUpperCase();
+   switch(true)
+   { case (fch_char=="A"):{fai_num[fi_ki] = 10;break;}
+    case (fch_char>="V" && fch_char<="Z"):{fai_num[fi_ki] = fch_char.charCodeAt() - 52;break;}
+    case (fch_char>="L" && fch_char<="U"):{fai_num[fi_ki] = fch_char.charCodeAt() - 53;break;}
+    default:{fai_num[fi_ki] = fch_char.charCodeAt() - 54;break;}
+   }
+  }
+  for(fi_ki=5;fi_ki<=11;fi_ki++)
+  {  fch_char=as_cntrno.charAt(fi_ki-1);
+   fai_num[fi_ki] = parseInt(fch_char); //ctype((mid(as_cntrno, fi_ki, 1)), integer)
+      }
+  fi_numsum = 0
+  
+  for(fi_ki=1;fi_ki<=10;fi_ki++)
+  { 
+   fi_sqr = 1;
+   for(i=1;i<fi_ki;i++){fi_sqr *=2;}
+   fi_numsum += fai_num[fi_ki] * fi_sqr;
+  }
+
+  if (as_cntrno.substr(0,4) == "HLCU") fi_numsum = fi_numsum - 2; //hapaq lloyd的柜号与国际标准相差2
+  fi_nummod = fi_numsum % 11;
+  if (fi_nummod == 10) fi_nummod = 0;
+  if (fi_nummod == fai_num[11]) fb_errcntrno = true;
+  return fb_errcntrno;
+ }else{
+    return fb_errcntrno;
+ }  
+} 
+</script></head>
+
+
+
+
+<body><div id="BAIDU_DUP_fp_wrapper" style="position: absolute; left: -1px; bottom: -1px; z-index: 0; width: 0px; height: 0px; overflow: hidden; visibility: hidden; display: none;"><iframe id="BAIDU_DUP_fp_iframe" src="./集装箱号校验_files/o.html" style="width: 0px; height: 0px; visibility: hidden; display: none;"></iframe></div><span class="style1">
+集运宝典精简版http://www.sqdxc.com/为您服务!
+请输入箱号(11位数)
+<input type="text" name="cntrno" id="cntrno">
+<input type="submit" value="查询" onclick="if(!chkcntrno(cntrno.value,0)) alert(&#39;错误&#39;); else alert(&#39;正确&#39;);return;"> 
+</span>
+   <span class="style1">
+
+
+
+
+<script language="javascript" type="text/javascript" src="./集装箱号校验_files/4905909.js"></script><a href="http://www.51.la/?4905909" target="_blank" title="51.La 网站流量统计系统"><img alt="51.La 网站流量统计系统" src="./集装箱号校验_files/icon_9.gif" style="border:none"></a>
+
+<noscript>&lt;a href="http://www.51.la/?4905909" target="_blank"&gt;&lt;img alt="&amp;#x6211;&amp;#x8981;&amp;#x5566;&amp;#x514D;&amp;#x8D39;&amp;#x7EDF;&amp;#x8BA1;" src="http://img.users.51.la/4905909.asp" style="border:none" /&gt;&lt;/a&gt;</noscript>
+
+
+<center>
+<script type="text/javascript">
+/*760*60，创建于2010-6-24*/
+var cpro_id = "u75558";
+</script>
+<script src="./集装箱号校验_files/c.js" type="text/javascript"></script><div id="BAIDU_SSP__wrapper_u75558_0"><iframe id="iframeu75558_0" src="./集装箱号校验_files/ocxm.html" width="760" height="90" align="center,center" vspace="0" hspace="0" marginwidth="0" marginheight="0" scrolling="no" frameborder="0" style="border:0; vertical-align:bottom;margin:0;" allowtransparency="true"></iframe></div>
+</center>
+
+
+
+
+</span></body></html>

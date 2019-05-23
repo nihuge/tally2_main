@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<div component="$model/UI2/system/components/justep/window/window" design="device:m;" xid="window" class="window ciiyiym" data-bind="component:{name:'$model/UI2/system/components/justep/window/window'}" __justepbasexid__="__baseID__" __cid="ciiyiym" components="$model/UI2/system/components/justep/loadingBar/loadingBar,$model/UI2/system/components/justep/labelEdit/labelEdit,$model/UI2/system/components/justep/row/row,$model/UI2/system/components/justep/panel/panel,$model/UI2/system/components/justep/panel/child,$model/UI2/system/components/justep/model/model,$model/UI2/system/components/justep/window/window,$model/UI2/system/components/justep/titleBar/titleBar,$model/UI2/system/components/justep/data/data,$model/UI2/system/components/justep/button/button,$model/UI2/system/components/justep/output/output,">  
+  <script src="@justepContextPath@/costacoSecond/ajax/baas.js" type="text/javascript" __cid="ciiyiym" class="ciiyiym"></script>  
+  <div component="$model/UI2/system/components/justep/model/model" xid="model" style="display:none" data-bind="component:{name:'$model/UI2/system/components/justep/model/model'}" __cid="ciiyiym" class="ciiyiym"></div>  
+  <div component="$model/UI2/system/components/justep/panel/panel" class="x-panel x-full pdcc7c1438cc74fe283c4694b055c39e8-iosstatusbar ciiyiym" xid="panel1" data-bind="component:{name:'$model/UI2/system/components/justep/panel/panel'}" __cid="ciiyiym"> 
+    <div class="x-panel-top ciiyiym" xid="top1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="ciiyiym"> 
+      <div component="$model/UI2/system/components/justep/titleBar/titleBar" class="x-titlebar ciiyiym" data-bind="component:{name:'$model/UI2/system/components/justep/titleBar/titleBar'}" data-config="{&#34;title&#34;:&#34;指令详情&#34;}" __cid="ciiyiym"> 
+        <div class="x-titlebar-left ciiyiym" __cid="ciiyiym"> 
+          <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-only-icon ciiyiym" xid="backBtn" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:backBtnClick" data-config="{&#34;icon&#34;:&#34;icon-chevron-left&#34;,&#34;label&#34;:&#34;&#34;}" __cid="ciiyiym"> 
+            <i class="icon-chevron-left ciiyiym" xid="i2" __cid="ciiyiym"></i>  
+            <span xid="span2" __cid="ciiyiym" class="ciiyiym"></span>
+          </a>
+        </div>  
+        <div class="x-titlebar-title ciiyiym" __cid="ciiyiym">指令详情</div>  
+        <div class="x-titlebar-right  ciiyiym" __cid="ciiyiym">
+          <div class="empty ciiyiym" __cid="ciiyiym"></div>
+        </div> 
+      </div> 
+    </div>  
+    <div class="x-panel-content ciiyiym" xid="content1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="ciiyiym">
+      <div class="x-panel-content ciiyiym" xid="content8" style="bottom: 0px; top: 0px;" __cid="ciiyiym"> 
+        <div component="$model/UI2/system/components/justep/row/row" class="x-row ciiyiym" xid="row5" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="ciiyiym"> 
+          <div class="x-col ciiyiym" xid="col2" __cid="ciiyiym"> 
+            <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 ciiyiym" xid="labelOutput1" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="ciiyiym"> 
+              <label class="x-label ciiyiym" xid="label1" style="width:110px;" __cid="ciiyiym" data-bind="text:$model.instructionDetailsData.label('orderid')"></label>  
+              <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit ciiyiym" xid="output1" data-bind="component:{ref:$model.instructionDetailsData.ref('orderid'),name:'$model/UI2/system/components/justep/output/output'}" __cid="ciiyiym"></div>
+            </div> 
+          </div> 
+        </div>  
+        <div component="$model/UI2/system/components/justep/row/row" class="x-row ciiyiym" xid="row19" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="ciiyiym"> 
+          <div class="x-col ciiyiym" xid="col29" __cid="ciiyiym"> 
+            <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 ciiyiym" xid="labelOutput10" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="ciiyiym"> 
+              <label class="x-label ciiyiym" xid="label12" style="width:110px;" __cid="ciiyiym" data-bind="text:$model.instructionDetailsData.label('orderdate')"></label>  
+              <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit ciiyiym" xid="output10" data-bind="component:{ref:$model.instructionDetailsData.ref('orderdate'),name:'$model/UI2/system/components/justep/output/output'}" __cid="ciiyiym"></div>
+            </div> 
+          </div> 
+        </div>  
+        <div component="$model/UI2/system/components/justep/row/row" class="x-row ciiyiym" xid="row13" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="ciiyiym"> 
+          <div class="x-col ciiyiym" xid="col23" __cid="ciiyiym"> 
+            <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 ciiyiym" xid="labelOutput3" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="ciiyiym"> 
+              <label class="x-label ciiyiym" xid="label3" style="width:110px;" __cid="ciiyiym" data-bind="text:$model.instructionDetailsData.label('vslname')"></label>  
+              <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit ciiyiym" xid="output3" data-bind="component:{ref:$model.instructionDetailsData.ref('vslname'),name:'$model/UI2/system/components/justep/output/output'}" __cid="ciiyiym"></div>
+            </div> 
+          </div> 
+        </div>  
+        <div component="$model/UI2/system/components/justep/row/row" class="x-row ciiyiym" xid="row14" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="ciiyiym"> 
+          <div class="x-col ciiyiym" xid="col24" __cid="ciiyiym"> 
+            <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 ciiyiym" xid="labelOutput4" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="ciiyiym"> 
+              <label class="x-label ciiyiym" xid="label4" style="width:110px;" __cid="ciiyiym" data-bind="text:$model.instructionDetailsData.label('voyage')"></label>  
+              <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit ciiyiym" xid="output4" data-bind="component:{ref:$model.instructionDetailsData.ref('voyage'),name:'$model/UI2/system/components/justep/output/output'}" __cid="ciiyiym"></div>
+            </div> 
+          </div> 
+        </div>  
+        <div component="$model/UI2/system/components/justep/row/row" class="x-row ciiyiym" xid="row17" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="ciiyiym"> 
+          <div class="x-col ciiyiym" xid="col27" __cid="ciiyiym"> 
+            <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 ciiyiym" xid="labelOutput7" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="ciiyiym"> 
+              <label class="x-label ciiyiym" xid="label7" style="width:110px;" __cid="ciiyiym" data-bind="text:$model.instructionDetailsData.label('blno')"></label>  
+              <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit ciiyiym" xid="output8" data-bind="component:{ref:$model.instructionDetailsData.ref('blno'),name:'$model/UI2/system/components/justep/output/output'}" __cid="ciiyiym"></div>
+            </div> 
+          </div> 
+        </div>  
+        <div component="$model/UI2/system/components/justep/row/row" class="x-row ciiyiym" xid="row25" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="ciiyiym"> 
+          <div class="x-col ciiyiym" xid="col43" __cid="ciiyiym"> 
+            <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 ciiyiym" xid="labelOutput17" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="ciiyiym"> 
+              <label class="x-label ciiyiym" xid="label26" style="width:110px;" __cid="ciiyiym" data-bind="text:$model.instructionDetailsData.label('applyname')"></label>  
+              <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit ciiyiym" xid="output17" data-bind="component:{ref:$model.instructionDetailsData.ref('applyname'),name:'$model/UI2/system/components/justep/output/output'}" __cid="ciiyiym"></div>
+            </div> 
+          </div> 
+        </div>  
+        <div component="$model/UI2/system/components/justep/row/row" class="x-row ciiyiym" xid="row18" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="ciiyiym"> 
+          <div class="x-col ciiyiym" xid="col28" __cid="ciiyiym"> 
+            <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 ciiyiym" xid="labelOutput9" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="ciiyiym"> 
+              <label class="x-label ciiyiym" xid="label11" style="width:110px;" __cid="ciiyiym"></label>  
+              <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit ciiyiym" xid="output9" data-bind="component:{name:'$model/UI2/system/components/justep/output/output'}" __cid="ciiyiym"></div>
+            </div> 
+          </div> 
+        </div>  
+        <div component="$model/UI2/system/components/justep/row/row" class="x-row ciiyiym" xid="row3" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="ciiyiym"> 
+          <div class="x-col ciiyiym" xid="col5" __cid="ciiyiym"> 
+            <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 ciiyiym" xid="labelOutput2" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="ciiyiym"> 
+              <label class="x-label ciiyiym" xid="label5" style="width:110px;" __cid="ciiyiym"></label>  
+              <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit ciiyiym" xid="output2" data-bind="component:{name:'$model/UI2/system/components/justep/output/output'}" __cid="ciiyiym"></div>
+            </div> 
+          </div> 
+        </div>  
+        <div component="$model/UI2/system/components/justep/row/row" class="x-row ciiyiym" xid="row4" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="ciiyiym"> 
+          <div class="x-col ciiyiym" xid="col6" __cid="ciiyiym"> 
+            <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 ciiyiym" xid="labelOutput5" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="ciiyiym"> 
+              <label class="x-label ciiyiym" xid="label6" style="width:110px;" __cid="ciiyiym"></label>  
+              <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit ciiyiym" xid="output5" data-bind="component:{name:'$model/UI2/system/components/justep/output/output'}" __cid="ciiyiym"></div>
+            </div> 
+          </div> 
+        </div>  
+        <div component="$model/UI2/system/components/justep/row/row" class="x-row ciiyiym" xid="row2" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="ciiyiym"> 
+          <div class="x-col ciiyiym" xid="col4" __cid="ciiyiym"> 
+            <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 ciiyiym" xid="labelOutput8" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="ciiyiym"> 
+              <label class="x-label ciiyiym" xid="label8" style="width:110px;" __cid="ciiyiym"></label>  
+              <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit ciiyiym" xid="output7" data-bind="component:{name:'$model/UI2/system/components/justep/output/output'}" __cid="ciiyiym"></div>
+            </div> 
+          </div> 
+        </div>  
+        <div component="$model/UI2/system/components/justep/row/row" class="x-row ciiyiym" xid="row8" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="ciiyiym"> 
+          <div class="x-col ciiyiym" xid="col9" __cid="ciiyiym"> 
+            <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 ciiyiym" xid="labelOutput18" style="height:19px;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="ciiyiym"> 
+              <label class="x-label ciiyiym" xid="label9" style="width:110px;" __cid="ciiyiym"></label>  
+              <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit ciiyiym" xid="output18" data-bind="component:{name:'$model/UI2/system/components/justep/output/output'}" __cid="ciiyiym"></div>
+            </div> 
+          </div> 
+        </div>  
+        <div component="$model/UI2/system/components/justep/row/row" class="x-row ciiyiym" xid="row16" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="ciiyiym"> 
+          <div class="x-col ciiyiym" xid="col26" __cid="ciiyiym"> 
+            <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 ciiyiym" xid="labelOutput6" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="ciiyiym"> 
+              <label class="x-label ciiyiym" xid="label17" style="width:110px;" __cid="ciiyiym"></label>  
+              <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit ciiyiym" xid="output6" data-bind="component:{name:'$model/UI2/system/components/justep/output/output'}" __cid="ciiyiym"></div>
+            </div> 
+          </div> 
+        </div> 
+      </div>
+    </div>  
+    <style __cid="ciiyiym" class="ciiyiym">.x-panel.pdcc7c1438cc74fe283c4694b055c39e8-iosstatusbar >.x-panel-top {height: 48px;}.x-panel.pdcc7c1438cc74fe283c4694b055c39e8-iosstatusbar >.x-panel-content { top: 48px;bottom: nullpx;}.x-panel.pdcc7c1438cc74fe283c4694b055c39e8-iosstatusbar >.x-panel-bottom {height: nullpx;}.iosstatusbar .x-panel.pdcc7c1438cc74fe283c4694b055c39e8-iosstatusbar >.x-panel-top {height: 68px;}.iosstatusbar .x-panel.pdcc7c1438cc74fe283c4694b055c39e8-iosstatusbar >.x-panel-content { top: 68px;}.iosstatusbar .x-panel .x-panel-content .x-panel.pdcc7c1438cc74fe283c4694b055c39e8-iosstatusbar >.x-panel-top {height: 48px;}.iosstatusbar .x-panel .x-panel-content .x-panel.pdcc7c1438cc74fe283c4694b055c39e8-iosstatusbar >.x-panel-content {top: 48px;}</style>
+  </div> 
+</div>

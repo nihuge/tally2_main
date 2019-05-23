@@ -1,0 +1,55 @@
+﻿
+修改配置文件 PHP.ini 运行时间设置为0 即永不失效
+
+工班恢复修改记录表：tally_shift_amendment_record 二期新加功能 无需操作
+
+
+维护之前 需注意 
+
+数据库字段属性变动
+ 1、tally_qbzx_prove起泊装箱指令配箱表ctnno字段数据类型改为varchar(20)	
+ 2、tally_dd_prove门到门拆箱单证表ctn_no字段数据类型改为varchar(20)	
+ 3、tally_user_auth_rule 表中sort字段默认值为0
+ 4、tally_cfs_instruction 表中operation_type字段默认0
+ 5、tally_auth_rule 表中sort字段默认值为0
+ 6、tally_qbzx_instruction_ctn 中ctnno 改为varchar(20)
+ 7、tally_qbzx_plan_cargo表damagelevel字段属性修改为不可为空默认为零
+ 8、tally_dispath表中dispath_time 可以为空
+ 9、tally_dispath_detail表中dispath_time、clerk_id 可以为空
+
+临时变动的字段
+ 1、tally_qbzx_operation起驳装箱作业表ctn_id临时修改为可以为空		
+ 2、tally_qbzx_operation起驳装箱作业表begin_time字段临时修改为可为空
+ 3、tally_qbzx_prove起泊装箱单证表ship_name临时修改为可以为空	
+ 4、tally_dd_prove门到门拆箱单证表ship_name临时修改为可为空	
+ 5、tally_cfs_prove cfs装箱单证表ship_name临时修改为可为空		
+ 6、tally_cfs_instruction_cargo 表中name、number、package、mark改为可以为空
+ 7、tally_cfs_instruction_cargo 表中totalweight、totalvolume改为varchar(20)
+ 8、tally_cfs_operation_level 表中 num 默认为0
+ 9、tally_admin 表中 email、phone 可以为空
+ 10、tally_qbzx_prove起泊装箱单证表sealno临时修改为可以为空	
+ 11、tally_dd_prove单证表sealno临时修改为可以为空
+
+处理照片问题时需注意，要先修改picture控制器下的私有属性的值
+因该程序为三级目录下完成，若要修改级别，需要同步修改picture控制器下的私有属性值
+
+
+
+09.05
+新出问题
+tally_dd_cargo_damage_img level_num 可以为空
+tally_qbzx_level_cargo_img cargo_picture可以为空
+tally_cfs_prove  total_package 可以为空
+tally_qbzx_prove tally_dd_prove tally_cfs_prove level_num  可以为空
+tally_qbzx_prove tally_dd_prove tally_cfs_prove dangerlevel 可以为空
+
+照片转移 cfs相关照片 public/upload/cfs/  下的 limage 改名为 cargo
+
+用户表和客户表密码加密 
+tally_dd_plan business字段一期数据全部默认为dd
+
+数据更新后 客户 被全部冻结
+
+qbzx系统 图片更新程序 直接保存文件名 不外加判断
+
+门到门plan_container 将箱状态4改为2

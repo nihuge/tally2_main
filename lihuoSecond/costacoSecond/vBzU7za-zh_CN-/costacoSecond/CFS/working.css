@@ -1,0 +1,16 @@
+.top-button-style {
+	color: #465A82;
+	font-weight: bold;
+}
+
+.txt-ctnno-style {
+	color: #465A82;
+	font-weight: bold;
+}
+
+.doed-img-float_right {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	z-index: 100;
+}

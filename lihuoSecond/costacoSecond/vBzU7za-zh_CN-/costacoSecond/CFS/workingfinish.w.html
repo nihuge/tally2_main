@@ -1,0 +1,56 @@
+<!DOCTYPE HTML>
+<div component="$model/UI2/system/components/justep/window/window" design="device:m;" xid="window" class="window cq2qium" data-bind="component:{name:'$model/UI2/system/components/justep/window/window'}" __justepbasexid__="__baseID__" __cid="cq2qium" components="$model/UI2/system/components/justep/loadingBar/loadingBar,$model/UI2/system/components/justep/labelEdit/labelEdit,$model/UI2/system/components/justep/row/row,$model/UI2/system/components/justep/panel/panel,$model/UI2/system/components/justep/panel/child,$model/UI2/system/components/justep/model/model,$model/UI2/system/components/justep/window/window,$model/UI2/system/components/justep/titleBar/titleBar,$model/UI2/system/components/justep/button/button,$model/UI2/system/components/justep/input/input,">  
+  <div component="$model/UI2/system/components/justep/model/model" xid="model" style="display:none" data-bind="component:{name:'$model/UI2/system/components/justep/model/model'}" __cid="cq2qium" class="cq2qium"></div>  
+  <script src="@justepContextPath@/costaco/ajax/baas.js" type="text/javascript" __cid="cq2qium" class="cq2qium"></script>  
+  <div component="$model/UI2/system/components/justep/panel/panel" class="x-panel x-full p97a305973ae94dd0af8bdcd502dad172-iosstatusbar cq2qium" xid="panel1" data-bind="component:{name:'$model/UI2/system/components/justep/panel/panel'}" __cid="cq2qium"> 
+    <div class="x-panel-top cq2qium" xid="top1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cq2qium"> 
+      <div component="$model/UI2/system/components/justep/titleBar/titleBar" class="x-titlebar cq2qium" data-bind="component:{name:'$model/UI2/system/components/justep/titleBar/titleBar'}" data-config="{&#34;title&#34;:&#34;完成作业&#34;}" __cid="cq2qium"> 
+        <div class="x-titlebar-left cq2qium" __cid="cq2qium"> 
+          <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-only-icon cq2qium" xid="backBtn" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:backBtnClick" data-config="{&#34;icon&#34;:&#34;icon-chevron-left&#34;,&#34;label&#34;:&#34;&#34;}" __cid="cq2qium"> 
+            <i class="icon-chevron-left cq2qium" __cid="cq2qium"></i>  
+            <span __cid="cq2qium" class="cq2qium"></span> 
+          </a> 
+        </div>  
+        <div class="x-titlebar-title cq2qium" __cid="cq2qium">完成作业</div>  
+        <div class="x-titlebar-right  cq2qium" __cid="cq2qium">
+          <div class="empty cq2qium" __cid="cq2qium"></div>
+        </div> 
+      </div> 
+    </div>  
+    <div class="x-panel-content cq2qium" xid="content1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cq2qium">
+      <div xid="div1" style="margin-right:10px;margin-left:10px;" __cid="cq2qium" class="cq2qium">
+        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cq2qium" xid="labelInput_sealno" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cq2qium"> 
+          <label class="x-label cq2qium" xid="label_sealno" __cid="cq2qium">铅封号：</label>  
+          <input component="$model/UI2/system/components/justep/input/input" class="form-control x-edit cq2qium" xid="input_sealno" data-bind="component:{name:'$model/UI2/system/components/justep/input/input'}" __cid="cq2qium">
+        </div>
+        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cq2qium" xid="labelInput_seal_picture" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cq2qium"> 
+          <label class="x-label cq2qium" xid="label_seal_picture" __cid="cq2qium">铅封照片：</label>  
+          <input component="$model/UI2/system/components/justep/input/input" class="form-control x-edit cq2qium" xid="input_seal_picture" data-bind="component:{name:'$model/UI2/system/components/justep/input/input'}" data-config="{&#34;readonly&#34;:true}" __cid="cq2qium">
+          <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-only-icon cq2qium" xid="button_seal_picture" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:button_seal_pictureClick" data-config="{&#34;icon&#34;:&#34;icon-android-camera&#34;,&#34;label&#34;:&#34;button&#34;}" __cid="cq2qium"> 
+            <i xid="i4" class="icon-android-camera cq2qium" __cid="cq2qium"></i>  
+            <span xid="span3" __cid="cq2qium" class="cq2qium"></span>
+          </a>
+        </div>
+        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cq2qium" xid="labelInput_cargo_weight" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cq2qium"> 
+          <label class="x-label cq2qium" xid="label_cargo_weight" __cid="cq2qium">货物重量：</label>  
+          <input component="$model/UI2/system/components/justep/input/input" class="form-control x-edit cq2qium" xid="input_cargo_weight" data-bind="component:{name:'$model/UI2/system/components/justep/input/input'}" data-config="{&#34;dataType&#34;:&#34;Integer&#34;}" __cid="cq2qium">
+        </div>  
+        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cq2qium" xid="labelInput_remark" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cq2qium"> 
+          <label class="x-label cq2qium" xid="label_remark" __cid="cq2qium">批　　注：</label>  
+          <input component="$model/UI2/system/components/justep/input/input" class="form-control x-edit cq2qium" xid="input_remark" data-bind="component:{name:'$model/UI2/system/components/justep/input/input'}" __cid="cq2qium">
+        </div> 
+      </div>  
+      <div component="$model/UI2/system/components/justep/row/row" class="x-row cq2qium" xid="row1" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cq2qium"> 
+        <div class="x-col cq2qium" xid="col1" __cid="cq2qium"></div>  
+        <div class="x-col cq2qium" xid="col2" __cid="cq2qium">
+          <a component="$model/UI2/system/components/justep/button/button" class="btn btn-default cq2qium" xid="doneWork" style="width:100%;" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:doneWorkClick" data-config="{&#34;label&#34;:&#34;完成&#34;}" __cid="cq2qium"> 
+            <i xid="i1" __cid="cq2qium" class="cq2qium"></i>  
+            <span xid="span1" __cid="cq2qium" class="cq2qium">完成</span>
+          </a>
+        </div>  
+        <div class="x-col cq2qium" xid="col3" __cid="cq2qium"></div>
+      </div> 
+    </div>  
+    <style __cid="cq2qium" class="cq2qium">.x-panel.p97a305973ae94dd0af8bdcd502dad172-iosstatusbar >.x-panel-top {height: 48px;}.x-panel.p97a305973ae94dd0af8bdcd502dad172-iosstatusbar >.x-panel-content { top: 48px;bottom: nullpx;}.x-panel.p97a305973ae94dd0af8bdcd502dad172-iosstatusbar >.x-panel-bottom {height: nullpx;}.iosstatusbar .x-panel.p97a305973ae94dd0af8bdcd502dad172-iosstatusbar >.x-panel-top {height: 68px;}.iosstatusbar .x-panel.p97a305973ae94dd0af8bdcd502dad172-iosstatusbar >.x-panel-content { top: 68px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p97a305973ae94dd0af8bdcd502dad172-iosstatusbar >.x-panel-top {height: 48px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p97a305973ae94dd0af8bdcd502dad172-iosstatusbar >.x-panel-content {top: 48px;}</style>
+  </div> 
+</div>

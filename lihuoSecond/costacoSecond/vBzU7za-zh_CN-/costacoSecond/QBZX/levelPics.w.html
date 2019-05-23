@@ -1,0 +1,77 @@
+<!DOCTYPE HTML>
+<div component="$model/UI2/system/components/justep/window/window" design="device:m;" xid="window" class="window cfu6rYb" data-bind="component:{name:'$model/UI2/system/components/justep/window/window'}" __justepbasexid__="__baseID__" __cid="cfu6rYb" components="$model/UI2/system/components/justep/loadingBar/loadingBar,$model/UI2/system/components/justep/panel/panel,$model/UI2/system/components/justep/scrollView/scrollView,$model/UI2/system/components/justep/panel/child,$model/UI2/system/components/justep/list/list,$model/UI2/system/components/justep/model/model,$model/UI2/system/components/justep/window/window,$model/UI2/system/components/justep/titleBar/titleBar,$model/UI2/system/components/justep/data/data,$model/UI2/system/components/justep/button/button,">  
+  <script src="@justepContextPath@/costacoSecond/ajax/baas.js" type="text/javascript" __cid="cfu6rYb" class="cfu6rYb"></script>  
+  <div component="$model/UI2/system/components/justep/model/model" xid="model" style="display:none" data-bind="component:{name:'$model/UI2/system/components/justep/model/model'}" __cid="cfu6rYb" class="cfu6rYb"></div>  
+  <div component="$model/UI2/system/components/justep/panel/panel" class="x-panel x-full pe87ef1612d624331941755d672a94262-iosstatusbar cfu6rYb" xid="panel1" data-bind="component:{name:'$model/UI2/system/components/justep/panel/panel'}" __cid="cfu6rYb"> 
+    <div class="x-panel-top cfu6rYb" xid="top1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cfu6rYb"> 
+      <div component="$model/UI2/system/components/justep/titleBar/titleBar" class="x-titlebar cfu6rYb" data-bind="component:{name:'$model/UI2/system/components/justep/titleBar/titleBar'}" data-config="{&#34;title&#34;:&#34;照片&#34;}" __cid="cfu6rYb"> 
+        <div class="x-titlebar-left cfu6rYb" __cid="cfu6rYb"> 
+          <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-only-icon cfu6rYb" xid="backBtn" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:backBtnClick" data-config="{&#34;icon&#34;:&#34;icon-chevron-left&#34;,&#34;label&#34;:&#34;&#34;}" __cid="cfu6rYb"> 
+            <i class="icon-chevron-left cfu6rYb" __cid="cfu6rYb"></i>  
+            <span __cid="cfu6rYb" class="cfu6rYb"></span> 
+          </a> 
+        </div>  
+        <div class="x-titlebar-title cfu6rYb" __cid="cfu6rYb">照片</div>  
+        <div class="x-titlebar-right  cfu6rYb" __cid="cfu6rYb">
+          <div class="empty cfu6rYb" __cid="cfu6rYb"></div>
+        </div> 
+      </div> 
+    </div>  
+    <div class="x-panel-content  x-scroll-view cfu6rYb" xid="content1" style="bottom: 0px;" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cfu6rYb"> 
+      <div class="x-scroll cfu6rYb" component="$model/UI2/system/components/justep/scrollView/scrollView" xid="scrollView1" data-bind="component:{name:'$model/UI2/system/components/justep/scrollView/scrollView'}" __cid="cfu6rYb"> 
+        <div class="x-content-center x-pull-down container cfu6rYb" xid="div1" __cid="cfu6rYb"> 
+          <i class="x-pull-down-img glyphicon x-icon-pull-down cfu6rYb" xid="i1" __cid="cfu6rYb"></i>  
+          <span class="x-pull-down-label cfu6rYb" xid="span11" __cid="cfu6rYb">下拉刷新...</span>
+        </div>  
+        <div class="x-scroll-content cfu6rYb" xid="div2" __cid="cfu6rYb">
+          <div component="$model/UI2/system/components/justep/list/list" class="x-list cfu6rYb" xid="list6" data-bind="component:{name:'$model/UI2/system/components/justep/list/list'}" data-config="{&#34;data&#34;:&#34;emptyImg&#34;}" __cid="cfu6rYb"> 
+            <ul class="x-list-template hide cfu6rYb" xid="listTemplateUl6" __cid="cfu6rYb" data-bind="foreach:{data:$model.foreach_list6($element),afterRender:$model.foreach_afterRender_list6.bind($model,$element)}"> 
+              <li xid="li6" __cid="cfu6rYb" class="cfu6rYb">
+                <span xid="span3" style="color:#0080FF;font-family:宋体;" __cid="cfu6rYb" class="cfu6rYb">空箱照片</span>
+                <img alt="" xid="image1" style="width:100%;" height="100%" __cid="cfu6rYb" class="cfu6rYb" data-bind="attr:{src:imgUrl+$object.val(&#34;empty_picture_a&#34;)}">
+              </li>
+            </ul> 
+          </div>
+          <div component="$model/UI2/system/components/justep/list/list" class="x-list cfu6rYb" xid="list1" data-bind="component:{name:'$model/UI2/system/components/justep/list/list'}" data-config="{&#34;data&#34;:&#34;ctnPicData&#34;}" __cid="cfu6rYb"> 
+            <ul class="x-list-template hide cfu6rYb" xid="listTemplateUl1" __cid="cfu6rYb" data-bind="foreach:{data:$model.foreach_list1($element),afterRender:$model.foreach_afterRender_list1.bind($model,$element)}"> 
+              <li xid="li1" __cid="cfu6rYb" class="cfu6rYb"> 
+                <span xid="span4" style="color:#0080FF;font-family:宋体;" __cid="cfu6rYb" class="cfu6rYb">半关门照片</span>
+                <img src="" alt="" xid="image2" height="100%" style="width:100%;" __cid="cfu6rYb" class="cfu6rYb" data-bind="attr:{src:imgUrl+  $object.val(&#34;halfclose_door_picture_a&#34;)}">  
+                <span xid="span5" style="color:#0080FF;font-family:宋体;" __cid="cfu6rYb" class="cfu6rYb">全关门照片</span>  
+                <img src="" alt="" xid="image3" style="width:100%;" height="100%" __cid="cfu6rYb" class="cfu6rYb" data-bind="attr:{src:imgUrl+ $object.val(&#34;close_door_picture_a&#34;)}"> 
+              </li>
+            </ul> 
+          </div>
+          <div component="$model/UI2/system/components/justep/list/list" class="x-list cfu6rYb" xid="list4" data-bind="component:{name:'$model/UI2/system/components/justep/list/list'}" data-config="{&#34;data&#34;:&#34;damagePic&#34;}" __cid="cfu6rYb"> 
+            <ul class="x-list-template hide cfu6rYb" xid="listTemplateUl4" __cid="cfu6rYb" data-bind="foreach:{data:$model.foreach_list4($element),afterRender:$model.foreach_afterRender_list4.bind($model,$element)}"> 
+              <li xid="li4" __cid="cfu6rYb" class="cfu6rYb">
+                <span xid="span10" style="color:#0080FF;font-family:宋体;" __cid="cfu6rYb" class="cfu6rYb">残损照片</span>  
+                <img src="" alt="" xid="image8" height="100%" style="width:100%;" __cid="cfu6rYb" class="cfu6rYb" data-bind="attr:{src:imgUrl+   $object.val(&#34;damage_picture&#34;)}">
+              </li>
+            </ul> 
+          </div>  
+          <div component="$model/UI2/system/components/justep/list/list" class="x-list cfu6rYb" xid="list5" data-bind="component:{name:'$model/UI2/system/components/justep/list/list'}" data-config="{&#34;data&#34;:&#34;cargoImg&#34;,&#34;limit&#34;:1}" __cid="cfu6rYb"> 
+            <ul class="x-list-template hide cfu6rYb" xid="listTemplateUl5" __cid="cfu6rYb" data-bind="foreach:{data:$model.foreach_list5($element),afterRender:$model.foreach_afterRender_list5.bind($model,$element)}"> 
+              <li xid="li5" __cid="cfu6rYb" class="cfu6rYb">
+                <span xid="span6" style="color:#0080FF;font-family:宋体;" __cid="cfu6rYb" class="cfu6rYb">货物照片</span>
+                <img src="" alt="" xid="image4" height="100%" style="width:100%;" __cid="cfu6rYb" class="cfu6rYb" data-bind="attr:{src:imgUrl + $object.val(&#34;cargo_picture&#34;)}">
+              </li>
+            </ul> 
+          </div>  
+          <div component="$model/UI2/system/components/justep/list/list" class="x-list cfu6rYb" xid="list3" data-bind="component:{name:'$model/UI2/system/components/justep/list/list'}" data-config="{&#34;data&#34;:&#34;sealnoPic&#34;}" __cid="cfu6rYb"> 
+            <ul class="x-list-template hide cfu6rYb" xid="listTemplateUl3" __cid="cfu6rYb" data-bind="foreach:{data:$model.foreach_list3($element),afterRender:$model.foreach_afterRender_list3.bind($model,$element)}"> 
+              <li xid="li3" __cid="cfu6rYb" class="cfu6rYb">
+                <span xid="span1" style="color:#0080FF;font-family:宋体;" __cid="cfu6rYb" class="cfu6rYb">铅封照片</span>
+                <img src="" alt="" xid="image5" style="width:100%;" height="100%" __cid="cfu6rYb" class="cfu6rYb" data-bind="attr:{src:imgUrl +  $object.val(&#34;seal_picture_a&#34;)}">
+              </li>
+            </ul> 
+          </div>
+        </div>  
+        <div class="x-content-center x-pull-up cfu6rYb" xid="div3" __cid="cfu6rYb"> 
+          <span class="x-pull-up-label cfu6rYb" xid="span12" __cid="cfu6rYb">加载更多...</span>
+        </div> 
+      </div> 
+    </div>  
+    <style __cid="cfu6rYb" class="cfu6rYb">.x-panel.pe87ef1612d624331941755d672a94262-iosstatusbar >.x-panel-top {height: 48px;}.x-panel.pe87ef1612d624331941755d672a94262-iosstatusbar >.x-panel-content { top: 48px;bottom: nullpx;}.x-panel.pe87ef1612d624331941755d672a94262-iosstatusbar >.x-panel-bottom {height: nullpx;}.iosstatusbar .x-panel.pe87ef1612d624331941755d672a94262-iosstatusbar >.x-panel-top {height: 68px;}.iosstatusbar .x-panel.pe87ef1612d624331941755d672a94262-iosstatusbar >.x-panel-content { top: 68px;}.iosstatusbar .x-panel .x-panel-content .x-panel.pe87ef1612d624331941755d672a94262-iosstatusbar >.x-panel-top {height: 48px;}.iosstatusbar .x-panel .x-panel-content .x-panel.pe87ef1612d624331941755d672a94262-iosstatusbar >.x-panel-content {top: 48px;}</style>
+  </div> 
+</div>

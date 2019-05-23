@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<div component="$model/UI2/system/components/justep/window/window" design="device:m;" xid="window" class="window cVNJR7n" data-bind="component:{name:'$model/UI2/system/components/justep/window/window'}" __justepbasexid__="__baseID__" __cid="cVNJR7n" components="$model/UI2/system/components/justep/loadingBar/loadingBar,$model/UI2/system/components/justep/labelEdit/labelEdit,$model/UI2/system/components/justep/row/row,$model/UI2/system/components/justep/panel/panel,$model/UI2/system/components/justep/button/buttonGroup,$model/UI2/system/components/justep/list/list,$model/UI2/system/components/justep/window/window,$model/UI2/system/components/justep/data/data,$model/UI2/system/components/justep/titleBar/titleBar,$model/UI2/system/components/justep/panel/child,$model/UI2/system/components/justep/model/model,$model/UI2/system/components/justep/button/button,$model/UI2/system/components/justep/output/output,$model/UI2/system/components/justep/input/input,">
+  <style>.footer.cVNJR7n{position: absolute; bottom: 0; left: 0; height: 100%; width: 100%; background-color: white; opacity: 0.9; visibility: hidden} .tiaomu.cVNJR7n{border-radius: 5px; border-style: solid solid solid solid; border-width: thin thin thin thin; border-color: rgb(192, 192, 192) rgb(192, 192, 192) rgb(192, 192, 192) rgb(192, 192, 192)} .left-txt.cVNJR7n{margin-left: 10px} .right-txt.cVNJR7n{margin-right: 10px} .select-no-border.cVNJR7n{border-style: none none none none} .floatleft.cVNJR7n{float: left} .iamges.cVNJR7n{width: 50px; height: 50px; margin-left: 5px}</style>  
+  <script src="@justepContextPath@/costacoSecond/ajax/db.js" type="text/javascript" __cid="cVNJR7n" class="cVNJR7n"></script>  
+  <div component="$model/UI2/system/components/justep/model/model" xid="model" style="display:none" data-bind="component:{name:'$model/UI2/system/components/justep/model/model'}" data-events="onLoad:modelLoad;onActive:modelActive" __cid="cVNJR7n" class="cVNJR7n"></div>  
+  <script src="@justepContextPath@/costacoSecond/ajax/baas.js" type="text/javascript" __cid="cVNJR7n" class="cVNJR7n"></script>  
+  <div component="$model/UI2/system/components/justep/panel/panel" class="x-panel x-full pfdb0a74e67de4a0db9297d9be6b25be5-iosstatusbar cVNJR7n" xid="panel1" data-bind="component:{name:'$model/UI2/system/components/justep/panel/panel'}" __cid="cVNJR7n"> 
+    <div class="x-panel-top cVNJR7n" xid="top1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cVNJR7n"> 
+      <div component="$model/UI2/system/components/justep/titleBar/titleBar" class="x-titlebar cVNJR7n" data-bind="component:{name:'$model/UI2/system/components/justep/titleBar/titleBar'}" data-config="{&#34;title&#34;:&#34;开始作业&#34;}" __cid="cVNJR7n"> 
+        <div class="x-titlebar-left cVNJR7n" __cid="cVNJR7n"> 
+          <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-only-icon cVNJR7n" xid="backBtn" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:backBtnClick" data-config="{&#34;icon&#34;:&#34;icon-chevron-left&#34;,&#34;label&#34;:&#34;&#34;}" __cid="cVNJR7n"> 
+            <i class="icon-chevron-left cVNJR7n" __cid="cVNJR7n"></i>  
+            <span __cid="cVNJR7n" class="cVNJR7n"></span> 
+          </a> 
+        </div>  
+        <div class="x-titlebar-title cVNJR7n" __cid="cVNJR7n">开始作业</div>  
+        <div class="x-titlebar-right  cVNJR7n" __cid="cVNJR7n">
+          <div class="empty cVNJR7n" __cid="cVNJR7n"></div>
+        </div> 
+      </div> 
+    </div>  
+    <div class="x-panel-content cVNJR7n" xid="content1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cVNJR7n"> 
+      <div xid="div1" __cid="cVNJR7n" class="cVNJR7n"> 
+        <div component="$model/UI2/system/components/justep/list/list" class="x-list cVNJR7n" xid="list1" data-bind="component:{name:'$model/UI2/system/components/justep/list/list'}" data-config="{&#34;data&#34;:&#34;ctndetailsData&#34;}" __cid="cVNJR7n"> 
+          <ul class="x-list-template hide cVNJR7n" xid="listTemplateUl1" __cid="cVNJR7n" data-bind="foreach:{data:$model.foreach_list1($element),afterRender:$model.foreach_afterRender_list1.bind($model,$element)}"> 
+            <li xid="li1" __cid="cVNJR7n" class="cVNJR7n">
+              <div component="$model/UI2/system/components/justep/row/row" class="x-row cVNJR7n" xid="row6" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cVNJR7n"> 
+                <div class="x-col cVNJR7n" xid="col20" __cid="cVNJR7n"> 
+                  <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 tiaomu cVNJR7n" xid="labelOutput1" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cVNJR7n"> 
+                    <label class="x-label left-txt cVNJR7n" xid="label1" style="width:120px;" __cid="cVNJR7n">集装箱号：</label>  
+                    <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit input-sm x-edit select-no-border right-txt cVNJR7n" xid="output1" data-bind="component:{ref:ref('ctnno'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cVNJR7n"></div>
+                  </div> 
+                </div> 
+              </div>
+            </li>
+          </ul> 
+        </div>  
+        <div component="$model/UI2/system/components/justep/row/row" class="x-row cVNJR7n" xid="row1" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cVNJR7n"> 
+          <div class="x-col cVNJR7n" xid="col4" __cid="cVNJR7n"> 
+            <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 tiaomu cVNJR7n" xid="labelInput1" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cVNJR7n"> 
+              <label class="x-label left-txt cVNJR7n" xid="label3" style="width:100px;" __cid="cVNJR7n">铅封号：</label>  
+              <input component="$model/UI2/system/components/justep/input/input" class="form-control input-sm x-edit select-no-border right-txt cVNJR7n" xid="input_true_sealno" data-bind="component:{ref:workinfo.ref('true_sealno'),name:'$model/UI2/system/components/justep/input/input'}" data-config="{&#34;placeHolder&#34;:&#34;请输入铅封号&#34;}" __cid="cVNJR7n">
+            </div> 
+          </div> 
+        </div>  
+        <div component="$model/UI2/system/components/justep/row/row" class="x-row cVNJR7n" xid="row25" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cVNJR7n"> 
+          <div class="x-col cVNJR7n" xid="col12" style="background-color:#F1F3F7;" __cid="cVNJR7n"> 
+            <div xid="div19" __cid="cVNJR7n" class="cVNJR7n"> 
+              <label xid="label17" style="font-size:12px;color:#C0C0C0;" __cid="cVNJR7n" class="cVNJR7n">拍摄铅封照片</label>
+            </div>  
+            <div xid="div15" __cid="cVNJR7n" class="cVNJR7n"> 
+              <div xid="div14" id="images11_1" class="floatleft cVNJR7n" __cid="cVNJR7n"></div>  
+              <div xid="div21" class="floatleft cVNJR7n" __cid="cVNJR7n"> 
+                <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-lg btn-only-icon cVNJR7n" xid="button6" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:button_seal_pictureClick" data-config="{&#34;icon&#34;:&#34;icon-android-camera&#34;,&#34;label&#34;:&#34;button&#34;}" __cid="cVNJR7n"> 
+                  <i xid="i8" class="icon-android-camera cVNJR7n" __cid="cVNJR7n"></i>  
+                  <span xid="span15" __cid="cVNJR7n" class="cVNJR7n"></span>
+                </a> 
+              </div> 
+            </div> 
+          </div> 
+        </div>  
+        <div component="$model/UI2/system/components/justep/row/row" class="x-row cVNJR7n" xid="row2" style="margin-top:5px;" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cVNJR7n"> 
+          <div class="x-col cVNJR7n" xid="col5" style="background-color:#F1F3F7;" __cid="cVNJR7n"> 
+            <div xid="div4" __cid="cVNJR7n" class="cVNJR7n"> 
+              <label xid="label1" style="font-size:12px;color:#C0C0C0;" __cid="cVNJR7n" class="cVNJR7n">拍摄箱门照片</label>
+            </div>  
+            <div xid="div2" __cid="cVNJR7n" class="cVNJR7n"> 
+              <div xid="div3" id="images11_2" class="floatleft cVNJR7n" __cid="cVNJR7n"></div>  
+              <div xid="div5" class="floatleft cVNJR7n" __cid="cVNJR7n"> 
+                <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-lg btn-only-icon cVNJR7n" xid="button1" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:button_door_pictureClick" data-config="{&#34;icon&#34;:&#34;icon-android-camera&#34;,&#34;label&#34;:&#34;button&#34;}" __cid="cVNJR7n"> 
+                  <i xid="i1" class="icon-android-camera cVNJR7n" __cid="cVNJR7n"></i>  
+                  <span xid="span1" __cid="cVNJR7n" class="cVNJR7n"></span>
+                </a> 
+              </div> 
+            </div> 
+          </div> 
+        </div>  
+        <div component="$model/UI2/system/components/justep/row/row" class="x-row cVNJR7n" xid="row4" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cVNJR7n"> 
+          <div class="x-col cVNJR7n" xid="col15" __cid="cVNJR7n"> 
+            <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 tiaomu cVNJR7n" xid="labelInput2" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cVNJR7n"> 
+              <label class="x-label left-txt cVNJR7n" xid="label4" style="width:100px;" __cid="cVNJR7n">箱体残损：</label>  
+              <input component="$model/UI2/system/components/justep/input/input" class="form-control input-sm x-edit select-no-border right-txt cVNJR7n" xid="input_damage_remark" data-bind="component:{name:'$model/UI2/system/components/justep/input/input'}" data-config="{&#34;placeHolder&#34;:&#34;箱残损&#34;}" __cid="cVNJR7n">
+            </div> 
+          </div> 
+        </div>  
+        <div component="$model/UI2/system/components/justep/row/row" class="x-row cVNJR7n" xid="row3" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cVNJR7n"> 
+          <div class="x-col cVNJR7n" xid="col6" style="background-color:#F1F3F7;" __cid="cVNJR7n"> 
+            <div xid="div8" __cid="cVNJR7n" class="cVNJR7n"> 
+              <label xid="label2" style="font-size:12px;color:#C0C0C0;" __cid="cVNJR7n" class="cVNJR7n">拍摄箱残损照片</label>
+            </div>  
+            <div xid="div6" __cid="cVNJR7n" class="cVNJR7n"> 
+              <div xid="div7" id="images11_3" class="floatleft cVNJR7n" __cid="cVNJR7n"></div>  
+              <div xid="div9" class="floatleft cVNJR7n" __cid="cVNJR7n"> 
+                <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-lg btn-only-icon cVNJR7n" xid="button2" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:button_damage_imgClick" data-config="{&#34;icon&#34;:&#34;icon-android-camera&#34;,&#34;label&#34;:&#34;button&#34;}" __cid="cVNJR7n"> 
+                  <i xid="i2" class="icon-android-camera cVNJR7n" __cid="cVNJR7n"></i>  
+                  <span xid="span2" __cid="cVNJR7n" class="cVNJR7n"></span>
+                </a> 
+              </div> 
+            </div> 
+          </div> 
+        </div>  
+        <div component="$model/UI2/system/components/justep/row/row" class="x-row cVNJR7n" xid="btn" style="margin-top:5px;" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cVNJR7n"> 
+          <div class="x-col cVNJR7n" xid="col1" __cid="cVNJR7n"></div>  
+          <div class="x-col cVNJR7n" xid="col2" __cid="cVNJR7n"> 
+            <a component="$model/UI2/system/components/justep/button/button" class="btn btn-default cVNJR7n" xid="next" style="width:100%;" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:nextClick" data-config="{&#34;label&#34;:&#34;下一步&#34;}" __cid="cVNJR7n"> 
+              <i xid="i5" __cid="cVNJR7n" class="cVNJR7n"></i>  
+              <span xid="span5" __cid="cVNJR7n" class="cVNJR7n">下一步</span>
+            </a> 
+          </div>  
+          <div class="x-col cVNJR7n" xid="col3" __cid="cVNJR7n"></div>
+        </div> 
+      </div>
+    </div>  
+    <div id="show11" xid="content4" class="footer cVNJR7n" __cid="cVNJR7n" data-bind="visible:false"> 
+      <div component="$model/UI2/system/components/justep/panel/panel" class="x-panel x-full p04c4e7c3f70a417f8e74e06c5a094bf7-iosstatusbar cVNJR7n" xid="panel4" data-bind="component:{name:'$model/UI2/system/components/justep/panel/panel'}" __cid="cVNJR7n"> 
+        <div class="x-panel-content cVNJR7n" xid="content3" style="text-align:center;" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cVNJR7n"> 
+          <img src="" alt="" xid="imageshow" style="width:100%;" height="100%" __cid="cVNJR7n" class="cVNJR7n">
+        </div>  
+        <div class="x-panel-bottom cVNJR7n" xid="bottom1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cVNJR7n"> 
+          <div component="$model/UI2/system/components/justep/button/buttonGroup" class="btn-group x-card btn-group-justified cVNJR7n" xid="buttonGroup1" data-bind="component:{name:'$model/UI2/system/components/justep/button/buttonGroup'}" data-config="{&#34;tabbed&#34;:true}" __cid="cVNJR7n"> 
+            <a component="$model/UI2/system/components/justep/button/button" class="btn btn-default cVNJR7n" xid="btn1" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:btn_deleteClick" data-config="{&#34;label&#34;:&#34;删除&#34;}" __cid="cVNJR7n"> 
+              <i xid="i9" __cid="cVNJR7n" class="cVNJR7n"></i>  
+              <span xid="span8" __cid="cVNJR7n" class="cVNJR7n">删除</span>
+            </a>  
+            <a component="$model/UI2/system/components/justep/button/button" class="btn btn-default cVNJR7n" xid="button7" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:button11Click" data-config="{&#34;label&#34;:&#34;取消&#34;}" __cid="cVNJR7n"> 
+              <i xid="i10" __cid="cVNJR7n" class="cVNJR7n"></i>  
+              <span xid="span16" __cid="cVNJR7n" class="cVNJR7n">取消</span>
+            </a> 
+          </div> 
+        </div>  
+        <style __cid="cVNJR7n" class="cVNJR7n">.x-panel.p04c4e7c3f70a417f8e74e06c5a094bf7-iosstatusbar >.x-panel-top {height: 0px;}.x-panel.p04c4e7c3f70a417f8e74e06c5a094bf7-iosstatusbar >.x-panel-content { top: 0px;bottom: nullpx;}.x-panel.p04c4e7c3f70a417f8e74e06c5a094bf7-iosstatusbar >.x-panel-bottom {height: nullpx;}.iosstatusbar .x-panel.p04c4e7c3f70a417f8e74e06c5a094bf7-iosstatusbar >.x-panel-top {height: 0px;}.iosstatusbar .x-panel.p04c4e7c3f70a417f8e74e06c5a094bf7-iosstatusbar >.x-panel-content { top: 0px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p04c4e7c3f70a417f8e74e06c5a094bf7-iosstatusbar >.x-panel-top {height: 0px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p04c4e7c3f70a417f8e74e06c5a094bf7-iosstatusbar >.x-panel-content {top: 0px;}</style>
+      </div> 
+    </div>
+    <style __cid="cVNJR7n" class="cVNJR7n">.x-panel.pfdb0a74e67de4a0db9297d9be6b25be5-iosstatusbar >.x-panel-top {height: 48px;}.x-panel.pfdb0a74e67de4a0db9297d9be6b25be5-iosstatusbar >.x-panel-content { top: 48px;bottom: nullpx;}.x-panel.pfdb0a74e67de4a0db9297d9be6b25be5-iosstatusbar >.x-panel-bottom {height: nullpx;}.iosstatusbar .x-panel.pfdb0a74e67de4a0db9297d9be6b25be5-iosstatusbar >.x-panel-top {height: 68px;}.iosstatusbar .x-panel.pfdb0a74e67de4a0db9297d9be6b25be5-iosstatusbar >.x-panel-content { top: 68px;}.iosstatusbar .x-panel .x-panel-content .x-panel.pfdb0a74e67de4a0db9297d9be6b25be5-iosstatusbar >.x-panel-top {height: 48px;}.iosstatusbar .x-panel .x-panel-content .x-panel.pfdb0a74e67de4a0db9297d9be6b25be5-iosstatusbar >.x-panel-content {top: 48px;}</style>
+  </div> 
+</div>

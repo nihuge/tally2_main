@@ -1,0 +1,33 @@
+.footer {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	background-color: white;
+	opacity: 0.90;
+	visibility: hidden;
+}
+
+.input-border {
+	border-radius: 5px;
+	border-style: solid solid solid solid;
+	border-width: thin thin thin thin;
+	border-color: #C0C0C0 #C0C0C0 #C0C0C0 #C0C0C0;
+}
+
+.select-no-border {
+	border-style: none none none none;
+}
+
+.left-txt {
+	margin-left: 10px;
+}
+
+.right-txt {
+	margin-right: 10px;
+}
+
+.floatleft {
+	float: left;
+}

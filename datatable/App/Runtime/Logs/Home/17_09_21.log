@@ -1,0 +1,23 @@
+[ 2017-09-21T10:32:31+08:00 ] 192.168.32.1 /datatable/
+ERR: SQLSTATE[HY000]: General error: 933 OCIStmtExecute: ORA-00933: SQL 命令未正确结束
+ (ext\pdo_oci\oci_statement.c:148)
+
+[ 2017-09-21T10:32:33+08:00 ] 192.168.32.1 /datatable/
+ERR: SQLSTATE[HY000]: General error: 933 OCIStmtExecute: ORA-00933: SQL 命令未正确结束
+ (ext\pdo_oci\oci_statement.c:148)
+
+[ 2017-09-21T11:21:21+08:00 ] 192.168.32.1 /datatable/
+ERR: could not find driver
+
+[ 2017-09-21T11:22:28+08:00 ] 192.168.32.1 /datatable/
+ERR: SQLSTATE[42S02]: pdo_oci_handle_factory: ORA-12154: TNS: 无法解析指定的连接标识符
+ (ext\pdo_oci\oci_driver.c:635)
+
+[ 2017-09-21T13:50:03+08:00 ] 192.168.32.1 /datatable/
+ERR: SQLSTATE[HY000]: General error: 972 OCIStmtExecute: ORA-00972: 标识符过长
+ (ext\pdo_oci\oci_statement.c:148)
+
+[ 2017-09-21T14:04:17+08:00 ] 192.168.32.1 /datatable/
+ERR: SQLSTATE[HY000]: General error: 933 OCIStmtExecute: ORA-00933: SQL 命令未正确结束
+ (ext\pdo_oci\oci_statement.c:148)
+

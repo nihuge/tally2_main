@@ -1,0 +1,83 @@
+<!DOCTYPE HTML>
+<div component="$model/UI2/system/components/justep/window/window" design="device:m;" xid="window" class="window cfaM3ma" data-bind="component:{name:'$model/UI2/system/components/justep/window/window'}" __justepbasexid__="__baseID__" __cid="cfaM3ma" components="$model/UI2/system/components/justep/loadingBar/loadingBar,$model/UI2/system/components/justep/labelEdit/labelEdit,$model/UI2/system/components/justep/row/row,$model/UI2/system/components/justep/panel/panel,$model/UI2/system/components/justep/list/list,$model/UI2/system/components/justep/select/radioGroup,$model/UI2/system/components/justep/window/window,$model/UI2/system/components/justep/data/data,$model/UI2/system/components/justep/titleBar/titleBar,$model/UI2/system/components/justep/contents/contents,$model/UI2/system/components/justep/panel/child,$model/UI2/system/components/justep/scrollView/scrollView,$model/UI2/system/components/justep/contents/content,$model/UI2/system/components/justep/model/model,$model/UI2/system/components/justep/button/radio,$model/UI2/system/components/justep/button/button,$model/UI2/system/components/justep/output/output,">  
+  <div component="$model/UI2/system/components/justep/model/model" xid="model" style="display:none" data-bind="component:{name:'$model/UI2/system/components/justep/model/model'}" __cid="cfaM3ma" class="cfaM3ma"></div>  
+  <script src="@justepContextPath@/costacoSecond/ajax/baas.js" type="text/javascript" __cid="cfaM3ma" class="cfaM3ma"></script>  
+  <div component="$model/UI2/system/components/justep/panel/panel" class="x-panel x-full pcbb92548e20f4d59ab944ccc2d457084-iosstatusbar cfaM3ma" xid="panel1" data-bind="component:{name:'$model/UI2/system/components/justep/panel/panel'}" __cid="cfaM3ma"> 
+    <div class="x-panel-top cfaM3ma" xid="top1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cfaM3ma"> 
+      <div component="$model/UI2/system/components/justep/titleBar/titleBar" class="x-titlebar cfaM3ma" data-bind="component:{name:'$model/UI2/system/components/justep/titleBar/titleBar'}" data-config="{&#34;title&#34;:&#34;派工列表&#34;}" __cid="cfaM3ma"> 
+        <div class="x-titlebar-left cfaM3ma" __cid="cfaM3ma"> 
+          <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-only-icon cfaM3ma" xid="backBtn" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:backBtnClick" data-config="{&#34;icon&#34;:&#34;icon-chevron-left&#34;,&#34;label&#34;:&#34;&#34;}" __cid="cfaM3ma"> 
+            <i class="icon-chevron-left cfaM3ma" __cid="cfaM3ma"></i>  
+            <span __cid="cfaM3ma" class="cfaM3ma"></span> 
+          </a> 
+        </div>  
+        <div class="x-titlebar-title cfaM3ma" __cid="cfaM3ma">派工列表</div>  
+        <div class="x-titlebar-right  cfaM3ma" __cid="cfaM3ma">
+          <div class="empty cfaM3ma" __cid="cfaM3ma"></div>
+          <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-only-icon cfaM3ma" xid="dispatchingBtn" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:dispatchingBtn" data-config="{&#34;icon&#34;:&#34;icon-android-checkmark&#34;,&#34;label&#34;:&#34;确认派工&#34;}" __cid="cfaM3ma"> 
+            <i xid="i2" class="icon-android-checkmark cfaM3ma" __cid="cfaM3ma"></i>  
+            <span xid="span2" __cid="cfaM3ma" class="cfaM3ma">确认派工</span>
+          </a>
+        </div> 
+      </div> 
+    </div>  
+    <div class="x-panel-content cfaM3ma" xid="content1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cfaM3ma">
+      <div component="$model/UI2/system/components/justep/contents/contents" class="x-contents x-full cfaM3ma" xid="contents1" data-bind="component:{name:'$model/UI2/system/components/justep/contents/contents'}" data-config="{&#34;active&#34;:0}" __cid="cfaM3ma"> 
+        <div class="x-contents-content active cfaM3ma" xid="listContent" component="$model/UI2/system/components/justep/contents/content" data-bind="component:{name:'$model/UI2/system/components/justep/contents/content'}" __cid="cfaM3ma"> 
+          <div component="$model/UI2/system/components/justep/panel/panel" class="x-panel p55f63e8833ca4e8e8a09b4fbd38ce834-iosstatusbar cfaM3ma" xid="panel2" style="height:100%;width:100%;" data-bind="component:{name:'$model/UI2/system/components/justep/panel/panel'}" __cid="cfaM3ma"> 
+            <div class="x-panel-content x-scroll-view  cfaM3ma" xid="content2" style="bottom: 0px; top: 48px;" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cfaM3ma"> 
+              <div class="x-scroll cfaM3ma" component="$model/UI2/system/components/justep/scrollView/scrollView" xid="scrollView1" data-bind="component:{name:'$model/UI2/system/components/justep/scrollView/scrollView'}" __cid="cfaM3ma"> 
+                <div class="x-content-center x-pull-down container cfaM3ma" xid="div5" __cid="cfaM3ma"> 
+                  <i class="x-pull-down-img glyphicon x-icon-pull-down cfaM3ma" xid="i1" __cid="cfaM3ma"></i>  
+                  <span class="x-pull-down-label cfaM3ma" xid="span6" __cid="cfaM3ma">下拉刷新...</span>
+                </div>
+                <div class="x-scroll-content cfaM3ma" xid="div6" __cid="cfaM3ma"> 
+                  <form method="post" id="dd_begin_form1" enctype="multipart/form-data" __cid="cfaM3ma" class="cfaM3ma"> 
+                    <div component="$model/UI2/system/components/justep/row/row" class="x-row cfaM3ma" xid="row2" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cfaM3ma"> 
+                      <div class="x-col cfaM3ma" xid="col4" __cid="cfaM3ma">
+                        <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cfaM3ma" xid="labelRadioGroup2" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cfaM3ma"> 
+                          <label class="x-label cfaM3ma" xid="label9" style="width:auto;" __cid="cfaM3ma">是否为重点客户：</label>  
+                          <span component="$model/UI2/system/components/justep/select/radioGroup" class="x-radios x-edit cfaM3ma" xid="Keycustomer" data-bind="component:{ref:keycostomer.ref('is_must'),name:'$model/UI2/system/components/justep/select/radioGroup'},foreach:{data:isKeycustomer.datas,afterRender:$model.comp($element)['_doUpdate'].bind($model.comp($element))}" __cid="cfaM3ma">
+                            <span component="$model/UI2/system/components/justep/button/radio" class="x-radio cfaM3ma" data-config="{&#34;checked&#34;:false,&#34;disabled&#34;:false}" data-bind="component:{name:'$model/UI2/system/components/justep/button/radio',value:ref('value'),label:ref('name')}" __cid="cfaM3ma">
+                              <input type="radio" __cid="cfaM3ma" class="cfaM3ma">
+                              <label __cid="cfaM3ma" class="cfaM3ma"></label>
+                            </span>
+                          </span>
+                        </div>
+                      </div> 
+                    </div>
+                    <div component="$model/UI2/system/components/justep/list/list" class="x-list x-cards cfaM3ma" xid="list1" data-bind="component:{name:'$model/UI2/system/components/justep/list/list'}" data-config="{&#34;autoLoad&#34;:true,&#34;data&#34;:&#34;staffData&#34;}" __cid="cfaM3ma"> 
+                      <ul class="x-list-template x-min-height list-group hide cfaM3ma" xid="listTemplateUl1" componentname="$UI/system/components/justep/list/list#listTemplateUl" id="undefined_listTemplateUl1" __cid="cfaM3ma" data-bind="foreach:{data:$model.foreach_list1($element),afterRender:$model.foreach_afterRender_list1.bind($model,$element)}"> 
+                        <li xid="li1" class="x-min-height list-group-item cfaM3ma" componentname="li(html)" id="undefined_li1" __cid="cfaM3ma"> 
+                          <div xid="div8" class="media cfaM3ma" __cid="cfaM3ma"> 
+                            <div component="$model/UI2/system/components/justep/row/row" class="x-row cfaM3ma" xid="row1" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="cfaM3ma"> 
+                              <div class="x-col cfaM3ma" xid="col1" __cid="cfaM3ma">
+                                <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cfaM3ma" xid="labelOutput1" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cfaM3ma"> 
+                                  <label class="x-label cfaM3ma" xid="label1" __cid="cfaM3ma" data-bind="text:label('user_name')"></label>  
+                                  <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cfaM3ma" xid="output1" data-bind="component:{ref:ref('user_name'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cfaM3ma"></div>
+                                </div>
+                              </div>  
+                              <div class="x-col x-col-10 cfaM3ma" xid="col3" __cid="cfaM3ma">
+                                <input type="checkbox" value="" name="workerlist[]" xid="checkbox2" style="height:26px;width:24px;" __cid="cfaM3ma" class="cfaM3ma" data-bind="value:$object.val(&#34;uid&#34;),checked:$object.val(&#34;is_check&#34;) ==&#34;Y&#34;">
+                              </div>
+                            </div>
+                          </div> 
+                        </li> 
+                      </ul> 
+                    </div> 
+                  </form>  
+                  <span xid="span1" __cid="cfaM3ma" class="cfaM3ma"></span> 
+                </div>  
+                <div class="x-content-center x-pull-up cfaM3ma" xid="div7" __cid="cfaM3ma"> 
+                  <span class="x-pull-up-label cfaM3ma" xid="span5" __cid="cfaM3ma">加载更多...</span>
+                </div> 
+              </div> 
+            </div>  
+            <style __cid="cfaM3ma" class="cfaM3ma">.x-panel.p55f63e8833ca4e8e8a09b4fbd38ce834-iosstatusbar >.x-panel-top {height: 0px;}.x-panel.p55f63e8833ca4e8e8a09b4fbd38ce834-iosstatusbar >.x-panel-content { top: 0px;bottom: nullpx;}.x-panel.p55f63e8833ca4e8e8a09b4fbd38ce834-iosstatusbar >.x-panel-bottom {height: nullpx;}.iosstatusbar .x-panel.p55f63e8833ca4e8e8a09b4fbd38ce834-iosstatusbar >.x-panel-top {height: 0px;}.iosstatusbar .x-panel.p55f63e8833ca4e8e8a09b4fbd38ce834-iosstatusbar >.x-panel-content { top: 0px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p55f63e8833ca4e8e8a09b4fbd38ce834-iosstatusbar >.x-panel-top {height: 0px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p55f63e8833ca4e8e8a09b4fbd38ce834-iosstatusbar >.x-panel-content {top: 0px;}</style>
+          </div> 
+        </div> 
+      </div>
+    </div>  
+    <style __cid="cfaM3ma" class="cfaM3ma">.x-panel.pcbb92548e20f4d59ab944ccc2d457084-iosstatusbar >.x-panel-top {height: 48px;}.x-panel.pcbb92548e20f4d59ab944ccc2d457084-iosstatusbar >.x-panel-content { top: 48px;bottom: nullpx;}.x-panel.pcbb92548e20f4d59ab944ccc2d457084-iosstatusbar >.x-panel-bottom {height: nullpx;}.iosstatusbar .x-panel.pcbb92548e20f4d59ab944ccc2d457084-iosstatusbar >.x-panel-top {height: 68px;}.iosstatusbar .x-panel.pcbb92548e20f4d59ab944ccc2d457084-iosstatusbar >.x-panel-content { top: 68px;}.iosstatusbar .x-panel .x-panel-content .x-panel.pcbb92548e20f4d59ab944ccc2d457084-iosstatusbar >.x-panel-top {height: 48px;}.iosstatusbar .x-panel .x-panel-content .x-panel.pcbb92548e20f4d59ab944ccc2d457084-iosstatusbar >.x-panel-content {top: 48px;}</style>
+  </div> 
+</div>

@@ -1,0 +1,99 @@
+<!DOCTYPE HTML>
+<div component="$model/UI2/system/components/justep/window/window" design="device:mobile" xid="window" data-bind="component:{name:'$model/UI2/system/components/justep/window/window'}" __justepbasexid__="__baseID__" __cid="czyuINb" class="czyuINb" components="$model/UI2/system/components/justep/loadingBar/loadingBar,$model/UI2/system/components/justep/labelEdit/labelEdit,$model/UI2/system/components/justep/row/row,$model/UI2/system/components/justep/panel/panel,$model/UI2/system/components/justep/button/buttonGroup,$model/UI2/system/components/justep/window/window,$model/UI2/system/components/justep/data/data,$model/UI2/system/components/justep/titleBar/titleBar,$model/UI2/system/components/justep/panel/child,$model/UI2/system/components/justep/messageDialog/messageDialog,$model/UI2/system/components/justep/model/model,$model/UI2/system/components/justep/button/button,$model/UI2/system/components/justep/input/input,">
+  <style>.footer.czyuINb{position: absolute; bottom: 0; left: 0; height: 100%; width: 100%; background-color: white; opacity: 0.9; visibility: hidden} .tiaomu.czyuINb{border-radius: 5px; border-style: solid solid solid solid; border-width: thin thin thin thin; border-color: rgb(192, 192, 192) rgb(192, 192, 192) rgb(192, 192, 192) rgb(192, 192, 192)} .left-txt.czyuINb{margin-left: 10px} .right-txt.czyuINb{margin-right: 10px} .select-no-border.czyuINb{border-style: none none none none} .floatleft.czyuINb{float: left} .iamges.czyuINb{width: 50px; height: 50px; margin-left: 5px}</style>  
+  <script src="@justepContextPath@/costacoSecond/ajax/db.js" type="text/javascript" __cid="czyuINb" class="czyuINb"></script>  
+  <script src="@justepContextPath@/costacoSecond/ajax/baas.js" type="text/javascript" __cid="czyuINb" class="czyuINb"></script>
+  <div component="$model/UI2/system/components/justep/model/model" xid="model" style="display:none" data-bind="component:{name:'$model/UI2/system/components/justep/model/model'}" data-events="onLoad:modelLoad;onActive:modelActive" __cid="czyuINb" class="czyuINb"></div>  
+  <div component="$model/UI2/system/components/justep/panel/panel" class="x-panel x-full pf32f575d06bf42bfa6e25613546887b8-iosstatusbar czyuINb" xid="panel1" data-bind="component:{name:'$model/UI2/system/components/justep/panel/panel'}" __cid="czyuINb"> 
+    <div class="x-panel-top czyuINb" xid="top1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="czyuINb"> 
+      <div component="$model/UI2/system/components/justep/titleBar/titleBar" class="x-titlebar czyuINb" xid="titleBar1" data-bind="component:{name:'$model/UI2/system/components/justep/titleBar/titleBar'}" data-config="{&#34;title&#34;:&#34;空箱操作&#34;}" __cid="czyuINb"> 
+        <div class="x-titlebar-left czyuINb" xid="div1" __cid="czyuINb"> 
+          <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-only-icon czyuINb" xid="backBtn" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:backBtnClick" data-config="{&#34;icon&#34;:&#34;icon-chevron-left&#34;,&#34;label&#34;:&#34;&#34;}" __cid="czyuINb"> 
+            <i class="icon-chevron-left czyuINb" xid="i7" __cid="czyuINb"></i>  
+            <span xid="span7" __cid="czyuINb" class="czyuINb"></span>
+          </a> 
+        </div>  
+        <div class="x-titlebar-title czyuINb" xid="div2" __cid="czyuINb">空箱操作</div>  
+        <div class="x-titlebar-right  czyuINb" xid="div3" __cid="czyuINb">
+          <div class="empty czyuINb" __cid="czyuINb"></div>
+        </div> 
+      </div> 
+    </div>  
+    <div class="x-panel-content czyuINb" xid="content1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="czyuINb"> 
+      <form xid="form1" enctype="multipart/form-data" method="post" action="http://192.168.1.91/xztally/index.php/qbzx/jiworkadd" __cid="czyuINb" class="czyuINb"> 
+        <div component="$model/UI2/system/components/justep/row/row" class="x-row czyuINb" xid="row1" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="czyuINb"> 
+          <div class="x-col czyuINb" xid="col1" __cid="czyuINb"> 
+            <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 tiaomu czyuINb" xid="labelInput1" style="text-align:center;" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="czyuINb"> 
+              <label class="x-label left-txt czyuINb" xid="label2" style="width:auto;" __cid="czyuINb" data-bind="text:dispatchingOrderDetailsData.label('emptyweight')"></label>  
+              <input component="$model/UI2/system/components/justep/input/input" oninput="if(value.length&gt;9)value=value.slice(0,9)" onkeyup="this.value=this.value.replace(/\D/g,'')" class="form-control input-sm x-edit input-sm x-edit select-no-border  czyuINb" xid="input1" style="width:249px;margin-right:3px;" data-bind="component:{ref:dispatchingOrderDetailsData.ref('emptyweight'),name:'$model/UI2/system/components/justep/input/input'}" data-config="{&#34;placeHolder&#34;:&#34;请输入空箱重量&#34;}" __cid="czyuINb">  
+              <label xid="label1" style="font-style:normal;" class="right-txt czyuINb" __cid="czyuINb">kg</label>
+            </div> 
+          </div> 
+        </div>  
+        <div component="$model/UI2/system/components/justep/row/row" class="x-row czyuINb" xid="row25" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="czyuINb"> 
+          <div class="x-col czyuINb" xid="col12" style="background-color:#F1F3F7;" __cid="czyuINb"> 
+            <div xid="div19" __cid="czyuINb" class="czyuINb"> 
+              <label xid="label17" style="font-size:12px;color:#C0C0C0;" __cid="czyuINb" class="czyuINb">拍摄空箱照片</label>
+            </div>  
+            <div xid="div15" __cid="czyuINb" class="czyuINb"> 
+              <div xid="div14" id="images1" class="floatleft czyuINb" __cid="czyuINb"></div>  
+              <div xid="div21" class="floatleft czyuINb" __cid="czyuINb"> 
+                <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-lg btn-only-icon czyuINb" xid="button6" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:empty_pictureClick" data-config="{&#34;icon&#34;:&#34;icon-android-camera&#34;,&#34;label&#34;:&#34;button&#34;}" __cid="czyuINb"> 
+                  <i xid="i8" class="icon-android-camera czyuINb" __cid="czyuINb"></i>  
+                  <span xid="span15" __cid="czyuINb" class="czyuINb"></span>
+                </a> 
+              </div> 
+            </div> 
+          </div> 
+        </div>
+        <div component="$model/UI2/system/components/justep/row/row" class="x-row czyuINb" xid="row7" data-bind="component:{name:'$model/UI2/system/components/justep/row/row'}" __cid="czyuINb"> 
+          <div class="x-col czyuINb" xid="col21" __cid="czyuINb"></div>  
+          <div class="x-col czyuINb" xid="col25" __cid="czyuINb"> 
+            <a component="$model/UI2/system/components/justep/button/button" class="btn btn-default pull-right czyuINb" xid="submit" style="width:100%;" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:uploadMsg" data-config="{&#34;label&#34;:&#34;下一步&#34;}" __cid="czyuINb"> 
+              <i xid="i2" __cid="czyuINb" class="czyuINb"></i>  
+              <span xid="span2" __cid="czyuINb" class="czyuINb">下一步</span>
+            </a>
+          </div>  
+          <div class="x-col czyuINb" xid="col2" __cid="czyuINb"></div>
+        </div>
+      </form> 
+    </div>  
+    <div id="show1" xid="content4" class="footer czyuINb" __cid="czyuINb" data-bind="visible:false"> 
+      <div component="$model/UI2/system/components/justep/panel/panel" class="x-panel x-full p0d9fa4eb43d04a0ea0c5f956d263fd0a-iosstatusbar czyuINb" xid="panel4" data-bind="component:{name:'$model/UI2/system/components/justep/panel/panel'}" __cid="czyuINb"> 
+        <div class="x-panel-content czyuINb" xid="content3" style="text-align:center;" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="czyuINb"> 
+          <img src="" alt="" xid="imageshow" style="width:100%;" height="100%" __cid="czyuINb" class="czyuINb">
+        </div>  
+        <div class="x-panel-bottom czyuINb" xid="bottom1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="czyuINb"> 
+          <div component="$model/UI2/system/components/justep/button/buttonGroup" class="btn-group x-card btn-group-justified czyuINb" xid="buttonGroup1" data-bind="component:{name:'$model/UI2/system/components/justep/button/buttonGroup'}" data-config="{&#34;tabbed&#34;:true}" __cid="czyuINb"> 
+            <a component="$model/UI2/system/components/justep/button/button" class="btn btn-default czyuINb" xid="btn1" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:btn_deleteClick" data-config="{&#34;label&#34;:&#34;删除&#34;}" __cid="czyuINb"> 
+              <i xid="i9" __cid="czyuINb" class="czyuINb"></i>  
+              <span xid="span8" __cid="czyuINb" class="czyuINb">删除</span>
+            </a>  
+            <a component="$model/UI2/system/components/justep/button/button" class="btn btn-default czyuINb" xid="button7" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:button11Click" data-config="{&#34;label&#34;:&#34;取消&#34;}" __cid="czyuINb"> 
+              <i xid="i10" __cid="czyuINb" class="czyuINb"></i>  
+              <span xid="span16" __cid="czyuINb" class="czyuINb">取消</span>
+            </a> 
+          </div> 
+        </div>  
+        <style __cid="czyuINb" class="czyuINb">.x-panel.p0d9fa4eb43d04a0ea0c5f956d263fd0a-iosstatusbar >.x-panel-top {height: 0px;}.x-panel.p0d9fa4eb43d04a0ea0c5f956d263fd0a-iosstatusbar >.x-panel-content { top: 0px;bottom: nullpx;}.x-panel.p0d9fa4eb43d04a0ea0c5f956d263fd0a-iosstatusbar >.x-panel-bottom {height: nullpx;}.iosstatusbar .x-panel.p0d9fa4eb43d04a0ea0c5f956d263fd0a-iosstatusbar >.x-panel-top {height: 0px;}.iosstatusbar .x-panel.p0d9fa4eb43d04a0ea0c5f956d263fd0a-iosstatusbar >.x-panel-content { top: 0px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p0d9fa4eb43d04a0ea0c5f956d263fd0a-iosstatusbar >.x-panel-top {height: 0px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p0d9fa4eb43d04a0ea0c5f956d263fd0a-iosstatusbar >.x-panel-content {top: 0px;}</style>
+      </div> 
+    </div>
+    <style __cid="czyuINb" class="czyuINb">.x-panel.pf32f575d06bf42bfa6e25613546887b8-iosstatusbar >.x-panel-top {height: 48px;}.x-panel.pf32f575d06bf42bfa6e25613546887b8-iosstatusbar >.x-panel-content { top: 48px;bottom: nullpx;}.x-panel.pf32f575d06bf42bfa6e25613546887b8-iosstatusbar >.x-panel-bottom {height: nullpx;}.iosstatusbar .x-panel.pf32f575d06bf42bfa6e25613546887b8-iosstatusbar >.x-panel-top {height: 68px;}.iosstatusbar .x-panel.pf32f575d06bf42bfa6e25613546887b8-iosstatusbar >.x-panel-content { top: 68px;}.iosstatusbar .x-panel .x-panel-content .x-panel.pf32f575d06bf42bfa6e25613546887b8-iosstatusbar >.x-panel-top {height: 48px;}.iosstatusbar .x-panel .x-panel-content .x-panel.pf32f575d06bf42bfa6e25613546887b8-iosstatusbar >.x-panel-content {top: 48px;}</style>
+  </div>  
+  <span component="$model/UI2/system/components/justep/messageDialog/messageDialog" xid="messageDialog1" style="left:86px;top:10px;" data-bind="component:{name:'$model/UI2/system/components/justep/messageDialog/messageDialog'}" data-events="onYes:messageDialog1Yes" data-config="{&#34;type&#34;:&#34;YesNo&#34;}" __cid="czyuINb" class="czyuINb">
+    <div class="x-modal-overlay czyuINb" __cid="czyuINb"></div>
+    <div class="x-modal czyuINb" __cid="czyuINb">
+      <div class="x-modal-inner czyuINb" __cid="czyuINb">
+        <div class="x-modal-title czyuINb" __cid="czyuINb"></div>
+        <div class="x-modal-text czyuINb" __cid="czyuINb"></div>
+        <input class="x-modal-prompt-input czyuINb" type="text" __cid="czyuINb">
+      </div>
+      <div class="x-modal-buttons czyuINb" __cid="czyuINb">
+        <a class="x-modal-button x-modal-button-bold OK czyuINb" value="ok" __cid="czyuINb">确定</a>
+        <a class="x-modal-button x-modal-button-bold Yes czyuINb" value="yes" __cid="czyuINb">是</a>
+        <a class="x-modal-button x-modal-button-bold No czyuINb" value="no" __cid="czyuINb">否</a>
+        <a class="x-modal-button x-modal-button-bold Cancel czyuINb" value="cancel" __cid="czyuINb">取消</a>
+      </div>
+    </div>
+  </span>
+</div>

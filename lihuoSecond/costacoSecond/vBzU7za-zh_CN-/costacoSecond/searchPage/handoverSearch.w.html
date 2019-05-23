@@ -1,0 +1,90 @@
+<!DOCTYPE HTML>
+<div component="$model/UI2/system/components/justep/window/window" design="device:m;" xid="window" class="window cEj2ABn" data-bind="component:{name:'$model/UI2/system/components/justep/window/window'}" __justepbasexid__="__baseID__" __cid="cEj2ABn" components="$model/UI2/system/components/justep/loadingBar/loadingBar,$model/UI2/system/components/justep/labelEdit/labelEdit,$model/UI2/system/components/justep/panel/panel,$model/UI2/system/components/justep/window/window,$model/UI2/system/components/justep/controlGroup/controlGroup,$model/UI2/system/components/justep/data/data,$model/UI2/system/components/justep/titleBar/titleBar,$model/UI2/system/components/justep/contents/contents,$model/UI2/system/components/justep/panel/child,$model/UI2/system/components/justep/contents/content,$model/UI2/system/components/justep/model/model,$model/UI2/system/components/justep/button/button,$model/UI2/system/components/justep/output/output,">  
+  <div component="$model/UI2/system/components/justep/model/model" xid="model" style="display:none" data-bind="component:{name:'$model/UI2/system/components/justep/model/model'}" __cid="cEj2ABn" class="cEj2ABn"></div>  
+  <script src="@justepContextPath@/costacoSecond/ajax/baas.js" type="text/javascript" __cid="cEj2ABn" class="cEj2ABn"></script>  
+  <div component="$model/UI2/system/components/justep/panel/panel" class="x-panel x-full pd69cc0f9a0ca415e90236464bcbaceeb-iosstatusbar cEj2ABn" xid="panel1" data-bind="component:{name:'$model/UI2/system/components/justep/panel/panel'}" __cid="cEj2ABn"> 
+    <div class="x-panel-top cEj2ABn" xid="top1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cEj2ABn"> 
+      <div component="$model/UI2/system/components/justep/titleBar/titleBar" class="x-titlebar cEj2ABn" data-bind="component:{name:'$model/UI2/system/components/justep/titleBar/titleBar'}" data-config="{&#34;title&#34;:&#34;交接班查询&#34;}" __cid="cEj2ABn"> 
+        <div class="x-titlebar-left cEj2ABn" __cid="cEj2ABn"> 
+          <a component="$model/UI2/system/components/justep/button/button" class="btn btn-link btn-only-icon cEj2ABn" xid="backBtn" data-bind="component:{name:'$model/UI2/system/components/justep/button/button'}" data-events="onClick:backBtnClick" data-config="{&#34;icon&#34;:&#34;icon-chevron-left&#34;,&#34;label&#34;:&#34;&#34;}" __cid="cEj2ABn"> 
+            <i class="icon-chevron-left cEj2ABn" __cid="cEj2ABn"></i>  
+            <span __cid="cEj2ABn" class="cEj2ABn"></span> 
+          </a> 
+        </div>  
+        <div class="x-titlebar-title cEj2ABn" __cid="cEj2ABn">交接班查询</div>  
+        <div class="x-titlebar-right  cEj2ABn" __cid="cEj2ABn">
+          <div class="empty cEj2ABn" __cid="cEj2ABn"></div>
+        </div> 
+      </div> 
+    </div>  
+    <div class="x-panel-content cEj2ABn" xid="content1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cEj2ABn">
+      <div component="$model/UI2/system/components/justep/contents/contents" class="x-contents x-full cEj2ABn" xid="contents" data-bind="component:{name:'$model/UI2/system/components/justep/contents/contents'}" data-config="{&#34;active&#34;:0}" __cid="cEj2ABn"> 
+        <div class="x-contents-content active cEj2ABn" xid="content2" component="$model/UI2/system/components/justep/contents/content" data-bind="component:{name:'$model/UI2/system/components/justep/contents/content'}" __cid="cEj2ABn">
+          <div component="$model/UI2/system/components/justep/panel/panel" class="x-panel x-full p1068e9f01b154a6aa12e601771c3c775-iosstatusbar cEj2ABn" xid="panel2" data-bind="component:{name:'$model/UI2/system/components/justep/panel/panel'}" __cid="cEj2ABn"> 
+            <div class="x-panel-content cEj2ABn" xid="content4" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cEj2ABn">
+              <div xid="div1" style="margin-right:15px;margin-left:15px;" __cid="cEj2ABn" class="cEj2ABn"> 
+                <div component="$model/UI2/system/components/justep/controlGroup/controlGroup" class="x-control-group cEj2ABn" xid="controlGroup_hand_master" data-bind="component:{name:'$model/UI2/system/components/justep/controlGroup/controlGroup'}" data-config="{&#34;title&#34;:&#34;交班信息&#34;}" __cid="cEj2ABn"> 
+                  <div class="x-control-group-title cEj2ABn" xid="controlGroupTitle1" __cid="cEj2ABn"> 
+                    <span xid="span1" __cid="cEj2ABn" class="cEj2ABn"></span>
+                  </div> 
+                </div>
+                <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cEj2ABn" xid="labelOutput_hand_department" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cEj2ABn"> 
+                  <label class="x-label cEj2ABn" xid="label_hand_department" __cid="cEj2ABn">部　　门：</label>  
+                  <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cEj2ABn" xid="output_hand_department" data-bind="component:{ref:handoverData.ref('hand_department'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cEj2ABn"></div>
+                </div>
+                <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cEj2ABn" xid="labelOutput2" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cEj2ABn"> 
+                  <label class="x-label cEj2ABn" xid="label2" __cid="cEj2ABn">开班日期：</label>  
+                  <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cEj2ABn" xid="output2" data-bind="component:{ref:handoverData.ref('hand_date'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cEj2ABn"></div>
+                </div>
+                <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cEj2ABn" xid="labelOutput_hand_classes" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cEj2ABn"> 
+                  <label class="x-label cEj2ABn" xid="label_hand_classes" __cid="cEj2ABn">班　　次：</label>  
+                  <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cEj2ABn" xid="output_hand_classes" data-bind="component:{ref:handoverData.ref('hand_classes'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cEj2ABn"></div>
+                </div>
+                <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cEj2ABn" xid="labelOutput_hand_master" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cEj2ABn"> 
+                  <label class="x-label cEj2ABn" xid="label_hand_master" __cid="cEj2ABn">理货长：</label>  
+                  <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cEj2ABn" xid="output_hand_master" data-bind="component:{ref:handoverData.ref('hand_master'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cEj2ABn"></div>
+                </div>
+                <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cEj2ABn" xid="labelOutput_time_to" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cEj2ABn"> 
+                  <label class="x-label cEj2ABn" xid="label_time_to" __cid="cEj2ABn" data-bind="text:handoverData.label('exchanged_time')"></label>  
+                  <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cEj2ABn" xid="output_time_to" data-bind="component:{ref:handoverData.ref('exchanged_time'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cEj2ABn"></div>
+                </div>  
+                <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cEj2ABn" xid="labelOutput_note" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cEj2ABn"> 
+                  <label class="x-label cEj2ABn" xid="label_note" __cid="cEj2ABn" data-bind="text:handoverData.label('note')"></label>  
+                  <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cEj2ABn" xid="output_note" data-bind="component:{ref:handoverData.ref('note'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cEj2ABn"></div>
+                </div>
+                <div component="$model/UI2/system/components/justep/controlGroup/controlGroup" class="x-control-group cEj2ABn" xid="controlGroup_succeed_master" data-bind="component:{name:'$model/UI2/system/components/justep/controlGroup/controlGroup'}" data-config="{&#34;title&#34;:&#34;接班信息&#34;}" __cid="cEj2ABn"> 
+                  <div class="x-control-group-title cEj2ABn" xid="controlGroupTitle_succeed_master" __cid="cEj2ABn"> 
+                    <span xid="span2" __cid="cEj2ABn" class="cEj2ABn"></span>
+                  </div> 
+                </div>
+                <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cEj2ABn" xid="labelOutput_succeed_department" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cEj2ABn"> 
+                  <label class="x-label cEj2ABn" xid="label_succeed_department" __cid="cEj2ABn">部　　门：</label>  
+                  <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cEj2ABn" xid="output_succeed_department" data-bind="component:{ref:handoverData.ref('succeed_department'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cEj2ABn"></div>
+                </div>
+                <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cEj2ABn" xid="labelOutput_succeed_classes" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cEj2ABn"> 
+                  <label class="x-label cEj2ABn" xid="label_succeed_classes" __cid="cEj2ABn">班　　次：</label>  
+                  <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cEj2ABn" xid="output_succeed_classes" data-bind="component:{ref:handoverData.ref('succeed_classes'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cEj2ABn"></div>
+                </div>
+                <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cEj2ABn" xid="labelOutput_succeed_master" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cEj2ABn"> 
+                  <label class="x-label cEj2ABn" xid="label_succeed_master" __cid="cEj2ABn">理货长：</label>  
+                  <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cEj2ABn" xid="output_succeed_master" data-bind="component:{ref:handoverData.ref('succeed_master'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cEj2ABn"></div>
+                </div>
+                <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cEj2ABn" xid="labelOutput_time_get" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cEj2ABn"> 
+                  <label class="x-label cEj2ABn" xid="label_time_get" __cid="cEj2ABn" data-bind="text:handoverData.label('time_get')"></label>  
+                  <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cEj2ABn" xid="output_time_get" data-bind="component:{ref:handoverData.ref('time_get'),name:'$model/UI2/system/components/justep/output/output'}" __cid="cEj2ABn"></div>
+                </div>  
+                <div component="$model/UI2/system/components/justep/labelEdit/labelEdit" class="x-label-edit x-label30 cEj2ABn" xid="labelOutput1" data-bind="component:{name:'$model/UI2/system/components/justep/labelEdit/labelEdit'}" __cid="cEj2ABn"> 
+                  <label class="x-label cEj2ABn" xid="label1" __cid="cEj2ABn"></label>  
+                  <div component="$model/UI2/system/components/justep/output/output" class="x-output x-edit cEj2ABn" xid="output1" data-bind="component:{name:'$model/UI2/system/components/justep/output/output'}" __cid="cEj2ABn"></div>
+                </div> 
+              </div> 
+            </div>  
+            <div class="x-panel-bottom cEj2ABn" xid="bottom1" component="$model/UI2/system/components/justep/panel/child" data-bind="component:{name:'$model/UI2/system/components/justep/panel/child'}" __cid="cEj2ABn"></div>
+            <style __cid="cEj2ABn" class="cEj2ABn">.x-panel.p1068e9f01b154a6aa12e601771c3c775-iosstatusbar >.x-panel-top {height: 0px;}.x-panel.p1068e9f01b154a6aa12e601771c3c775-iosstatusbar >.x-panel-content { top: 0px;bottom: nullpx;}.x-panel.p1068e9f01b154a6aa12e601771c3c775-iosstatusbar >.x-panel-bottom {height: nullpx;}.iosstatusbar .x-panel.p1068e9f01b154a6aa12e601771c3c775-iosstatusbar >.x-panel-top {height: 0px;}.iosstatusbar .x-panel.p1068e9f01b154a6aa12e601771c3c775-iosstatusbar >.x-panel-content { top: 0px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p1068e9f01b154a6aa12e601771c3c775-iosstatusbar >.x-panel-top {height: 0px;}.iosstatusbar .x-panel .x-panel-content .x-panel.p1068e9f01b154a6aa12e601771c3c775-iosstatusbar >.x-panel-content {top: 0px;}</style>
+          </div>
+        </div> 
+      </div>
+    </div>  
+    <style __cid="cEj2ABn" class="cEj2ABn">.x-panel.pd69cc0f9a0ca415e90236464bcbaceeb-iosstatusbar >.x-panel-top {height: 48px;}.x-panel.pd69cc0f9a0ca415e90236464bcbaceeb-iosstatusbar >.x-panel-content { top: 48px;bottom: nullpx;}.x-panel.pd69cc0f9a0ca415e90236464bcbaceeb-iosstatusbar >.x-panel-bottom {height: nullpx;}.iosstatusbar .x-panel.pd69cc0f9a0ca415e90236464bcbaceeb-iosstatusbar >.x-panel-top {height: 68px;}.iosstatusbar .x-panel.pd69cc0f9a0ca415e90236464bcbaceeb-iosstatusbar >.x-panel-content { top: 68px;}.iosstatusbar .x-panel .x-panel-content .x-panel.pd69cc0f9a0ca415e90236464bcbaceeb-iosstatusbar >.x-panel-top {height: 48px;}.iosstatusbar .x-panel .x-panel-content .x-panel.pd69cc0f9a0ca415e90236464bcbaceeb-iosstatusbar >.x-panel-content {top: 48px;}</style>
+  </div> 
+</div>
