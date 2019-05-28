@@ -208,12 +208,12 @@ switch (CONTROLLER_NAME) { case 'QbzxPlan' : $hf2 = 'on'; break; case 'QbzxPlanC
                            value="图片下载"
                            style="background-color: #3398db !important; border-color: #3398db; color: #fff; font-size: 16px; text-align: center; padding: 3px 15px;">
                 </form>
-                <!--                target="_blank"-->
+
                 <form action="/index.php?s=/QbzxSearch/print_pdf" method="post" style="float: left;margin-left: 20px;"
-                      id="printpdf_form">
+                      id="printpdf_form" target="_blank">
 
                     <input type="submit"
-                           value="打印单证"
+                           value="交箱清单"
                            id="printpdf_btn"
                            style="background-color: #3398db !important; border-color: #3398db; color: #fff; font-size: 16px; text-align: center; padding: 3px 15px;">
                 </form>
@@ -269,7 +269,6 @@ switch (CONTROLLER_NAME) { case 'QbzxPlan' : $hf2 = 'on'; break; case 'QbzxPlanC
                                 </tr><?php endforeach; endif; else: echo "" ;endif; ?>
                             </tbody>
                         </table>
-                        </form>
                         <div class="pages"><?php echo ($page); ?></div>
                     </div>
                 </div>
@@ -282,9 +281,11 @@ switch (CONTROLLER_NAME) { case 'QbzxPlan' : $hf2 = 'on'; break; case 'QbzxPlanC
         var input1 = $("input[id='choseid']");
         input1.each(function () {
                 if (checked == true) {
-                    $("input[id='printpdf_btn']").before("<input type=\"hidden\" name=\"ctn_id[]\" value=\"" + this.defaultValue + "\" id=\"print_pdfid_" + this.defaultValue + "\"/>");
-                    $("input[id='getimg_btn']").before("<input type=\"hidden\" name=\"ctn_id[]\" value=\"" + this.defaultValue + "\" id=\"pack_imgid_" + this.defaultValue + "\"/>");
-                }else {
+                    if ($("input[id='pack_imgid_" + this.defaultValue + "']").length <= 0) {
+                        $("input[id='printpdf_btn']").before("<input type=\"hidden\" name=\"ctn_id[]\" value=\"" + this.defaultValue + "\" id=\"print_pdfid_" + this.defaultValue + "\"/>");
+                        $("input[id='getimg_btn']").before("<input type=\"hidden\" name=\"ctn_id[]\" value=\"" + this.defaultValue + "\" id=\"pack_imgid_" + this.defaultValue + "\"/>");
+                    }
+                } else {
                     $("input[id='print_pdfid_" + this.defaultValue + "']").remove();
                     $("input[id='pack_imgid_" + this.defaultValue + "']").remove();
                 }
@@ -295,8 +296,8 @@ switch (CONTROLLER_NAME) { case 'QbzxPlan' : $hf2 = 'on'; break; case 'QbzxPlanC
     $(function () {
         $("#checkAll").click(function () {
 
-            $("input[id='choseid']").attr("checked", this.checked);
-            checkall(this.checked);
+                $("input[id='choseid']").attr("checked", this.checked);
+                checkall(this.checked);
 
             }
         );
@@ -305,8 +306,10 @@ switch (CONTROLLER_NAME) { case 'QbzxPlan' : $hf2 = 'on'; break; case 'QbzxPlanC
 
         $cost_id.click(function () {
             if (this.checked == true) {
-                $("input[id='printpdf_btn']").before("<input type=\"hidden\" name=\"ctn_id[]\" value=\"" + this.defaultValue + "\" id=\"print_pdfid_" + this.defaultValue + "\"/>");
-                $("input[id='getimg_btn']").before("<input type=\"hidden\" name=\"ctn_id[]\" value=\"" + this.defaultValue + "\" id=\"pack_imgid_" + this.defaultValue + "\"/>");
+                if ($("input[id='pack_imgid_" + this.defaultValue + "']").length <= 0) {
+                    $("input[id='printpdf_btn']").before("<input type=\"hidden\" name=\"ctn_id[]\" value=\"" + this.defaultValue + "\" id=\"print_pdfid_" + this.defaultValue + "\"/>");
+                    $("input[id='getimg_btn']").before("<input type=\"hidden\" name=\"ctn_id[]\" value=\"" + this.defaultValue + "\" id=\"pack_imgid_" + this.defaultValue + "\"/>");
+                }
             } else {
                 $("input[id='print_pdfid_" + this.defaultValue + "']").remove();
                 $("input[id='pack_imgid_" + this.defaultValue + "']").remove();

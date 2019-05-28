@@ -769,7 +769,8 @@ class QbzxSearchController extends BaseController
         }
     }
 
-    //打印PDF
+
+    //打印单证PDF
     public function print_pdf()
     {
         layout(false);
@@ -792,10 +793,10 @@ class QbzxSearchController extends BaseController
 			<th style="border: 1px solid #ccc;">提单号</th>
 			<th style="border: 1px solid #ccc;">箱型尺寸</th>
 			<th style="border: 1px solid #ccc;">铅封号</th>
-			<th style="border: 1px solid #ccc;">总票数</th>
-			<th style="border: 1px solid #ccc;">总件数</th>
-			<th style="border: 1px solid #ccc;">总重量</th>
-			<th style="border: 1px solid #ccc;">总残损</th>
+			<th style="border: 1px solid #ccc;">票数</th>
+			<th style="border: 1px solid #ccc;">件数</th>
+			<th style="border: 1px solid #ccc;">重量</th>
+			<th style="border: 1px solid #ccc;">残损</th>
 			<th style="border: 1px solid #ccc;">完成时间</th>
 		</tr>
 		
@@ -882,8 +883,521 @@ aac;
 
             //不需要后续处理，直接退出
             exit();
-        }else{
+        } else {
             $this->error("未选择箱");
         }
     }
+
+
+    //危险品查询
+    public function DangerSearch()
+    {
+        //集装箱船列表
+        $shipModel = new \Common\Model\ShipModel();
+        $ship_type = json_decode(ship_type, true);
+        $shiplist = $shipModel->getShipList($ship_type['container']);
+        $this->assign('shiplist', $shiplist);
+        //作业场地
+        $location = new \Common\Model\LocationModel();
+        $locationlist = $location->getLocationList();
+        $this->assign('locationlist', $locationlist);
+        //获取箱型列表
+        $container = new \Common\Model\ContainerModel();
+        $containerlist = $container->getContainerList();
+        $this->assign('containerlist', $containerlist);
+
+        $where = '1';
+        if (I('get.ship_name')) {
+            $ship_name = I('get.ship_name');
+            $ship_id = $shipModel->field('id')->where("ship_name='$ship_name'")->find();
+            $where .= " and ship_id='" . $ship_id['id'] . "'";
+        }
+        if (I('get.location_name')) {
+            $location_name = I('get.location_name');
+            $location_id = $location->field('id')->where("location_name='$location_name'")->find();
+            $where .= " and location_id='" . $location_id['id'] . "'";
+        }
+        if (I('get.voyage')) {
+            $voyage = I('get.voyage');
+            $voyage = str_replace("'", "", $voyage);
+            $where .= " and voyage='$voyage'";
+        }
+        if (I('get.ctnno')) {
+            $ctnno = I('get.ctnno');
+            $ctnno = str_replace("'", "", $ctnno);
+            $where .= " and ctnno='$ctnno'";
+        }
+
+        if (I('get.printed')) {
+            $printed = I('get.printed');
+            if (is_numeric($printed)) {
+                $where .= " and printed=$printed";
+            }
+        }
+
+        //由于只统计危险品，所以就算没提交等级也不显示没有危险品等级的货物
+        if (I('get.dangerlevel')) {
+            $dangerlevel = I('get.dangerlevel');
+            $dangerlevel = str_replace("'", "", $dangerlevel);
+            $where .= " and dangerlevel='" . $dangerlevel . "'";
+        } else {
+            $where .= " and dangerlevel<>'' and dangerlevel<>'0'";
+        }
+
+        if (I('get.flflag')) {
+            $flflag = I('get.flflag');
+            $where .= " and flflag='$flflag'";
+        }
+        if (I('get.ctn_type_code')) {
+            $ctn_type_code = I('get.ctn_type_code');
+            $ctn_type_code = str_replace("'", "", $ctn_type_code);
+            $where .= " and ctn_type_code='$ctn_type_code'";
+        }
+        if (I('get.begin_time') && I('get.end_time')) {
+            $begin_time = I('get.begin_time');
+            $end_time = I('get.end_time');
+            $end_time = strtotime("$end_time +1 day");
+            $end_time = date('Y-m-d', $end_time);
+            $where .= " and createtime between '$begin_time' and '$end_time' ";
+        }
+        if (I('get.billno')) {
+            $billno = I('get.billno');
+            $billno = str_replace("'", "", $billno);
+            $where .= " and content like '" . '%"billno":"' . $billno . '%\'';
+        }
+
+        $prove = new \Common\Model\QbzxProveModel();
+
+        $cargo = new \Common\Model\QbzxPlanCargoModel();
+
+        $count = $prove->where($where)->count();
+        $per = 15;
+        if ($_GET['p']) {
+            $p = $_GET['p'];
+        } else {
+            $p = 1;
+        }
+
+        $Page = new \Think\Page($count, $per);// 实例化分页类 传入总记录数和每页显示的记录数(25)
+        $Page->rollPage = 10; // 分页栏每页显示的页数
+        $Page->setConfig('header', '共%TOTAL_ROW%条');
+        $Page->setConfig('first', '首页');
+        $Page->setConfig('last', '共%TOTAL_PAGE%页');
+        $Page->setConfig('prev', '上一页');
+        $Page->setConfig('next', '下一页');
+        $Page->setConfig('link', 'indexpagenumb');//pagenumb 会替换成页码
+        $Page->setConfig('theme', '%FIRST% %UP_PAGE% %LINK_PAGE% %DOWN_PAGE% %END% 第 ' . I('p', 1) . ' 页/共 %TOTAL_PAGE% 页 (<font color="red">' . $per . '</font> 条/页 共 %TOTAL_ROW% 条)');
+        $show = $Page->show();// 分页显示输出
+        $this->assign('page', $show);
+
+        $list = $prove->where($where)->page($p . ',' . $per)->order('id desc')->select();
+        $cargo_name_billno = "";
+        $cargo_name = array();
+
+        //将content内的json参数转换成数组，并且得出需要取出货物名的提货单号
+        foreach ($list as $key => $l) {
+
+            $list[$key]['content'] = json_decode($l['content'], true);
+
+            //货物名只取当前箱号的第一个提单号对应的货物名，所以不循环取出所有的货物名。（如果客户需要看全部的，可以点击查看详情）这句划掉
+            $cargo_name_billno .= "'" . $list[$key]['content'][0]['billno'] . "',";
+
+        }
+
+
+        //创建去预报货物表内查询货物名称的匹配参数
+        if ($cargo_name_billno !== "") {
+            $cargo_name_billno = rtrim($cargo_name_billno, ',');
+            $cargo_name_result = $cargo->where("billno in(" . $cargo_name_billno . ")")->field('cargo_name,billno')->select();
+
+            //开始将获得的数据转换成易取的数组格式
+            foreach ($cargo_name_result as $cargo_name_value) {
+                $cargo_name[$cargo_name_value['billno']] = $cargo_name_value['cargo_name'];
+            }
+        }
+
+        $this->assign('list', $list);
+        $this->assign('cargo_name', $cargo_name);
+        $this->display();
+    }
+
+
+    //打印危险品报告PDF
+    public function print_danger_pdf()
+    {
+        layout(false);
+        if (I('post.ctn_id')) {
+            $ctn_id_list = $_POST['ctn_id'];
+            //引入类库
+            Vendor('mpdf.mpdf');
+            //设置中文编码
+            $mpdf = new \mPDF('zh-cn', 'A4', 0, '黑体', 0, 0);
+            //首页模板
+            $index_html = <<<aaa
+            <div style="text-align: center;top: 50px;left: 50%;margin:0px 0 0 -210px;position:absolute;">
+            
+            <p>
+            <h1 style="font-size: 80px;">危险品监装</h1>
+            </p>
+            
+            <p style="margin-top: 80px;">
+            <h1 style="font-size: 60px">报告书</h1>
+            </p>
+               
+            <p style="margin-top: 40px;">
+            <img src="./Public/img/report_logo.png" width="200px" />
+            </p>
+            </div>
+            <div style="left:0px; position:fixed; width:100%; height:100px; text-align:center; font-size:18px; font-weight:bold; bottom:0px;">
+            <p>
+            南&nbsp;&nbsp;京&nbsp;&nbsp;中&nbsp;&nbsp;理&nbsp;&nbsp;外&nbsp;&nbsp;轮&nbsp;&nbsp;理&nbsp;&nbsp;货&nbsp;&nbsp;有&nbsp;&nbsp;限&nbsp;&nbsp;公&nbsp;&nbsp;司
+            </p>
+            <p>
+            CHINA&nbsp;&nbsp;OCEAN&nbsp;&nbsp;SHIPPING&nbsp;&nbsp;TALLY&nbsp;&nbsp;CO.,LTD.NANJING
+            </p>
+</div>
+aaa;
+
+            //单据模板
+            $prove_html = <<<aab
+            <div style="text-align: center;"><h1>装箱汇总</h1></div>
+            <div>
+            <div>
+                <table width="90%" style="border-collapse: collapse; height: 56px; font-family: 宋体; font-size: 18px; position: relative; margin-left: 40px;">
+                    <tbody>
+                    <tr style="text-align:center;font-size:14px">
+                        <th style="border: 1px solid #ccc;">提单号</th>
+                        <th style="border: 1px solid #ccc;">箱号</th>
+                        <th style="border: 1px solid #ccc;">箱型</th>
+                        <th style="border: 1px solid #ccc;">箱主</th>
+                        <th style="border: 1px solid #ccc;">货名</th>
+                        <th style="border: 1px solid #ccc;">总件数</th>
+                        <th style="border: 1px solid #ccc;">单位</th>
+                        <th style="border: 1px solid #ccc;">危险品等级</th>
+                        <th style="border: 1px solid #ccc;">备注</th>
+                    </tr>
+                    
+                        {document}
+                    
+                    </tbody>
+            
+                </table>
+            </div>
+            <div>
+                
+            </div>
+            </div>
+aab;
+
+
+            /*
+             * 此段代码收集前期需要用到的数据
+             */
+
+            //开始构成汇总表页面
+            $replace_html = "";
+
+            //初始化序列箱id变量
+            $ctn_id_str = "";
+
+            //初始化提单号变量
+            $billno_str = "";
+
+            //初始化货物名称和委托单位名称数组
+            $billno_name_array = array();
+
+            //实例化单证类
+            $prove = new \Common\Model\QbzxProveModel();
+
+            //货物名称和客户名称的检索sql
+            $name_sql = "SELECT cargo.cargo_name,cargo.billno,cus.customer_name FROM __PREFIX__qbzx_plan_cargo AS cargo LEFT JOIN __PREFIX__qbzx_plan AS plan ON cargo.plan_id=plan.id LEFT JOIN __PREFIX__customer as cus on plan.entrust_company=cus.id WHERE cargo.billno IN (#billno);";
+
+            //序列化箱id,获得单证表数据
+            foreach ($ctn_id_list as $o1) {
+                if (is_numeric($o1)) {
+                    $ctn_id_str .= $o1 . ',';
+                } else {
+                    $this->error("非法箱id");
+                }
+            }
+
+            //获取去除多余的逗号，然后获取单证信息
+            $ctn_id_str = rtrim($ctn_id_str, ',');
+            $msg = $prove->where("ctn_id in(" . $ctn_id_str . ")")->select();
+
+            //循环处理单证信息，然后获得所有提单号
+            foreach ($msg as $msg_key => $msg_value) {
+                $msg[$msg_key]['content'] = json_decode($msg_value['content'], true);
+                foreach ($msg[$msg_key]['content'] as $content) {
+                    $billno_str .= "'" . $content['billno'] . "',";
+                }
+            }
+
+
+            //处理提单号，并且根据提单号获取信息
+            $billno_str = rtrim($billno_str, ',');
+            if ($billno_str == "") {
+                $this->error('无法取到提单号');
+            }
+            $name_sql = str_replace("#billno", $billno_str, $name_sql);
+            //搜索结果
+            $billno_name_result = M()->query($name_sql);
+
+            //序列化结果，将结果转为易读取的数组
+            foreach ($billno_name_result as $billno_name_value) {
+                //防止类型错误，判断是否为空，为空则初始化
+                if (empty($billno_name_array[$billno_name_value['billno']])) {
+                    $billno_name_array[$billno_name_value['billno']] = array();
+                }
+                $billno_name_array[$billno_name_value['billno']]['cargo_name'] = $billno_name_value['cargo_name'];
+                $billno_name_array[$billno_name_value['billno']]['customer_name'] = $billno_name_value['customer_name'];
+            }
+
+
+            /*
+             * 此段代码处理汇总页面的逻辑
+             */
+
+            foreach ($msg as $value) {
+                //初始化货物名称变量值
+//                $cargo_name_billno = "";
+
+                $cargo_name = "";
+
+                //初始化提单号变量值
+                $billno = "";
+
+                //初始化包装变量值
+                $package = "";
+
+                //构成提单号，单位和货物名称，可能多个
+                foreach ($value['content'] as $b) {
+                    //拼接提单号
+                    $billno .= $b['billno'] . "<br/>";
+
+                    //拼接单位
+                    $package .= $b['package'] . "<br/>";
+
+                    //拼接货物名称,此段utf-8编码，防止编码失败
+                    $cargo_name .= mb_convert_encoding($billno_name_array[$b['billno']]['cargo_name'] . "<br/>", 'UTF-8', 'UTF-8');
+
+                }
+
+
+                $replace_html .= "<tr style=\"height:32px;text-align:center;font-size:14px\">";
+
+                //放入提单号
+                $replace_html .= "<td style=\"border: 1px solid #ccc;font-weight: normal; text-align:center;font-size:14px;\">$billno</td>";
+
+
+                //放入箱号
+                $replace_html .= "<td style=\"border: 1px solid #ccc;font-weight: normal; text-align:center;font-size:14px;\">" . $value['ctnno'] . "</td>";
+
+
+                //放入箱型尺寸
+                $replace_html .= "<td style=\"border: 1px solid #ccc;font-weight: normal; text-align:center;font-size:14px;\">" . $value['ctn_type_code'] . "</td>";
+
+                //放入箱主
+                $replace_html .= "<td style=\"border: 1px solid #ccc;font-weight: normal; text-align:center;font-size:14px;\">" . $value['ctn_master'] . "</td>";
+
+                //放入货名
+                $replace_html .= "<td style=\"border: 1px solid #ccc;font-weight: normal; text-align:center;font-size:14px;\">" . $cargo_name . "</td>";
+
+                //放入总件数
+                $replace_html .= "<td style=\"border: 1px solid #ccc;font-weight: normal; text-align:center;font-size:14px;\">" . $value['total_package'] . "</td>";
+
+                //放入单位
+                $replace_html .= "<td style=\"border: 1px solid #ccc;font-weight: normal; text-align:center;font-size:14px;\">" . $package . "</td>";
+
+                //放入危险品等级
+                $replace_html .= "<td style=\"border: 1px solid #ccc;font-weight: normal; text-align:center;font-size:14px;\">" . $value['dangerlevel'] . "</td>";
+
+                //放入备注
+                $replace_html .= "<td style=\"border: 1px solid #ccc;font-weight: normal; text-align:center;font-size:14px;\">" . $value['remark'] . "</td>";
+
+                $replace_html .= "</tr>";
+
+                //更新生成报告记录
+//                        $prove->where("ctn_id='$o'")->data(array("printed" => 1))->save();
+            }
+            //表放入pdf模板
+            $prove_html = str_replace("{document}", $replace_html, $prove_html);
+
+            //强制转换编码，防止编译utf-8失败
+//            $index_html = mb_convert_encoding($index_html, 'UTF-8', 'UTF-8');
+//            $prove_html = mb_convert_encoding($prove_html, 'UTF-8', 'UTF-8');
+
+            //首页放入pdf
+            $mpdf->WriteHTML($index_html);
+            //添加汇总页
+            $mpdf->AddPage();
+            //渲染过的汇总页面放入pdf
+            $mpdf->WriteHTML($prove_html);
+
+
+            /*
+             * 构成详细汇报页面逻辑
+             *
+             */
+            foreach ($msg as $value1) {
+
+                //报告页模板
+                $report_html = <<<aac
+            <table width="80%" style="border-collapse: collapse; height: 56px; font-family: 宋体; font-size: 18px; position: relative; margin-left: 20px;text-align: center;">
+                    <tbody>
+                    <tr style="text-align:center;font-size:14px;height: 40px;">
+                        <td style="border: 2px solid #000;width: 80px;">委托单位</td>
+                        <td style="border: 2px solid #000">{customer_name}</td>
+                        <td style="border: 2px solid #000">装箱地点</td>
+                        <td style="border: 2px solid #000">{location_name}</td>
+                    </tr>
+                    <tr style="text-align:center;font-size:14px;height: 40px;">
+                        <td style="border: 2px solid #000;width: 80px;">装箱日期</td>
+                        <td style="border: 2px solid #000">{createtime}</td>
+                        <td style="border: 2px solid #000">天气情况</td>
+                        <td style="border: 2px solid #000">暂无</td>
+                    </tr>
+                    <tr style="text-align:center;font-size:14px;height: 40px;">
+                        <td style="border: 2px solid #000;width: 80px;">箱号</td>
+                        <td style="border: 2px solid #000">{ctnno}</td>
+                        <td style="border: 2px solid #000">箱型</td>
+                        <td style="border: 2px solid #000">{ctn_type_code}</td>
+                    </tr>
+                    <tr style="text-align:center;font-size:14px;height: 40px;">
+                        <td style="border: 2px solid #000;width: 80px;">铅封号</td>
+                        <td style="border: 2px solid #000">{sealno}</td>
+                        <td style="border: 2px solid #000">总件数</td>
+                        <td style="border: 2px solid #000">{total_package}</td>
+                    </tr>
+                    <tr style="text-align:center;font-size:14px;height: 40px;">
+                        <td style="border: 2px solid #000;width: 80px;">监装人员</td>
+                        <td style="border: 2px solid #000;text-align: left;" colspan="3">{operator_name}</td>
+                    </tr>
+                    <tr style="text-align:center;font-size:14px;height: 60px;">
+                        <td style="border: 2px solid #000" colspan="4">装箱照片</td>
+                    </tr>
+                    <tr style="text-align:center;font-size:14px;height: 200px;">
+                        <td style="border: 2px solid #000;width: 80px;">空箱</td>
+                        <td style="border: 2px solid #000"><img src="{empty_pic}" height="200" width="280" /></td>
+                        <td style="border: 2px solid #000;width: 80px;">半箱</td>
+                        <td style="border: 2px solid #000"><img src="{level2}" height="200" width="280" /></td>
+                    </tr>
+                    <tr style="text-align:center;font-size:14px;height: 200px;">
+                        <td style="border: 2px solid #000;width: 80px;">满箱全开门</td>
+                        <td style="border: 2px solid #000"><img src="{level3}" height="200" width="280" /></td>
+                        <td style="border: 2px solid #000;width: 80px;">满箱半开门</td>
+                        <td style="border: 2px solid #000"><img src="{halfclose_door_picture}" height="200" width="280" /></td>
+                    </tr>
+                    <tr style="text-align:center;font-size:14px;height: 200px;">
+                        <td style="border: 2px solid #000;width: 80px;">满箱全关门</td>
+                        <td style="border: 2px solid #000"><img src="{close_door_picture}" height="200" width="280" /></td>
+                        <td style="border: 2px solid #000;width: 80px;">铅封照</td>
+                        <td style="border: 2px solid #000"><img src="{seal_pic}" height="200" width="280" /></td>
+                    </tr>
+                    <tr style="text-align:center;font-size:14px;height: 200px;">
+                        <td style="border: 2px solid #000;width: 80px;">货物特写照</td>
+                        <td style="border: 2px solid #000;"><img src="{level1}" height="200" width="280" /></td>
+                        <td style="border: 2px solid #000;width: 80px;">货物特写照</td>
+                        <td style="border: 2px solid #000"><img src="" height="200" width="280" /></td>
+                    </tr>
+                    </tbody>
+                </table>
+aac;
+
+                //获得委托单位
+                $customer = $billno_name_array[$value['content'][0]['billno']]['customer_name'];
+
+
+                //获取铅封照片，半关门照片，全关门照片，空箱照片(获取作业详情)
+                $operation = new \Common\Model\QbzxOperationModel();
+                $operation_result = $operation->getOperationMsg($value1['ctn_id']);
+
+                //获取第1,2,3关的照片详情
+                $level_sql = "SELECT opl.level_num,lci.cargo_picture from tally_qbzx_operation_level as opl LEFT JOIN tally_qbzx_operation as op on op.id=opl.operation_id LEFT JOIN tally_qbzx_level_cargo_img as lci on lci.id=opl.id where op.ctn_id=" . $value1['ctn_id'] . ";";
+                $level_result = M()->query($level_sql);
+
+                //初始化关照片信息
+                $level_array = array();
+
+                //转换为易读数组
+                if ($level_result != '') {
+                    foreach ($level_result as $vo) {
+                        $level_array[$vo['level_num']] = $vo['cargo_picture'];
+                    }
+                    if ($level_array[1] != '') {
+                        $level1 = "./Public/upload/qbzx/cargo/" . $level_array[1];//特写照片路径（取第一关）
+                    } else {
+                        $level1 = "暂无照片";
+                    }
+                    if ($level_array[2] != '') {
+                        $level2 = "./Public/upload/qbzx/cargo/" . $level_array[2];//半箱照片(取第二关)
+                    } else {
+                        $level2 = "暂无照片";
+                    }
+                    if ($level_array[3] != '') {
+                        $level3 = "./Public/upload/qbzx/cargo/" . $level_array[3];//满箱全开照片(取第三关)
+                    } else {
+                        $level3 = "暂无照片";
+                    }
+
+                }
+
+                //空箱照片，取第一个
+                $empty_pic = "./Public/upload/qbzx/empty/" . $operation_result['empty_picture'][0]['empty_picture'];
+                //铅封照片
+                $seal_pic = "./Public/upload/qbzx/seal/" . $operation_result ['seal_picture'];
+                //半关门
+                $halfclose_door_picture = "./Public/upload/qbzx/halfclosedoor/" . $operation_result ['halfclose_door_picture'];
+                //全关门
+                $close_door_picture = "./Public/upload/qbzx/closedoor/" . $operation_result ['close_door_picture'];
+
+                //放入委托单位
+                $report_html = str_replace("{customer_name}", $customer, $report_html);
+                //放入装箱地点
+                $report_html = str_replace("{location_name}", $value1['location_name'], $report_html);
+                //放入装箱日期
+                $report_html = str_replace("{createtime}", $value1['createtime'], $report_html);
+                //放入箱号
+                $report_html = str_replace("{ctnno}", $value1['ctnno'], $report_html);
+                //放入箱型
+                $report_html = str_replace("{ctn_type_code}", $value1['ctn_type_code'], $report_html);
+                //放入铅封号
+                $report_html = str_replace("{sealno}", $value1['sealno'], $report_html);
+                //放入总件数
+                $report_html = str_replace("{total_package}", $value1['total_package'], $report_html);
+                //放入监装人员名
+                $report_html = str_replace("{operator_name}", $value1['operator_name'], $report_html);
+
+                //放入空箱照片
+                $report_html = str_replace("{empty_pic}", $empty_pic, $report_html);
+                //放入半箱照片
+                $report_html = str_replace("{level2}", $level2, $report_html);
+                //放入满箱全开照片
+                $report_html = str_replace("{level3}", $level3, $report_html);
+                //放入满箱半开照片
+                $report_html = str_replace("{halfclose_door_picture}", $halfclose_door_picture, $report_html);
+                //放入满箱全关照片
+                $report_html = str_replace("{close_door_picture}", $close_door_picture, $report_html);
+                //放入铅封照
+                $report_html = str_replace("{seal_pic}", $seal_pic, $report_html);
+                //放入货物特写
+                $report_html = str_replace("{level1}", $level1, $report_html);
+
+                //加页并写入
+                $mpdf->AddPage();
+                $mpdf->WriteHTML($report_html);
+            }
+
+            //输出
+            $mpdf->Output();
+
+            //不需要后续处理，直接退出
+            exit();
+        } else {
+            $this->error("未选择箱");
+        }
+
+
+    }
+
 }

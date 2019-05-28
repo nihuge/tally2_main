@@ -156,6 +156,8 @@ switch (CONTROLLER_NAME) { case 'QbzxPlan' : $hf2 = 'on'; break; case 'QbzxPlanC
 				   <li ><a href="/index.php?s=/QbzxSearch/OperationFinish">完成作业查询</a></li>
 				   <!-- <li ><a href="/index.php?s=/QbzxSearch/prove">&nbsp;单证查询&nbsp;</a></li> -->
 				   <li ><a href="/index.php?s=/QbzxSearch/ProveByCtn">单证查询</a></li>
+				   <li ><a href="/index.php?s=/QbzxSearch/DangerSearch">危险品统计查询</a></li>
+
 				   <!-- <li ><a href="/index.php?s=/QbzxSearch/ProveByTicket">分票单证查询</a></li>
 				   <li ><a href="/index.php?s=/QbzxSearch/ProveByShip">分驳船单证查询</a></li>  -->
 				</ul>

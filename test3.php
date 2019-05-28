@@ -1,2 +1,3 @@
 <?php
-echo date('Y-m-d h:i:s', time());
+$str = "aaa,bbbc,aasd,c,";
+echo rtrim($str, ',');

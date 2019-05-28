@@ -22,7 +22,7 @@
 				   <li ><a href="__MODULE__/QbzxSearch/OperationFinish">完成作业查询</a></li>
 				   <!-- <li ><a href="__MODULE__/QbzxSearch/prove">&nbsp;单证查询&nbsp;</a></li> -->
 				   <li ><a href="__MODULE__/QbzxSearch/ProveByCtn">单证查询</a></li>
-				   <li ><a href="__MODULE__/QbzxSearch/ProveByCtn">单证查询</a></li>
+				   <li ><a href="__MODULE__/QbzxSearch/DangerSearch">危险品统计查询</a></li>
 
 				   <!-- <li ><a href="__MODULE__/QbzxSearch/ProveByTicket">分票单证查询</a></li>
 				   <li ><a href="__MODULE__/QbzxSearch/ProveByShip">分驳船单证查询</a></li>  -->
