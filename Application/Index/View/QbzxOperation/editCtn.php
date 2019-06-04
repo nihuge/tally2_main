@@ -1,8 +1,7 @@
 <!DOCTYPE HTML>
 <html>
 <head>
-    <title>起泊装箱_作业指令_修改关</title>
-    <link rel="stylesheet" type="text/css" href="__PUBLIC__/admin/css/pages.css">
+    <title>起泊装箱_作业指令_修改箱</title>
     <link rel="stylesheet" type="text/css" href="__PUBLIC__/admin/css/pages.css">
     <script type="text/javascript"
             src="__PUBLIC__/js/jquery.min.js"></script>
@@ -12,63 +11,83 @@
 </head>
 <body>
 <div class="tanchuang">
-    <input type="file" id="cargo_picture" style="display:none;" onchange="filechange(event)"
+    <input type="file" id="halfclose" style="display:none;" onchange="filechange(event,'halfclose')"
+           accept="image/png,image/jpeg"/>
+    <input type="file" id="close" style="display:none;" onchange="filechange(event,'close')"
+           accept="image/png,image/jpeg"/>
+    <input type="file" id="seal" style="display:none;" onchange="filechange(event,'seal')"
            accept="image/png,image/jpeg"/>
 
-    <volist name="damageimg" id="img">
-        <input type="file" id="{$img['id']}" style="display:none;" onchange="damagefilechange(event,'{$img['id']}')"
+    <volist name="empty_picture" id="l">
+        <input type="file" id="{$l['id']}" style="display:none;" onchange="emptyfilechange(event,'{$l['id']}')"
                accept="image/png,image/jpeg"/>
     </volist>
+
 
     <form action="__ACTION__" method="post">
         <input type="hidden" name="operation_id" value="{$operation_id}">
         <input type="hidden" name="level_id" value="{$level_id}">
-        <h5 class="hh">修改关</h5>
+        <h5 class="hh">修改箱</h5>
+        <p>
+            <h5 style="color: red">(点击图片就可更换图片，提示上传成功时就已经生效，可以直接退出本窗口，不需要点击修改)</h5>
+        </p>
+        <br/>
         <hr style="width:300px;margin:5px auto;background:#abcdef;height:2px;">
         <table border="0">
             <tr>
-                <td height="36" align="right" valign="middle">提单号：</td>
+                <td height="36" align="right" valign="middle">铅封号：</td>
                 <td>
-                    <input type="text" class="article" name="billno" required="required" value="{$msg['billno']}"/>
+                    <input type="text" class="article" name="sealno" required="required" value="{$msg['sealno']}"/>
                 </td>
             </tr>
             <tr>
-                <td height="36" align="right" valign="middle">货物件数：</td>
+                <td height="36" align="right" valign="middle">空箱重量：</td>
                 <td>
-                    <input type="text" class="article" name="cargo_number" required="required"
-                           value="{$msg['cargo_number']}"/>
+                    <input type="text" class="article" name="empty_weight" required="required"
+                           value="{$msg['empty_weight']}"/>
                 </td>
             </tr>
             <tr>
-                <td height="36" align="right" valign="middle">残损件数：</td>
+                <td height="36" align="right" valign="middle">货物重量：</td>
                 <td>
-                    <input type="text" class="article" name="damage_num" required="required"
-                           value="{$msg['damage_num']}"/>
+                    <input type="text" class="article" name="cargo_weight" required="required"
+                           value="{$msg['cargo_weight']}"/>
                 </td>
             </tr>
             <tr>
-                <td height="36" align="right" valign="middle">关照片修改</td>
+                <td>空箱照片修改</td>
                 <td>
-                    <img src="./Public/upload/qbzx/cargo/{$levelimg['cargo_picture']}"
-                         onclick="imgupload('cargo_picture')"
-                         width="150px" height="200px"
-                         id="img_cargo_picture"/>
+                    <volist name="empty_picture" id="l">
+                        <img src="./Public/upload/qbzx/empty/{$l['empty_picture']}" onclick="imgupload('{$l['id']}')"
+                             width="150px" height="200px"
+                             id="img_{$l['id']}">
+                    </volist>
                 </td>
             </tr>
             <tr>
-                <td height="36" align="right" valign="middle">关残损照片修改</td>
+                <td>半关门照片修改</td>
                 <td>
-                    <?php if (!empty($damageimg)) { ?>
-                        <volist name="damageimg" id="img">
-                            <img src="./Public/upload/qbzx/cdamage/{$img['damage_picture']}"
-                                 onclick="imgupload('{$img['id']}')"
-                                 width="150px" height="200px"
-                                 id="img_{$img['id']}"/>
-                        </volist>
-                    <?php } else {
-                        echo "无残损照片";
-                    } ?>
-
+                    <img src="./Public/upload/qbzx/halfclosedoor/{$msg['halfclose_door_picture']}"
+                         onclick="imgupload('halfclose')" width="150px"
+                         height="200px"
+                         id="img_halfclose">
+                </td>
+            </tr>
+            <tr>
+                <td>全关门照片修改</td>
+                <td>
+                    <img src="./Public/upload/qbzx/closedoor/{$msg['close_door_picture']}" onclick="imgupload('close')"
+                         width="150px"
+                         height="200px"
+                         id="img_close">
+                </td>
+            </tr>
+            <tr>
+                <td>铅封照片修改</td>
+                <td>
+                    <img src="./Public/upload/qbzx/seal/{$msg['seal_picture']}" width="150px"
+                         height="200px" onclick="imgupload('seal')"
+                         id="img_seal">
                 </td>
             </tr>
             <tr>
@@ -82,12 +101,13 @@
                 <td>&nbsp;</td>
                 <td><input type="submit" class="qr" value="修&nbsp;改"/></td>
             </tr>
+
         </table>
     </form>
+
+
 </div>
 <script>
-
-    var level_id = '{$level_id}';
     var operation_id = '{$operation_id}';
 
     var imgupload = function (action) {
@@ -96,7 +116,7 @@
 
 
     /*$("#file").change(function (event) {*/
-    var filechange = function (event) {
+    var filechange = function (event, name) {
         var files = event.target.files, file;
         if (files && files.length > 0) {
             // 获取目前上传的文件
@@ -107,7 +127,7 @@
 
             //ajax上传图片
             $.ajax({
-                url: '__CONTROLLER__/levelImgUpload/operation_id/' + operation_id + '/level_id/' + level_id,
+                url: '__CONTROLLER__/ctnImgUpload/operation_id/' + operation_id + '/type/' + name,
                 type: 'post',
                 data: formData,
                 dataType: 'json',
@@ -116,7 +136,7 @@
                 processData: false,
                 success: function (data) {
                     if (data.status == "ok") {
-                        $('#img_cargo_picture').attr('src', data.url);
+                        $('#img_' + name).attr('src', data.url);
                         alert("上传成功");
                     } else {
                         alert(data.msg);
@@ -130,7 +150,7 @@
     };
 
 
-    var damagefilechange = function (event, id) {
+    var emptyfilechange = function (event, id) {
         var files = event.target.files, file;
         if (files && files.length > 0) {
             // 获取目前上传的文件
@@ -141,7 +161,7 @@
 
             //ajax上传图片
             $.ajax({
-                url: '__CONTROLLER__/damageImgUpload/operation_id/' + operation_id + '/level_id/' + level_id + '/id/' + id,
+                url: '__CONTROLLER__/emptyImgUpload/operation_id/' + operation_id + '/id/' + id,
                 type: 'post',
                 data: formData,
                 dataType: 'json',
@@ -163,4 +183,5 @@
         }
     };
 </script>
+
 </body>
