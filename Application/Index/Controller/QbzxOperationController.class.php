@@ -565,7 +565,39 @@ class QbzxOperationController extends BaseController
                     'operation_examine' => I('get.operation_examine')
                 );
                 $operation->where("id='$operation_id'")->save($data_t);
-                $this->success('审核成功');
+
+
+
+
+                //得到客户的openid
+                $openid_search_sql = "SELECT cus.customer_name,cus.wx_openid from __PREFIX__qbzx_instruction as ins left JOIN __PREFIX__qbzx_plan as plan on ins.plan_id=plan.id LEFT JOIN __PREFIX__customer as cus on cus.id=plan.entrust_company where ins.id=" . $instruction_id . ";";
+                $customer_info = M()->query($openid_search_sql);
+                $openid = $customer_info[0]['wx_openid'];
+                //得到单证内容
+                $proveMsg = $prove->where(array("ctn_id" => $ctn_id))->find();
+
+
+                #todo 发送微信模板消息
+                if ($openid != "") {
+                    $data = array();
+                    $data['ctnno'] = $proveMsg['ctnno'];
+                    $data['ctn_type_code'] = $proveMsg['ctn_type_code'];;
+                    $data['ctn_master'] = $proveMsg['ctn_master'];;
+                    $data['ship_name'] = $proveMsg['ship_name'];;
+                    $data['voyage'] = $proveMsg['voyage'];
+
+                    vendor('WeChat.sendWxMsg');
+                    $WxMsg = new \sendWxMsg($data, 1);
+                    $result = $WxMsg->send($openid);
+
+                    if ($result['error'] == 0) {
+                        $this->success('审核成功,状态已成功通知到' . $customer_info[0]['customer_name'] . "客户绑定的微信");
+                    } else {
+                        $this->success('审核成功，但无法通知状态到' . $customer_info[0]['customer_name'] . "客户绑定的微信");
+                    }
+                } else {
+                    $this->success('审核成功，' . $customer_info[0]['customer_name'] . "客户未绑定微信");
+                }
             } else {
 // 				$this->error('生成单证失败，审核操作失败');
                 $this->error($res_p ['msg']);

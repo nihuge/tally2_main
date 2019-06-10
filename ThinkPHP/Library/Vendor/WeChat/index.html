@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>发送给您通知信息</title>
+    <script src="static/js/jquery.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <link href="static/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<form class="form-horizontal" role="form" action="sendWxMsg.php" method="post">
+    <div class="form-group">
+        <label for="ctnno" class="col-sm-2 control-label">箱号</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="ctnno" name="ctnno"
+                   placeholder="箱号">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="customer_name" class="col-sm-2 control-label">委托单位</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="customer_name" name="customer_name"
+                   placeholder="请输入委托单位">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="id" class="col-sm-2 control-label">委托编号</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="id" name="id"
+                   placeholder="请输入委托编号">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="ship_name" class="col-sm-2 control-label">船名</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="ship_name" name="ship_name"
+                   placeholder="请输入船名">
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="voyage" class="col-sm-2 control-label">航次</label>
+        <div class="col-sm-8">
+            <input type="text" class="form-control" id="voyage" name="voyage"
+                   placeholder="请输入航次">
+        </div>
+    </div>
+
+    <div class="col-sm-2 col-sm-offset-4">
+        <button type="submit" class="btn btn-default">提交</button>
+    </div>
+</form>
+
+<script>
+    var openId = getCookie('openId');
+    if (openId == '') {
+        const AppId = 'wxb6614577d01cda09';
+        const code = getUrlParam('code');
+        const local = window.location.href;
+
+        if (code == null || code === '') {
+            window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=' + AppId + '&redirect_uri=' + encodeURI(local) + '&response_type=code&scope=snsapi_base&state=1#wechat_redirect';
+        } else {
+            getOpenId(code);
+        }
+    }
+
+    function getUrlParam(name) {
+        var reg = new RegExp('(^|&)' + name + '=([^&]*)(&|$)');
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+
+    function getOpenId(code) {
+        $.ajax({
+            url: './userbase.php',
+            type: 'POST',
+            data: {code: code},
+            dataType: 'json',
+            success: function (data) {
+                if (data.error == 0) {
+                    openId = data.msg;
+                    setCookie('openId', data.msg, 20);
+                    alert("登录成功：openod->" + data.msg);
+                } else {
+                    alert("错误：" + data.error + ";提示:" + data.msg);
+                }
+            }
+        });
+    }
+
+    /*
+    封装
+     */
+    function setCookie(key, value, t) {
+        var oDate = new Date();
+        oDate.setDate(oDate.getDate() + t);
+        document.cookie = key + "=" + value + "; expires=" + oDate.toDateString();
+    }
+
+    function getCookie(key) {
+        var arr1 = document.cookie.split("; ");//由于cookie是通过一个分号+空格的形式串联起来的，所以这里需要先按分号空格截断,变成[name=Jack,pwd=123456,age=22]数组类型；
+        for (var i = 0; i < arr1.length; i++) {
+            var arr2 = arr1[i].split("=");//通过=截断，把name=Jack截断成[name,Jack]数组；
+            if (arr2[0] == key) {
+                return decodeURI(arr2[1]);
+            }
+        }
+        return '';
+
+    }
+
+    //封装一个移除cookie的函数
+    function removeCookie(key) {
+        setCookie(key, "", -1);//把cookie设置为过期
+
+    }
+</script>
+</body>
+</html>
