@@ -682,7 +682,7 @@ class QbzxSearchController extends CommonController
             //新建一个ZipArchive的对象
             $img_file = new \ZipArchive();
             //设置.zip下载后的文件名
-            $zname1 = '起驳图片打包' . '.zip';
+            $zname1 = 'Qbzx_img_package' . '.zip';
             if ($img_file->open($zname1, \ZIPARCHIVE::CREATE) === TRUE) {
                 foreach ($ctn_id_list as $o) {
                     //根据箱ID获取指令ID

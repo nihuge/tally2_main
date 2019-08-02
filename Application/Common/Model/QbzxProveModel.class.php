@@ -13,7 +13,7 @@ class QbzxProveModel extends Model
 	public $ERROR_CODE_COMMON_ZH =array();  // 公共返回码中文描述
 	public $ERROR_CODE_DOCUMENT =array();       // 单证管理返回码
 	public $ERROR_CODE_DOCUMENT_ZH =array();    // 单证管理返回码中文描述
-	
+
 	//初始化
 	protected function _initialize()
 	{
@@ -93,7 +93,7 @@ class QbzxProveModel extends Model
 			return false;
 		}
 	}
-	
+
 	/**
 	 * 根据箱ID获取单证详情
 	 * @param int $ctn_id:箱ID
@@ -109,7 +109,7 @@ class QbzxProveModel extends Model
 			return false;
 		}
 	}
-	
+
 	/**
 	 * 判断单证是否已存在
 	 * @param int $ctn_id:箱ID
@@ -134,7 +134,7 @@ class QbzxProveModel extends Model
 		}
 		return $res;
 	}
-	
+
 	/**
 	 * 生成起泊装箱单证
 	 * @param int $ctn_id:箱ID
@@ -156,15 +156,15 @@ class QbzxProveModel extends Model
 				$res_cm = $cmaster->where ( "id='" . $res_ctn ['ctn_master'] . "'" )->field ( 'ctn_master' )->find ();
 				// 指令ID
 				$instruction_id = $res_ctn ['instruction_id'];
-				
+
 				// ②根据指令ID查找起驳作业指令表，得到数据
 				$instruction = new \Common\Model\QbzxInstructionModel ();
 				$res_i = $instruction->where ( "id='$instruction_id'" )->find ();
-				
+
 				// 获取作业场地名
 				$location = new \Common\Model\LocationModel ();
 				$res_l = $location->where ( "id='" . $res_i ['location_id'] . "'" )->field ( 'location_name' )->find ();
-				
+
 				// 预报计划编号
 				$plan_id = $res_i ['plan_id'];
 				// ③根据预报计划编号查找预报计划表，得到数据
@@ -173,12 +173,12 @@ class QbzxProveModel extends Model
 				// 获取船名
 				$ship = new \Common\Model\ShipModel ();
 				$res_s = $ship->where ( "id='" . $res_p ['ship_id'] . "'" )->field ( 'ship_name' )->find ();
-				
+
 				// ④根据预报计划编号查找预报计划货物表，得到数据
 				$cargo = new \Common\Model\QbzxPlanCargoModel ();
 				$data_c = $cargo->where ( "plan_id=$plan_id" )->field ( 'dangerlevel' )->select ();
 				// 危险品级别
-				foreach ( $data_c as $dl ) 
+				foreach ( $data_c as $dl )
 				{
 					if ($dl)
 						$res ['dangerlevel'] .= $dl ['dangerlevel'] . ',';
@@ -186,21 +186,21 @@ class QbzxProveModel extends Model
 				// ⑤根据箱ID查找起驳作业表，得到数据
 				$operation = new \Common\Model\QbzxOperationModel ();
 				$data_o = $operation->where ( "ctn_id=$ctn_id" )->find ();
-				
+
 				// 根据箱ID获取作业ID
 				$operation_id = $data_o ['id'];
-				
+
 				// ⑥根据作业ID、业务系统查找起驳作业明细表，得到数据
 				$level = new \Common\Model\QbzxOperationLevelModel ();
 				$data_l = $level->field ( 'sum(cargo_number),sum(damage_num) as damaged_quantity,count(id) as level_num,operator_id' )->where ( "operation_id=$operation_id" )->order ( 'id desc' )->find ();
 				// 获取操作人名称
 				$user = new \Common\Model\UserModel ();
 				$res_u = $user->where ( "uid='" . $data_l ['operator_id'] . "'" )->field ( 'user_name' )->find ();
-				
+
 				$sql = "select billno,sum(cargo_number) as cargo_number,sum(damage_num) as damage_number from __PREFIX__qbzx_operation_level where operation_id=$operation_id group by billno";
 				$data_l2 = M ()->query ( $sql );
 				$c_num = count ( $data_l2 );
-				
+
 				$data = array (
 						'ctn_id' => $ctn_id,
 						'ctnno' => $res_ctn ['ctnno'],
@@ -223,18 +223,18 @@ class QbzxProveModel extends Model
 						'operator_name' => $res_u ['user_name'],
 						//'remark' => $remark, 2019-5-21修改
 						'remark' => $data_o ['remark'],
-						'createtime' => date ( 'Y-m-d H:i:s' ) 
+						'createtime' => date ( 'Y-m-d H:i:s' )
 				);
-				
+
 				// 整拼标志
-				if ($c_num > 1) 
+				if ($c_num > 1)
 				{
 					$data ['flflag'] = 'L';
 				} else {
 					$data ['flflag'] = 'F';
 				}
 				$a = 0;
-				for($i = 0; $i < $c_num; $i ++) 
+				for($i = 0; $i < $c_num; $i ++)
 				{
 					// 提单号
 					$content [$i] ['billno'] = $data_l2 [$i] ['billno'];
@@ -256,12 +256,12 @@ class QbzxProveModel extends Model
 				$data ['total_package'] = $a;
 				// 总重量
 				$data ['total_weight'] = $data ['empty_weight'] + $data ['cargo_weight'];
-				
+
 				// 根据作业ID分驳船统计内容
 				$sql_s = "select ship_id,sum(cargo_number) as cargo_num,sum(damage_num) as damage_num from __PREFIX__qbzx_operation_level where operation_id=$operation_id and ship_id!='' group by ship_id";
 				$data_s = M ()->query ( $sql_s );
 				$s_num = count ( $data_s );
-				for($i = 0; $i < $s_num; $i ++) 
+				for($i = 0; $i < $s_num; $i ++)
 				{
 					// 船ID
 					$ship_content [$i] ['ship_id'] = $data_s [$i] ['ship_id'];
@@ -275,7 +275,7 @@ class QbzxProveModel extends Model
 				$sql_location = "select location_id,sum(cargo_number) as cargo_num,sum(damage_num) as damage_num from __PREFIX__qbzx_operation_level where operation_id=$operation_id  and location_id!='' group by location_id";
 				$data_location = M ()->query ( $sql_location );
 				$location_num = count ( $data_location );
-				for($i = 0; $i < $location_num; $i ++) 
+				for($i = 0; $i < $location_num; $i ++)
 				{
 					// 场地ID
 					$location_content [$i] ['location_id'] = $data_location [$i] ['location_id'];
@@ -285,12 +285,12 @@ class QbzxProveModel extends Model
 					$location_content [$i] ['damage_unit'] = $data_location [$i] ['damage_num'];
 				}
 				$data ['location_content'] = json_encode ( $location_content, JSON_UNESCAPED_UNICODE );
-				
+
 				// 根据作业ID分接车统计内容
 				$sql_car = "select sum(cargo_number) as cargo_num,sum(damage_num) as damage_num from __PREFIX__qbzx_operation_level where operation_id=$operation_id and car!='N' group by car";
 				$data_car = M ()->query ( $sql_car );
 				$car_num = count ( $data_car );
-				for($i = 0; $i < $car_num; $i ++) 
+				for($i = 0; $i < $car_num; $i ++)
 				{
 					// 接车ID
 					$car_content [$i] ['car'] = $data_car [$i] ['car'];
@@ -300,31 +300,31 @@ class QbzxProveModel extends Model
 					$car_content [$i] ['damage_unit'] = $data_car [$i] ['damage_num'];
 				}
 				$data ['car_content'] = json_encode ( $car_content, JSON_UNESCAPED_UNICODE );
-				// if ($this->create ( $data )) 
+				// if ($this->create ( $data ))
 				// {
 				// 	// 对data数据进行验证
 				// 	$res = array (
 				// 			'code' => $this->ERROR_CODE_COMMON ['PARAMENT_ERROR'],
-				// 			'msg' => $this->getError () 
+				// 			'msg' => $this->getError ()
 				// 	);
 				// } else {
 					$result = $this->add ( $data );
 					if ($result !== false) {
 						$res = array (
 								'code' => $this->ERROR_CODE_COMMON ['SUCCESS'],
-								'msg' => '成功' 
+								'msg' => '成功'
 						);
 					} else {
 						$res = array (
 								'code' => $this->ERROR_CODE_COMMON ['DB_ERROR'],
-								'msg' => $this->ERROR_CODE_COMMON_ZH [$this->ERROR_CODE_COMMON ['DB_ERROR']] 
+								'msg' => $this->ERROR_CODE_COMMON_ZH [$this->ERROR_CODE_COMMON ['DB_ERROR']]
 						);
 					}
 				// }
 			} else {
 				$res = array (
 						'code' => $this->ERROR_CODE_COMMON ['DB_ERROR'],
-						'msg' => $this->ERROR_CODE_COMMON_ZH [$this->ERROR_CODE_COMMON ['DB_ERROR']] 
+						'msg' => $this->ERROR_CODE_COMMON_ZH [$this->ERROR_CODE_COMMON ['DB_ERROR']]
 				);
 			}
 		}else{
@@ -335,4 +335,220 @@ class QbzxProveModel extends Model
 		}
 		return $res;
 	}
+
+    /**
+     * 获得起泊装箱单证数据
+     * @param int $ctn_id:箱ID
+     * @return boolean
+     * @return @param array $data:单证数据
+     */
+    public function getDocumentByQbzx($ctn_id)
+    {
+        $res_prove = $this->is_exist($ctn_id);
+        if($res_prove['code'] == '0')
+        {
+            // ①根据箱ID查找起驳作业指令箱表，得到数据
+            $container = new \Common\Model\QbzxInstructionCtnModel();
+            $res_ctn = $container->where("id='$ctn_id'")->find();
+            if ($res_ctn)
+            {
+                // 箱主名
+                $cmaster = new \Common\Model\ContainerMasterModel ();
+                $res_cm = $cmaster->where ( "id='" . $res_ctn ['ctn_master'] . "'" )->field ( 'ctn_master' )->find ();
+                // 指令ID
+                $instruction_id = $res_ctn ['instruction_id'];
+
+                // ②根据指令ID查找起驳作业指令表，得到数据
+                $instruction = new \Common\Model\QbzxInstructionModel ();
+                $res_i = $instruction->where ( "id='$instruction_id'" )->find ();
+
+                // 获取作业场地名
+                $location = new \Common\Model\LocationModel ();
+                $res_l = $location->where ( "id='" . $res_i ['location_id'] . "'" )->field ( 'location_name' )->find ();
+
+                // 预报计划编号
+                $plan_id = $res_i ['plan_id'];
+                // ③根据预报计划编号查找预报计划表，得到数据
+                $plan = new \Common\Model\QbzxPlanModel ();
+                $res_p = $plan->where ( "id=$plan_id" )->find ();
+                // 获取船名
+                $ship = new \Common\Model\ShipModel ();
+                $res_s = $ship->where ( "id='" . $res_p ['ship_id'] . "'" )->field ( 'ship_name' )->find ();
+
+                // ④根据预报计划编号查找预报计划货物表，得到数据
+                $cargo = new \Common\Model\QbzxPlanCargoModel ();
+                $data_c = $cargo->where ( "plan_id=$plan_id" )->field ( 'dangerlevel' )->select ();
+                // 危险品级别
+                foreach ( $data_c as $dl )
+                {
+                    if ($dl)
+                        $res ['dangerlevel'] .= $dl ['dangerlevel'] . ',';
+                }
+                // ⑤根据箱ID查找起驳作业表，得到数据
+                $operation = new \Common\Model\QbzxOperationModel ();
+                $data_o = $operation->where ( "ctn_id=$ctn_id" )->find ();
+                $level = new \Common\Model\QbzxOperationLevelModel ();
+
+                // 根据箱ID获取作业ID
+                $operation_id = $data_o ['id'];
+                // 最新操作时间
+                $res_new = $level->where("operation_id=$operation_id")->field('createtime')->order("id desc")->find();
+
+
+                if ($res_new ['createtime'] != '') {
+                    $newtime = $res_new ['createtime'];
+                } else {
+                    $newtime = $data_o ['begin_time'];
+                }
+
+                // ⑥根据作业ID、业务系统查找起驳作业明细表，得到数据
+                $level = new \Common\Model\QbzxOperationLevelModel ();
+                $data_l = $level->field ( 'sum(cargo_number),sum(damage_num) as damaged_quantity,count(id) as level_num,operator_id' )->where ( "operation_id=$operation_id" )->order ( 'id desc' )->find ();
+                // 获取操作人名称
+                $user = new \Common\Model\UserModel ();
+                $res_u = $user->where ( "uid='" . $data_l ['operator_id'] . "'" )->field ( 'user_name' )->find ();
+
+                $sql = "select billno,sum(cargo_number) as cargo_number,sum(damage_num) as damage_number from __PREFIX__qbzx_operation_level where operation_id=$operation_id group by billno";
+                $data_l2 = M ()->query ( $sql );
+                $c_num = count ( $data_l2 );
+
+                $data = array (
+                    'ctn_id' => $ctn_id,
+                    'ctnno' => $res_ctn ['ctnno'],
+                    'ship_id' => $res_p ['ship_id'],
+                    'ship_name' => $res_s ['ship_name'],
+                    'voyage' => $res_p ['voyage'],
+                    'ctn_type_code' => $res_ctn ['ctn_type_code'],
+                    'ctn_master' => $res_cm ['ctn_master'],
+                    'loadingtype' => $res_i ['loadingtype'],
+                    'location_id' => $res_i ['location_id'],
+                    'location_name' => $res_l ['location_name'],
+                    'total_weight' => $data_o ['empty_weight'] + $data_o ['cargo_weight'],
+                    'empty_weight' => $data_o ['empty_weight'],
+                    'cargo_weight' => $data_o ['cargo_weight'],
+                    'dangerlevel' => substr ( $res ['dangerlevel'], 0, - 1 ),
+                    'sealno' => $data_o ['sealno'],
+                    'level_num' => $data_l ['level_num'],
+                    'damage_num' => $data_l ['damaged_quantity'],
+                    'operator_id' => $data_l ['operator_id'],
+                    'operator_name' => $res_u ['user_name'],
+                    //'remark' => $remark, 2019-5-21修改
+                    'remark' => $data_o ['remark'],
+                    'createtime' => $newtime,
+                );
+
+                // 整拼标志
+                if ($c_num > 1)
+                {
+                    $data ['flflag'] = 'L';
+                } else {
+                    $data ['flflag'] = 'F';
+                }
+                $a = 0;
+                for($i = 0; $i < $c_num; $i ++)
+                {
+                    // 提单号
+                    $content [$i] ['billno'] = $data_l2 [$i] ['billno'];
+                    $cargolist = $cargo->where ( "billno='" . $data_l2 [$i] ['billno'] . "'" )->find ();
+                    // 包装
+                    $content [$i] ['package'] = $cargolist ['pack'];
+                    // 标志
+                    $content [$i] ['mark'] = $cargolist ['mark'];
+                    // 货物件数
+                    $content [$i] ['cargo_unit'] = $data_l2 [$i] ['cargo_number'];
+                    $a = $a + $content [$i] ['cargo_unit'];
+                    // 残损件数
+                    $content [$i] ['damage_unit'] = $data_l2 [$i] ['damage_number'];
+                }
+                $data ['content'] = $content;
+                // 总票数
+                $data ['total_ticket'] = count ( $content );
+                // 总件数
+                $data ['total_package'] = $a;
+                // 总重量
+                $data ['total_weight'] = $data ['empty_weight'] + $data ['cargo_weight'];
+
+                // 根据作业ID分驳船统计内容
+                $sql_s = "select ship_id,sum(cargo_number) as cargo_num,sum(damage_num) as damage_num from __PREFIX__qbzx_operation_level where operation_id=$operation_id and ship_id!='' group by ship_id";
+                $data_s = M ()->query ( $sql_s );
+                $s_num = count ( $data_s );
+                for($i = 0; $i < $s_num; $i ++)
+                {
+                    // 船ID
+                    $ship_content [$i] ['ship_id'] = $data_s [$i] ['ship_id'];
+                    // 货物件数
+                    $ship_content [$i] ['cargo_unit'] = $data_s [$i] ['cargo_num'];
+                    // 残损件数
+                    $ship_content [$i] ['damage_unit'] = $data_s [$i] ['damage_num'];
+                }
+                $data ['barge_ship_content'] = json_encode ( $ship_content, JSON_UNESCAPED_UNICODE );
+                // 根据作业ID分场地统计内容
+                $sql_location = "select location_id,sum(cargo_number) as cargo_num,sum(damage_num) as damage_num from __PREFIX__qbzx_operation_level where operation_id=$operation_id  and location_id!='' group by location_id";
+                $data_location = M ()->query ( $sql_location );
+                $location_num = count ( $data_location );
+                for($i = 0; $i < $location_num; $i ++)
+                {
+                    // 场地ID
+                    $location_content [$i] ['location_id'] = $data_location [$i] ['location_id'];
+                    // 货物件数
+                    $location_content [$i] ['cargo_unit'] = $data_location [$i] ['cargo_num'];
+                    // 残损件数
+                    $location_content [$i] ['damage_unit'] = $data_location [$i] ['damage_num'];
+                }
+                $data ['location_content'] = json_encode ( $location_content, JSON_UNESCAPED_UNICODE );
+
+                // 根据作业ID分接车统计内容
+                $sql_car = "select sum(cargo_number) as cargo_num,sum(damage_num) as damage_num from __PREFIX__qbzx_operation_level where operation_id=$operation_id and car!='N' group by car";
+                $data_car = M ()->query ( $sql_car );
+                $car_num = count ( $data_car );
+                for($i = 0; $i < $car_num; $i ++)
+                {
+                    // 接车ID
+                    $car_content [$i] ['car'] = $data_car [$i] ['car'];
+                    // 货物件数
+                    $car_content [$i] ['cargo_unit'] = $data_car [$i] ['cargo_num'];
+                    // 残损件数
+                    $car_content [$i] ['damage_unit'] = $data_car [$i] ['damage_num'];
+                }
+                $data ['car_content'] = json_encode ( $car_content, JSON_UNESCAPED_UNICODE );
+                // if ($this->create ( $data ))
+                // {
+                // 	// 对data数据进行验证
+                // 	$res = array (
+                // 			'code' => $this->ERROR_CODE_COMMON ['PARAMENT_ERROR'],
+                // 			'msg' => $this->getError ()
+                // 	);
+                // } else {
+                return $res = array (
+                    'code' => $this->ERROR_CODE_COMMON ['SUCCESS'],
+                    'msg' => '成功',
+                    'data'=>$data,
+                );
+/*                $result = $this->add ( $data );
+                if ($result !== false) {
+                    $res = array (
+                        'code' => $this->ERROR_CODE_COMMON ['SUCCESS'],
+                        'msg' => '成功'
+                    );
+                } else {
+                    $res = array (
+                        'code' => $this->ERROR_CODE_COMMON ['DB_ERROR'],
+                        'msg' => $this->ERROR_CODE_COMMON_ZH [$this->ERROR_CODE_COMMON ['DB_ERROR']]
+                    );
+                }*/
+                // }
+            } else {
+                $res = array (
+                    'code' => $this->ERROR_CODE_COMMON ['DB_ERROR'],
+                    'msg' => $this->ERROR_CODE_COMMON_ZH [$this->ERROR_CODE_COMMON ['DB_ERROR']]
+                );
+            }
+        }else{
+            $res = array (
+                'code' => $this->ERROR_CODE_DOCUMENT ['DOCUMENT_ALREADY_EXIST'],
+                'msg' => $this->ERROR_CODE_DOCUMENT_ZH [$this->ERROR_CODE_DOCUMENT ['DOCUMENT_ALREADY_EXIST']]
+            );
+        }
+        return $res;
+    }
 }

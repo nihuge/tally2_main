@@ -1,0 +1,987 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="d0ed0f94-4856-44fe-bb95-e6d340579cf0" name="Default Changelist" comment="wechat change">
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/App/Controller/CertificateController.class.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Common/Model/CertificateDamageModel.class.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Common/Model/CertificateModel.class.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Index/Controller/StatisticController.class.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Index/View/QbzxOperation/index_old.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Admin/051223d7334b790e981a971b50de16b4.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Admin/16c9d0ba6712b66432058a718116797c.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Admin/182c22db856dbfcaaab47e64f82958e3.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Admin/47dabe51d20108c4d38f86bd9f455d06.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Admin/5aa481bb512352f65328b9fbe358f16d.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Admin/5e2bc3151fd18eb27ec2b4cb6533fa5d.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Admin/5e7c63a67ddc7b54827f64fe7b4d977c.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Admin/66181d729007cefb1e1082af4b386f45.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Admin/742f17f70ad8e87bdf7d082aff46ce66.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Admin/7659957778b6f6b821ad09514b531984.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Admin/785677d1b8164449f0a4f9ad410fa166.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Admin/896003c83033d8ce2a655db54c800bb5.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Admin/931aece375c79a0884fa972e514473bf.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Admin/eb8dd5a8ee9fa2a6ed8cc411582a0035.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Admin/fab870e70b122ccf9721ed9bf79387c8.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Customer/2d0144befce98d19f336e3a346a69d7b.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Customer/325d77170d5db83142e1cb33017e7c7c.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Customer/386f00868493de44b31f2b29008a7029.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Customer/3f4b6babf0b9dad3ea9a93108c6c8363.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Customer/5e2bc3151fd18eb27ec2b4cb6533fa5d.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Customer/9ac36acb4a9a310d370a21dd48a9ae02.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Customer/c20205a76ceb06fa4393d950d8f431d6.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Customer/eca7bbe1aaddb749e1839e281be1fe55.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Customer/f30dc99adab3d1562f0f2464b33abfcb.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Index/0d2b08c51ddc7cb063b96e3de8d0f963.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Index/0fd7768fd106a77123f389a9325e3533.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Index/1b9d4ff58df0911cd63e57a1d678464c.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Index/217612a2809c7d0aa4a8df2f600ffb11.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Index/238312d2634c302899ef855553413a04.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Index/408a38b37822146489146ec09acf0bb7.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Index/65daa408fda7126ddaea664df2c086da.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Index/6bc7aabdbaf2760a566db3b5d964b464.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Index/6d0f7be2e625353dfda5e03286333d61.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Index/a7a9ceddb16a8da93db4216bd77cc5c7.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Index/af2ee1922923d23e7b0e38f08484f426.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Index/ba4accffcf3c22d629332ad946e998f8.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Index/bea3c91ea3dd045f4e35fe6202fe30ee.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Index/ca721d472e1df06b9a259b90e40be79a.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Index/db5b927e88ada55a4ac8115f2c37fd29.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Index/dc3988bed71f7c9c594e947ea095474a.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Index/efec476b97a56d30f1902d0951cd4b05.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Index/f0ee7c06b169fb8f553e944b01e58ed1.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Index/f70c4a61ec7920fa4da1880733c7a27a.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Index/fd170f11c2dbf398ad56d471c3400538.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Cache/Index/ff3f9f44c5c61a0f9a2a2adc98fe35df.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Admin/19_05_24.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Admin/19_05_27.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Admin/19_05_28.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Admin/19_05_29.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Admin/19_05_30.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Admin/19_06_11.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Admin/19_06_17.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Admin/19_07_23.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/App/19_05_27.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/App/19_06_05.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/App/19_06_11.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/App/19_06_12.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/App/19_06_13.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/App/19_06_14.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/App/19_07_30.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/App/19_07_31.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/App/19_08_02.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Customer/19_05_28.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Customer/19_06_04.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Customer/19_06_05.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Customer/19_06_11.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Customer/19_07_23.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/1558690722-19_05_24.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/1558917329-19_05_27.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/1558917758-19_05_27.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/1558917762-19_05_27.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/1558917815-19_05_27.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/1558944596-19_05_27.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/1559120442-19_05_29.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/19_05_24.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/19_05_27.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/19_05_28.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/19_05_29.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/19_05_30.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/19_05_31.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/19_06_04.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/19_06_05.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/19_06_11.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/19_06_12.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/19_06_13.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/19_06_14.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/19_06_17.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/19_06_18.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/19_06_19.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/19_06_24.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/19_07_16.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/19_07_23.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/19_07_25.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/Index/19_08_02.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Application/Runtime/Logs/info.log" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Cert.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/PDF/Cert/Cert__5d40f5025395c998pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/PDF/Cert/Cert__5d40f52dd4dad564.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/PDF/Cert/Cert__5d40f5ede3be7303.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/PDF/Cert/Cert__5d40f83f254c1363.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/PDF/Cert/Cert__5d4101c8164f7207.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/PDF/DamageCert/DamageCert__5d40f69c1fef2994.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/PDF/DamageCert/DamageCert__5d4102084da68148.pdf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/img/cert_detail.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/img/cert_logo.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/img/cert_logo.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/cert/damageSign/5d02127825adb526.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/cert/damageSign/5d0212b69f66a552.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/cert/damageSign/5d0212bf35134466.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/cert/sign/5cfefafdc5acd723.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/cargo/59f293f1202a6920.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/cargo/59f29a4c8afa2166.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/cargo/59f29f98ad4f3813.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/cargo/5ce36942a02b1167.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/cargo/5ce3b6832d42e615.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/cargo/5ce4b1b52ded5325.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/cargo/5ce4b20c5e2ad906.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/cargo/5cee2e6705e30282.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/cargo/5cee2f093b2d6571.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/cargo/5cee42851085d935.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/cargo/5cee48bcd7ff4862.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/cargo/5cee52bbcf4c0278.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/cargo/5d005263cbd7b634.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/cdamage/5ce4b20c5e878542.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/cdamage/5cee535e529ce398.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/closedoor/5a97992bf12e3440.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/closedoor/5ce36a389a06c420.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/closedoor/5ce3b6a964e18495.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/closedoor/5ce4b25d9dc96953.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/closedoor/5cee209cf00a5769.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/empty/5a97848013ed9895.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/empty/5ce36306996ae752.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/empty/5ce368dcd4c62934.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/empty/5ce3b656962f3637.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/empty/5ce4b180598ec397.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/empty/5ce6343dcd6e1607.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/empty/5ce6343dcd882723.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/empty/5cee1fe749af5405.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/empty/5cee42a6bf4f6853.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/empty/5d0050afc9a91792.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/halfclosedoor/5a97991c13ed9765.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/halfclosedoor/5ce36a241b914516.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/halfclosedoor/5ce3b6954b20f616.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/halfclosedoor/5ce4b231b383b839.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/halfclosedoor/5cee1ff9d9be5800.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/seal/5ce36abd1b663485.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/seal/5ce3b6d1d9453693.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/seal/5ce4b2c69099f744.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Public/upload/qbzx/seal/5cee20ab83d85102.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/mpdf/outCert.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/mpdf/outDamageCert.php" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/runtime/cache/99673e82e4a8cb6393a980f23e915006" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Admin/Controller/CustomerController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Admin/Controller/CustomerController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Admin/View/Customer/index.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Admin/View/Customer/index.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/App/Controller/QbzxOperationController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/App/Controller/QbzxOperationController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/App/Controller/WxApiController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/App/Controller/WxApiController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Common/Model/QbzxProveModel.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Common/Model/QbzxProveModel.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Customer/Controller/QbzxSearchController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Customer/Controller/QbzxSearchController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Index/Controller/CfsInstructionController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Index/Controller/CfsInstructionController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Index/Controller/QbzxOperationController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Index/Controller/QbzxOperationController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Index/Controller/QbzxSearchController.class.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Index/Controller/QbzxSearchController.class.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Application/Index/View/QbzxSearch/RealTime.php" beforeDir="false" afterPath="$PROJECT_DIR$/Application/Index/View/QbzxSearch/RealTime.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/admin/js/nff.js" beforeDir="false" afterPath="$PROJECT_DIR$/Public/admin/js/nff.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/inc/status.config.php" beforeDir="false" afterPath="$PROJECT_DIR$/Public/inc/status.config.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Public/js/jquery.firstebox.pack.js" beforeDir="false" afterPath="$PROJECT_DIR$/Public/js/jquery.firstebox.pack.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/WeChat/sendWxMsg.php" beforeDir="false" afterPath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/WeChat/sendWxMsg.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/mpdf/mpdf.php" beforeDir="false" afterPath="$PROJECT_DIR$/ThinkPHP/Library/Vendor/mpdf/mpdf.php" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings" doNotAsk="true" synchronizationState="SYNCHRONIZE">
+    <pharConfigPath>$PROJECT_DIR$/up/composer.json</pharConfigPath>
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="DatabaseLocalColorSettings">
+    <colors>
+      <entry key="9de32a48-3b54-424f-8f86-eac2bec9b72b" value="Blue" />
+    </colors>
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/WeChat/WxToken.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="589">
+              <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/mpdf/outCert.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="580">
+              <caret line="137" column="9" lean-forward="true" selection-start-line="137" selection-start-column="9" selection-end-line="137" selection-end-column="9" />
+              <folding>
+                <element signature="n#style#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#td#3;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+                <element signature="e#20#26#1" expanded="true" />
+                <element signature="e#27#33#1" expanded="true" />
+                <element signature="e#18#24#1" expanded="true" />
+                <element signature="e#25#31#1" expanded="true" />
+                <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#0;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#1;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#2;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#3;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#4;n#tr#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#th#5;n#tr#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/WeChat/httpDo.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="399">
+              <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/WeChat/sendWxMsg.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1425">
+              <caret line="75" column="31" selection-start-line="75" selection-start-column="31" selection-end-line="75" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Application/App/Controller/CertificateController.class.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="12274">
+              <caret line="649" column="43" selection-start-line="649" selection-start-column="43" selection-end-line="649" selection-end-column="43" />
+              <folding>
+                <element signature="e#7#33#0#PHP" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>$this-&gt;error</find>
+      <find>data</find>
+      <find>data(</find>
+      <find>query(</find>
+      <find>operation</find>
+      <find>operation_ex</find>
+      <find>$appaddress</find>
+      <find>preg_match_chinese</find>
+      <find>callback</find>
+      <find>d</find>
+      <find>Destination</find>
+      <find>f</find>
+      <find>PARAMETER_ERROR</find>
+      <find>error_code_common</find>
+      <find>curorientation</find>
+      <find>height: 40px;</find>
+      <find>height: 50px;</find>
+      <find>&lt;th style=&quot;height:38px;border: 1px solid</find>
+      <find>loading</find>
+      <find>edit</find>
+      <find>examine</find>
+      <find>审核</find>
+      <find>level</find>
+      <find>oper_out_voyage</find>
+      <find>vendor</find>
+      <find>微信</find>
+      <find>vendor('Nx</find>
+      <find>ret</find>
+      <find>vendor('m</find>
+      <find>up</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>defaultValue</replace>
+      <replace>height: 50px;</replace>
+      <replace>height: 5%;</replace>
+      <replace>&lt;th style=&quot;height:35px;border: 1px solid</replace>
+    </replaceStrings>
+    <dirStrings>
+      <dir>D:\phpStudy\PHPTutorial\WWW\tally2_main\ThinkPHP\Library\Vendor\mpdf</dir>
+      <dir>D:\phpStudy\PHPTutorial\WWW\tally2_main\Application\Common\Model</dir>
+      <dir>D:\phpStudy\PHPTutorial\WWW\tally2_main</dir>
+    </dirStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="nihuge &lt;2944423432@qq.com&gt;" />
+        <option value="2944423432@qq.com" />
+      </list>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Nx/FileUpload.class.php" />
+        <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Nx/MySQLReback.class.php" />
+        <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Nx/Data.class.php" />
+        <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Nx/Page.class.php" />
+        <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Nx/PHPZip.class.php" />
+        <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/Nx/FileUpload.php" />
+        <option value="$PROJECT_DIR$/Application/Index/View/QbzxOperation/ctnImgUpload.php" />
+        <option value="$PROJECT_DIR$/Application/Index/View/QbzxOperation/editlevel.php" />
+        <option value="$PROJECT_DIR$/Application/Index/View/QbzxOperation/editCtn.php" />
+        <option value="$PROJECT_DIR$/Public/layer/layer.js" />
+        <option value="$PROJECT_DIR$/Application/Index/View/QbzxOperation/index.php" />
+        <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/WeChat/WxQrcode.php" />
+        <option value="$PROJECT_DIR$/Application/App/Controller/UserController.class.php" />
+        <option value="$PROJECT_DIR$/Application/App/Controller/WxApi.php" />
+        <option value="$PROJECT_DIR$/Application/Customer/Controller/IndexController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Customer/View/Index/index.php" />
+        <option value="&lt;d0969ac6-ffc2-4099-a8e3-24710b0ad343&gt;/default/tally2_main/log.txt" />
+        <option value="&lt;d0969ac6-ffc2-4099-a8e3-24710b0ad343&gt;/default/tally2_main/Application/App/Controller/WxApiController.class.php" />
+        <option value="$PROJECT_DIR$/wxapi.php" />
+        <option value="&lt;d0969ac6-ffc2-4099-a8e3-24710b0ad343&gt;/Application/Common/Conf/config.php" />
+        <option value="&lt;d0969ac6-ffc2-4099-a8e3-24710b0ad343&gt;/log.txt" />
+        <option value="$PROJECT_DIR$/Application/Common/Model/CustomerModel.class.php" />
+        <option value="&lt;d0969ac6-ffc2-4099-a8e3-24710b0ad343&gt;/wxmsglog.txt" />
+        <option value="&lt;d0969ac6-ffc2-4099-a8e3-24710b0ad343&gt;/Application/Common/Model/CustomerModel.class.php" />
+        <option value="&lt;d0969ac6-ffc2-4099-a8e3-24710b0ad343&gt;/Application/Customer/View/Index/index.php" />
+        <option value="&lt;d0969ac6-ffc2-4099-a8e3-24710b0ad343&gt;/wxapi.php" />
+        <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/WeChat/index.html" />
+        <option value="$PROJECT_DIR$/Application/Index/View/QbzxSearch/RealTime.php" />
+        <option value="$PROJECT_DIR$/Application/Common/Model/QbzxProveModel.class.php" />
+        <option value="$PROJECT_DIR$/Application/Common/Model/CertificateModel.class.php" />
+        <option value="$PROJECT_DIR$/Application/Common/Model/CertificateDamageModel.class.php" />
+        <option value="$PROJECT_DIR$/Public/inc/status.config.php" />
+        <option value="$PROJECT_DIR$/Public/admin/js/nff.js" />
+        <option value="$PROJECT_DIR$/Application/Customer/Controller/QbzxSearchController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Index/Controller/QbzxSearchController.class.php" />
+        <option value="$PROJECT_DIR$/Public/js/jquery.firstebox.pack.js" />
+        <option value="$PROJECT_DIR$/Application/Index/Controller/QbzxOperationController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Index/Controller/CfsInstructionController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/View/Customer/index.php" />
+        <option value="$PROJECT_DIR$/Application/Admin/Controller/CustomerController.class.php" />
+        <option value="$PROJECT_DIR$/Application/App/Controller/QbzxOperationController.class.php" />
+        <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/WeChat/sendWxMsg.php" />
+        <option value="&lt;d0969ac6-ffc2-4099-a8e3-24710b0ad343&gt;/Application/App/Controller/WxApiController.class.php" />
+        <option value="$PROJECT_DIR$/Application/App/Controller/WxApiController.class.php" />
+        <option value="$PROJECT_DIR$/Application/Index/Controller/StatisticController.class.php" />
+        <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/mpdf/mpdf.php" />
+        <option value="&lt;d0969ac6-ffc2-4099-a8e3-24710b0ad343&gt;/ThinkPHP/Library/Vendor/mpdf/outCert.php" />
+        <option value="&lt;d0969ac6-ffc2-4099-a8e3-24710b0ad343&gt;/ThinkPHP/Library/Vendor/mpdf/outDamageCert.php" />
+        <option value="$PROJECT_DIR$/Application/App/Controller/CertificateController.class.php" />
+        <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/mpdf/outDamageCert.php" />
+        <option value="$PROJECT_DIR$/ThinkPHP/Library/Vendor/mpdf/outCert.php" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpServers">
+    <servers>
+      <server host="www.tally.cn" id="878b6e31-debc-491a-813f-4e7d78ea2753" name="Xdbug" />
+      <server host="http://192.168.1.106" id="2199e722-3b0a-42d4-87dc-6a32a86ac9b4" name="111" />
+      <server host="192.168.1.111" id="52b32185-81ba-407e-ae3f-1ca670f7c9c2" name="192.168.1.111" />
+      <server host="192.168.1.106" id="f8f89c95-9ed1-4518-8c82-8b4b19f15aa9" name="192.168.1.106" />
+    </servers>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP" />
+  <component name="PhpXdebugProxy" ide_key="PHPSTORM" host="www.tally.cn" port="80" />
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="305" />
+    <option name="width" value="975" />
+    <option name="height" value="984" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="tally2_main" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tally2_main" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="web-ide.project.structure" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\phpStudy\PHPTutorial\WWW\tally2_main\Application\Index\Controller" />
+      <recent name="D:\phpStudy\PHPTutorial\WWW\tally2_main\Public\img" />
+      <recent name="D:\phpStudy\PHPTutorial\WWW\tally2_main\Application\Common\Model" />
+      <recent name="D:\phpStudy\PHPTutorial\WWW\tally2_main\ThinkPHP\Library\Vendor\mpdf" />
+      <recent name="D:\phpStudy\PHPTutorial\WWW\tally2_main\Application\App\Controller" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\phpStudy\PHPTutorial\WWW\tally2_main\ThinkPHP\Library\Vendor" />
+      <recent name="D:\phpStudy\PHPTutorial\WWW\tally2_main\ThinkPHP\Library\Org\Nx" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="PHP Web Page.tally.com">
+    <configuration name="111" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="111" start_url="/index.php">
+      <method v="2" />
+    </configuration>
+    <configuration name="tally.com" type="PhpWebAppRunConfigurationType" factoryName="PHP Web Application" server_name="Xdbug" start_url="/index.php">
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="PHP Web Page.tally.com" />
+      <item itemvalue="PHP Web Page.111" />
+    </list>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d0ed0f94-4856-44fe-bb95-e6d340579cf0" name="Default Changelist" comment="" />
+      <created>1558508310136</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1558508310136</updated>
+      <workItem from="1558508311696" duration="10471000" />
+      <workItem from="1558571989195" duration="34279000" />
+      <workItem from="1558657876346" duration="27867000" />
+      <workItem from="1558690095951" duration="662000" />
+      <workItem from="1558917288053" duration="24091000" />
+      <workItem from="1559003376191" duration="21556000" />
+      <workItem from="1559089794095" duration="28516000" />
+      <workItem from="1559178233508" duration="2158000" />
+      <workItem from="1559187148104" duration="1476000" />
+      <workItem from="1559635476365" duration="4938000" />
+      <workItem from="1559694670714" duration="27575000" />
+      <workItem from="1559781729945" duration="12314000" />
+      <workItem from="1560127663348" duration="2041000" />
+      <workItem from="1560130927089" duration="48000" />
+      <workItem from="1560131013062" duration="69000" />
+      <workItem from="1560131110411" duration="19460000" />
+      <workItem from="1560213193169" duration="21673000" />
+      <workItem from="1560302937144" duration="564000" />
+      <workItem from="1560304920255" duration="18823000" />
+      <workItem from="1560386155529" duration="17182000" />
+      <workItem from="1560476231125" duration="6122000" />
+      <workItem from="1560503411765" duration="1176000" />
+      <workItem from="1560925004410" duration="622000" />
+      <workItem from="1561336204324" duration="2035000" />
+      <workItem from="1561339092241" duration="3790000" />
+      <workItem from="1561688478522" duration="98000" />
+      <workItem from="1563243341130" duration="546000" />
+      <workItem from="1563760229367" duration="11641000" />
+      <workItem from="1563845213171" duration="5154000" />
+      <workItem from="1563960080826" duration="274000" />
+      <workItem from="1564014374367" duration="1943000" />
+      <workItem from="1564039151353" duration="358000" />
+      <workItem from="1564046975456" duration="282000" />
+      <workItem from="1564101823206" duration="3001000" />
+      <workItem from="1564106281390" duration="2782000" />
+      <workItem from="1564471097190" duration="1460000" />
+      <workItem from="1564534329866" duration="6571000" />
+      <workItem from="1564561381272" duration="4027000" />
+      <workItem from="1564631007906" duration="1861000" />
+      <workItem from="1564648744736" duration="1425000" />
+      <workItem from="1564652874799" duration="3109000" />
+      <workItem from="1564706410758" duration="1509000" />
+    </task>
+    <task id="LOCAL-00001" summary="Danger and DangerPDF">
+      <created>1559004009797</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1559004009797</updated>
+    </task>
+    <task id="LOCAL-00002" summary="edit">
+      <created>1559636732528</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1559636732528</updated>
+    </task>
+    <task id="LOCAL-00003" summary="wechat change">
+      <created>1560130792571</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1560130792571</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="335549000" />
+  </component>
+  <component name="TodoView" selected-index="4">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1296" height="1000" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24838188" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="File Transfer" order="0" sideWeight="0.49919093" weight="0.3298731" />
+      <window_info anchor="bottom" id="Message" order="1" />
+      <window_info anchor="bottom" id="Find" order="2" />
+      <window_info anchor="bottom" id="Run" order="3" />
+      <window_info anchor="bottom" id="Debug" order="4" weight="0.25490198" />
+      <window_info anchor="bottom" id="Cvs" order="5" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="6" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="7" weight="0.32949308" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="9" weight="0.32949308" />
+      <window_info anchor="bottom" id="Version Control" order="10" weight="0.32949308" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32949308" />
+      <window_info anchor="bottom" id="Event Log" order="12" sideWeight="0.5008091" side_tool="true" weight="0.32949308" />
+      <window_info anchor="bottom" id="找到" order="13" />
+      <window_info anchor="bottom" id="Command Line Tools Console" order="14" show_stripe_button="false" weight="0.32949308" />
+      <window_info anchor="right" id="Remote Host" order="0" visible="true" weight="0.18770227" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="1" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="right" id="Database" order="4" weight="0.24919094" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+              <option name="COLUMN_ORDER">
+                <list>
+                  <option value="0" />
+                  <option value="1" />
+                  <option value="2" />
+                  <option value="3" />
+                </list>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <MESSAGE value="Danger and DangerPDF" />
+    <MESSAGE value="edit" />
+    <MESSAGE value="wechat change" />
+    <option name="LAST_COMMIT_MESSAGE" value="wechat change" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/mpdf/compress.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="233">
+          <caret line="14" column="32" lean-forward="true" selection-start-line="14" selection-start-column="32" selection-end-line="14" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/mpdf/config_script2lang.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-33" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/mpdf/graph.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-33" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/mpdf/includes/out.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="5" column="68" selection-start-line="5" selection-start-column="68" selection-end-line="5" selection-end-column="68" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/mpdf/config_fonts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-33" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/mpdf/config_lang2fonts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-33" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/inc/code.config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="15" column="27" selection-start-line="15" selection-start-column="10" selection-end-line="15" selection-end-column="27" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/App/Common/BaseController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="32" column="32" selection-start-line="32" selection-start-column="15" selection-end-line="32" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/App/Controller/DdPlanController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="9" column="6" selection-start-line="9" selection-start-column="6" selection-end-line="9" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Common/Model/CertificateModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="17" column="34" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Common/Model/CertificateDamageModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Common/Model/QbzxInstructionCtnModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="8" column="29" selection-start-line="8" selection-end-line="8" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/Desktop/nff.js" />
+    <entry file="file://$PROJECT_DIR$/Public/admin/js/nff.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="17" column="62" lean-forward="true" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/images/firstebox/next.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/images/firstebox/macFFBgHack.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/images/firstebox/blank.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/images/firstebox/loading.gif">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/js/jquery.firstebox.pack.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="1" column="32" lean-forward="true" selection-start-line="1" selection-start-column="32" selection-end-line="1" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Index/View/QbzxOperation/editCtn.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="19" selection-start-line="19" selection-end-line="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Index/View/QbzxOperation/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="19">
+          <caret line="10" column="28" selection-start-line="10" selection-start-column="28" selection-end-line="10" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/App/Controller/CfsInstructionController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="20" column="9" selection-start-line="20" selection-start-column="9" selection-end-line="20" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/up/ThinkPHP/Library/Think/Model.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="443">
+          <caret line="308" column="29" lean-forward="true" selection-start-line="308" selection-start-column="29" selection-end-line="308" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Common/Conf/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="12" column="36" lean-forward="true" selection-start-line="12" selection-start-column="36" selection-end-line="12" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Customer/Controller/QbzxSearchController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="328">
+          <caret line="659" column="28" lean-forward="true" selection-start-line="659" selection-start-column="28" selection-end-line="659" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Index/Controller/CfsInstructionController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12483">
+          <caret line="659" column="51" selection-start-line="659" selection-start-column="51" selection-end-line="659" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/Controller/CustomerController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4275">
+          <caret line="228" column="48" selection-start-line="228" selection-start-column="48" selection-end-line="228" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Admin/View/Customer/import.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/App/Controller/QbzxOperationController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="413">
+          <caret line="329" column="39" selection-start-line="329" selection-start-column="32" selection-end-line="329" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Common/Model/QbzxProveModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="190" column="47" selection-start-line="190" selection-start-column="47" selection-end-line="190" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Common/Model/LongTanModel.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="646">
+          <caret line="37" column="32" selection-start-line="37" selection-start-column="32" selection-end-line="37" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Index/Controller/CountView.php" />
+    <entry file="file://$PROJECT_DIR$/Application/Admin/View/Customer/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4275">
+          <caret line="225" column="33" selection-start-line="225" selection-start-column="33" selection-end-line="225" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Index/Controller/QbzxOperationController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="893" column="46" lean-forward="true" selection-start-line="890" selection-start-column="12" selection-end-line="893" selection-end-column="46" />
+          <folding>
+            <element signature="e#949#5018#0#PHP" />
+            <element signature="e#5036#9068#0#PHP" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/App/Controller/WxApiController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2774">
+          <caret line="150" column="52" selection-start-line="150" selection-start-column="52" selection-end-line="150" selection-end-column="52" />
+          <folding>
+            <element signature="e#61#91#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Index/Controller/UserController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="8" column="20" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/mpdf/mpdf.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="8345" column="17" selection-start-line="8345" selection-start-column="14" selection-end-line="8345" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Index/Controller/StatisticController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="12" column="1" lean-forward="true" selection-start-line="12" selection-start-column="1" selection-end-line="12" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/Nx/FileUpload.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1748">
+          <caret line="95" column="53" selection-start-line="95" selection-start-column="27" selection-end-line="95" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Index/Controller/QbzxSearchController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="11438">
+          <caret line="605" column="25" selection-start-line="605" selection-start-column="25" selection-end-line="605" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/img/cert_logo.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/img/cert_detail.jpg">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/img/cert_logo.png">
+      <provider selected="true" editor-type-id="images" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/mpdf/outDamageCert.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="641">
+          <caret line="259" lean-forward="true" selection-start-line="259" selection-end-line="259" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Public/inc/status.config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="268" column="40" selection-start-line="268" selection-start-column="40" selection-end-line="268" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/Common/Common/function.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="779">
+          <caret line="145" column="65" selection-start-line="145" selection-start-column="65" selection-end-line="145" selection-end-column="65" />
+          <folding>
+            <element signature="n#style#0;n#pre#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/WeChat/WxToken.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="31" column="46" selection-start-line="31" selection-start-column="46" selection-end-line="31" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/WeChat/httpDo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="399">
+          <caret line="21" column="21" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/WeChat/sendWxMsg.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1425">
+          <caret line="75" column="31" selection-start-line="75" selection-start-column="31" selection-end-line="75" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Application/App/Controller/CertificateController.class.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12274">
+          <caret line="649" column="43" selection-start-line="649" selection-start-column="43" selection-end-line="649" selection-end-column="43" />
+          <folding>
+            <element signature="e#7#33#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ThinkPHP/Library/Vendor/mpdf/outCert.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="580">
+          <caret line="137" column="9" lean-forward="true" selection-start-line="137" selection-start-column="9" selection-end-line="137" selection-end-column="9" />
+          <folding>
+            <element signature="n#style#0;n#td#1;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#td#3;n#tr#3;n#tbody#0;n#table#0;n#!!top" expanded="true" />
+            <element signature="e#20#26#1" expanded="true" />
+            <element signature="e#27#33#1" expanded="true" />
+            <element signature="e#18#24#1" expanded="true" />
+            <element signature="e#25#31#1" expanded="true" />
+            <element signature="n#style#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#0;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#1;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#2;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#3;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#4;n#tr#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#th#5;n#tr#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

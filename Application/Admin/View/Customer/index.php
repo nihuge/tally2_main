@@ -78,7 +78,7 @@
 			      <th width="6%">合同号</th>
 			      <th width="7%">合同有效期</th>
 			      <th width="6%">客户状态</th>
-			      <th width="7%">冻结/恢复</th>
+<!--			      <th width="13%">冻结/恢复</th>-->
 			      <th class="textcenter">操作</th>
 			    </tr>
 			   </thead>
@@ -98,12 +98,12 @@
 			     	if($cl['customer_status']==$customer_status['valid'])
 			     	{
 			     		$customerstatus='正常';
-			     		$action='冻结客户';
+			     		$action='冻结';
 			     		$color="#000";
 			     		$status='N';
 			     	}else {
 			     		$customerstatus='冻结';
-			     		$action='解冻客户';
+			     		$action='解冻';
 			     		$color="red";
 			     		$status='Y';
 			     	}
@@ -128,9 +128,9 @@
 		             	   <td>'.$cl['contract_number'].'</td>
 		             	   <td>'.$cl['contract_life'].'</td>
 		        		   <td>'.$customerstatus.'</td>
-			    		   <td><a href="javascript:;" onclick="changestatus('.$cl['id'].',\''.$status.'\')" style="color:'.$color.'">'.$action.$status.'</a></td>
-		        		   <td class="textcenter">
+			    		   <td class="textcenter"><a href="javascript:;" onclick="changestatus('.$cl['id'].',\''.$status.'\')" style="color:'.$color.'">'.$action.$status.'</a>|
 			      		    <a href="javascript:;" onclick="resetpwd('.$cl['id'].')">重置密码</a>|
+			      		    <a href="javascript:;" onclick="unsetWechat('.$cl['id'].')">解绑</a>|
 			    		    <a href="__CONTROLLER__/edit/id/'.$cl['id'].'">编辑</a>|
 							<a href="__CONTROLLER__/authority/id/'.$cl['id'].'">权限</a>
 			    		   </td>
@@ -213,5 +213,27 @@ function resetpwd(id)
 			}
 		});
 	}
+}
+
+function unsetWechat(id){
+    if(confirm('确定要解绑该客户绑定的微信吗？'))
+    {
+        $.ajax({
+            type:"POST",
+            url:"{:U('Customer/unsetWechat')}",
+            dataType:"html",
+            data:"id="+id,
+            success:function(msg)
+            {
+                if(msg=='1')
+                {
+                    alert('解绑微信成功');
+                }else {
+                    alert('解绑微信失败！');
+                }
+                location.reload();
+            }
+        });
+    }
 }
 </script>

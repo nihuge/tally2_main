@@ -7,18 +7,20 @@
 namespace App\Controller;
 
 use App\Common\BaseController;
+use http\Env\Url;
 
 class WxApiController extends BaseController
 {
     public function wxdo()
     {
         $echostr = I('get.echostr');
-        file_put_contents('log.txt', json_encode($_GET) . "\r\n", FILE_APPEND);
+//        file_put_contents('log.txt', json_encode($_GET) . "\r\n", FILE_APPEND);
         if ($this->checkSignature()) {
             if (isset($_GET['echostr'])) {
+
                 exit($echostr);
             } else {
-                file_put_contents('log.txt', "认证成功，收到消息！\r\n", FILE_APPEND);
+                //              file_put_contents('log.txt', "认证成功，收到消息！\r\n", FILE_APPEND);
                 $this->responseMsg();
             }
         } else {
@@ -40,8 +42,8 @@ class WxApiController extends BaseController
         $tmpStr = implode($tmpArr);
         $tmpStr = sha1($tmpStr);
 
-//        file_put_contents('log.txt', $tmpStr . ":" . $signature . "\r\n", FILE_APPEND);
-        if ($signature === $tmpStr) {
+        //      file_put_contents('log.txt', $tmpStr . ":" . $signature . "\r\n", FILE_APPEND);
+        if ($signature == $tmpStr) {
             return true;
         } else {
             return false;
@@ -80,7 +82,7 @@ class WxApiController extends BaseController
         //1.获取到微信推送过来post数据（xml格式）
         $postArr = file_get_contents('php://input');
 
-        file_put_contents('wxmsglog.txt', $postArr . "aaaa", FILE_APPEND);
+//        file_put_contents('wxmsglog.txt', $postArr . "aaaa", FILE_APPEND);
 
         //2.处理消息类型，并设置回复类型和内容
         $postObj = simplexml_load_string($postArr, 'SimpleXMLElement', LIBXML_NOCDATA);
@@ -101,41 +103,60 @@ class WxApiController extends BaseController
             $customer = new \Common\Model\CustomerModel();
             //如果是关注 subscribe事件
             if (strtolower($postObj->Event) == 'subscribe') {
-                file_put_contents('wxmsglog.txt', "已关注", FILE_APPEND);
+//                file_put_contents('wxmsglog.txt', "已关注", FILE_APPEND);
                 if (empty($postObj->EventKey)) {
-                    $content = '欢迎关注本公众号,测试请访问<a href="http://wx1.0csy.com">这里</a>';
+                    $content = '欢迎关注本公众号,点击<a href="http://online.njtally.com/customer.php">这里</a>即可访问官网';
                 } else {
                     $customerMsg = $customer->where("wx_ticket='" . $postObj->Ticket . "'")->find();
                     if ($customerMsg['wx_openid'] == "") {
-                        $updata_sql = str_replace('{{openid}}', $toUser, $updata_sql);
-                        if (strlen($postObj->Ticket) > 6) {
-                            $updata_sql = str_replace('{{wx_ticket}}', $postObj->Ticket, $updata_sql);
-                            @M()->execute($updata_sql);
+                        if ($customerMsg['customer_name'] != "") {
+                            $updata_sql = str_replace('{{openid}}', $toUser, $updata_sql);
+                            if (strlen($postObj->Ticket) > 6) {
+                                $updata_sql = str_replace('{{wx_ticket}}', $postObj->Ticket, $updata_sql);
+                                @M()->execute($updata_sql);
+                                $content = $customerMsg['customer_name'] . "，您好，感谢您的关注，您的账号已成功绑定此微信账号，重新刷新首页即可！";
+                            } else {
+                                exit("");
+                            }
                         } else {
-                            exit("");
+                            $content = "无法绑定您的二维码账户，请检查是否扫描了官方提供的二维码，域名为<a href=\"http://online.njtally.com/customer.php\">online.njtally.com</a>";
                         }
 //                        $customer->where("wx_ticket='" . $postObj->Ticket . "'")->save($data1);
-                        $content = $customerMsg['customer_name'] . "，您好，感谢您的关注，您的账号已成功绑定此微信账号，重新刷新首页即可！";
                     } else {
                         $content = $customerMsg['customer_name'] . "，您好，请勿重复绑定！";
                     }
                 }
             } elseif (strtolower($postObj->Event) == 'scan') {
-                file_put_contents('wxmsglog.txt', "已扫描", FILE_APPEND);
+                //               file_put_contents('wxmsglog.txt', "已扫描", FILE_APPEND);
                 $customerMsg = $customer->where("wx_ticket='" . $postObj->Ticket . "'")->find();
                 if ($customerMsg['wx_openid'] == "") {
-                    $updata_sql = str_replace('{{openid}}', $toUser, $updata_sql);
-                    if (strlen($postObj->Ticket) > 6) {
-                        $updata_sql = str_replace('{{wx_ticket}}', $postObj->Ticket, $updata_sql);
-                        @M()->execute($updata_sql);
+                    if ($customerMsg['customer_name'] != "") {
+                        $updata_sql = str_replace('{{openid}}', $toUser, $updata_sql);
+                        if (strlen($postObj->Ticket) > 6) {
+                            $updata_sql = str_replace('{{wx_ticket}}', $postObj->Ticket, $updata_sql);
+                            @M()->execute($updata_sql);
+                            $content = $customerMsg['customer_name'] . "，您好，感谢您的扫描，您的账号已成功绑定此微信账号，重新刷新首页即可！";
+                        } else {
+                            exit("");
+                        }
                     } else {
-                        exit("");
+                        $content = "无法绑定您的二维码账户，请检查是否扫描了官方提供的二维码，域名为<a href=\"http://online.njtally.com/customer.php\">online.njtally.com</a>";
                     }
 //                    $customer->where(" wx_ticket='" . $postObj->Ticket . "'")->save($data1);
-                    $content = $customerMsg['customer_name'] . "，您好，感谢您的扫描，您的账号已成功绑定此微信账号，重新刷新首页即可！";
                 } else {
                     $content = $customerMsg['customer_name'] . "，您好，请勿重复扫描绑定！";
                 }
+            } elseif (strtolower($postObj->Event) == 'click') {
+                $eventKey = $postObj->EventKey;
+                if ($eventKey == "V001_SAY_HELLO") {
+                    $content = "您好，我收到了打个招呼的点击事件";
+                } else {
+                    $content = "你好，收到点击事件，值为：" . $eventKey;
+                }
+            } elseif (strtolower($postObj->Event) == 'click') {
+                exit("");
+            } else {
+                $content = "您好，该功能正在调试开发，敬请期待，谢谢";
             }
         } else {
             $content = '您好，已收到您的信息，如需要查看货物信息，请登录官方网站查看，谢谢！';
@@ -159,13 +180,81 @@ class WxApiController extends BaseController
 
         $info = sprintf($template, $toUser, $fromUser, $time, $msgType, $content);
 
-        file_put_contents('wxmsglog.txt', $info . "aaac", FILE_APPEND);
+//        file_put_contents('wxmsglog.txt', $info . "aaac", FILE_APPEND);
         exit($info);
     }
 
 //file_put_contents('wxmsglog.txt', json_encode($_REQUEST), FILE_APPEND);
 //file_put_contents('wxmsglog.txt', file_get_contents('php://input'), FILE_APPEND);
 
+    public function createmenu()
+    {
+        $menu = <<<menu
+{
+     "button":[
+     {    
+          "type":"click",
+          "name":"打个招呼",
+          "key":"V001_SAY_HELLO"
+      },
+      {
+           "name":"菜单",
+           "sub_button":[
+           {    
+               "type":"view",
+               "name":"搜索",
+               "url":"http://www.soso.com/"
+            },
+            {
+                 "type":"miniprogram",
+                 "name":"万年历",
+                 "url":"http://mp.weixin.qq.com",
+                 "appid":"wx286b93c14bbf93aa",
+                 "pagepath":"pages/lunar/index"
+             }]
+       }]
+ }
+menu;
+        vendor('WeChat.WxToken');
+        $WxToken = new \WxToken();
+        $httpdo = new \httpDo();
+        $wxAccessToken = $WxToken->getWxToken();
+        if ($wxAccessToken['error'] == '0') {
+            $url = 'https://api.weixin.qq.com/cgi-bin/menu/create?access_token=' . $wxAccessToken['msg'];
+            $result = $httpdo->post($url, $menu);
+            if ($result === false) {
+                dump($httpdo->httpError);
+            } elseif ($result['errorcode'] == 0) {
+                dump($result);
+            } else {
+                dump($result);
+            }
+        } else {
+            dump($wxAccessToken);
+        }
+    }
+
+
+    public function searchmenu()
+    {
+        vendor('WeChat.WxToken');
+        $WxToken = new \WxToken();
+        $httpdo = new \httpDo();
+        $wxAccessToken = $WxToken->getWxToken();
+        if ($wxAccessToken['error'] == '0') {
+            $url = 'https://api.weixin.qq.com/cgi-bin/get_current_selfmenu_info?access_token=' . $wxAccessToken['msg'];
+            $result = $httpdo->get($url);
+            if ($result === false) {
+                dump($httpdo->httpError);
+            } elseif ($result['errorcode'] == 0) {
+                dump($result);
+            } else {
+                dump($result);
+            }
+        } else {
+            dump($wxAccessToken);
+        }
+    }
 }
 
 

@@ -242,7 +242,7 @@ class QbzxOperationController extends BaseController
             $container = new \Common\Model\QbzxInstructionCtnModel ();
             $operation = new \Common\Model\QbzxOperationModel ();
             // 获取符合条件的信息
-            $res_c = $container->where("id=$ctn_id")->field('operator_id')->find();
+            $res_c = $container->where("id=$ctn_id")->field('operator_id,ctnno')->find();
             $sql = "select c.id from __PREFIX__qbzx_operation o,__PREFIX__qbzx_instruction_ctn c where c.id=o.ctn_id and c.id='$ctn_id' and c.status='1' and o.is_stop!='Y'";
             $res_x = M()->query($sql);
             $n = count($res_x);
@@ -309,7 +309,9 @@ class QbzxOperationController extends BaseController
                     /*
                      * 发送微信通知给客户
                      */
-                    $wx_msg_info_sql = "SELECT plan.*,cus.customer_name,cus.wx_openid FROM __PREFIX__qbzx_plan as plan LEFT JOIN __PREFIX__qbzx_instruction as ins on ins.plan_id=plan.id LEFT JOIN __PREFIX__customer as cus on plan.entrust_company=cus.id WHERE ins.id=" . $instruction_id;
+
+
+                    $wx_msg_info_sql = "SELECT pcargo.billno,plan.*,cus.customer_name,cus.wx_openid FROM  __PREFIX__qbzx_plan_cargo as pcargo LEFT JOIN  __PREFIX__qbzx_plan as plan on plan.id=pcargo.plan_id LEFT JOIN  __PREFIX__qbzx_instruction as ins on ins.plan_id=plan.id LEFT JOIN  __PREFIX__customer as cus on plan.entrust_company=cus.id WHERE ins.id=" . $instruction_id;
                     $wxinfo = M()->query($wx_msg_info_sql);
                     if ($wxinfo[0]['wx_openid'] != "") {
                         $wx_msg_data = array();
@@ -318,11 +320,18 @@ class QbzxOperationController extends BaseController
                         $wx_msg_data['voyage'] = $wxinfo[0]['voyage'];
                         $wx_msg_data['packing_require'] = $wxinfo[0]['packing_require'];
                         $wx_msg_data['entrust_time'] = $wxinfo[0]['entrust_time'];
+                        $wx_msg_data['ctnno'] = $res_c['ctnno'];
+                        $billnos = array();
+                        foreach ($wxinfo as $key1 => $value) {
+                            $billnos[] = $value['billno'];
+                        }
+                        $wx_msg_data['billno'] = implode(",", $billnos);
 
                         vendor('WeChat.sendWxMsg');
                         $wxMsg = new \sendWxMsg($wx_msg_data, 2);
                         $wxMsg->send($wxinfo[0]['wx_openid']);
                     }
+
 
                     /*
                      * 返回结果
@@ -2382,24 +2391,35 @@ class QbzxOperationController extends BaseController
                     $amend->add($data);
                 }
             }
-            // 根据箱id找出单证
+
             $prove = new \Common\Model\QbzxProveModel();
-            $ctn_certify = $prove->where("ctn_id='" . $op['ctn_id'] . "'")->find();
-            // 将原单证备注保存
-            $ccremark = $ctn_certify ['remark'];
-            // 删除原单证
-            $ctn_certify = $prove->where("ctn_id='" . $op['ctn_id'] . "'")->delete();
-            // 重新生成单证
-            $result = $prove->generateDocumentByQbzx($op['ctn_id'], $ccremark);
-            if ($result) {
+            $count = $prove->where(array('ctn_id' => $op['ctn_id']))->count();
+            if ($count > 0) {
+                //如果已有单证，则删除原单证，重新生成单证
+                // 根据箱id找出单证
+                $ctn_certify = $prove->where("ctn_id='" . $op['ctn_id'] . "'")->find();
+                // 将原单证备注保存
+                $ccremark = $ctn_certify ['remark'];
+                // 删除原单证
+                $ctn_certify = $prove->where("ctn_id='" . $op['ctn_id'] . "'")->delete();
+                // 重新生成单证
+                $result = $prove->generateDocumentByQbzx($op['ctn_id'], $ccremark);
+                if ($result) {
+                    $res = array(
+                        'code' => $this->ERROR_CODE_COMMON['SUCCESS'],
+                        'msg' => '成功'
+                    );
+
+                } else {
+                    $res = array(
+                        'code' => $this->ERROR_CODE_COMMON['DB_ERROR'],
+                        'msg' => $this->ERROR_CODE_COMMON_ZH[$this->ERROR_CODE_COMMON['DB_ERROR']]
+                    );
+                }
+            } else {
                 $res = array(
                     'code' => $this->ERROR_CODE_COMMON['SUCCESS'],
                     'msg' => '成功'
-                );
-            } else {
-                $res = array(
-                    'code' => $this->ERROR_CODE_COMMON['DB_ERROR'],
-                    'msg' => $this->ERROR_CODE_COMMON_ZH[$this->ERROR_CODE_COMMON['DB_ERROR']]
                 );
             }
         } else {
@@ -2682,24 +2702,33 @@ class QbzxOperationController extends BaseController
                 }
             }
 
-            // 根据箱id找出单证
             $prove = new \Common\Model\QbzxProveModel();
-            $ctn_certify = $prove->where("ctn_id='" . $op['ctn_id'] . "'")->find();
-            // 将原单证备注保存
-            $ccremark = $ctn_certify ['remark'];
-            // 删除原单证
-            $ctn_certify = $prove->where("ctn_id='" . $op['ctn_id'] . "'")->delete();
-            // 重新生成单证
-            $result = $prove->generateDocumentByQbzx($op['ctn_id'], $ccremark);
-            if ($result) {
+            $count = $prove->where(array('ctn_id' => $op['ctn_id']))->count();
+            if ($count > 0) {
+                //如果已有单证，则删除原单证，重新生成单证
+                // 根据箱id找出单证
+                $ctn_certify = $prove->where("ctn_id='" . $op['ctn_id'] . "'")->find();
+                // 将原单证备注保存
+                $ccremark = $ctn_certify ['remark'];
+                // 删除原单证
+                $ctn_certify = $prove->where("ctn_id='" . $op['ctn_id'] . "'")->delete();
+                // 重新生成单证
+                $result = $prove->generateDocumentByQbzx($op['ctn_id'], $ccremark);
+                if ($result) {
+                    $res = array(
+                        'code' => $this->ERROR_CODE_COMMON['SUCCESS'],
+                        'msg' => '成功'
+                    );
+                } else {
+                    $res = array(
+                        'code' => $this->ERROR_CODE_COMMON['DB_ERROR'],
+                        'msg' => $this->ERROR_CODE_COMMON_ZH[$this->ERROR_CODE_COMMON['DB_ERROR']]
+                    );
+                }
+            } else {
                 $res = array(
                     'code' => $this->ERROR_CODE_COMMON['SUCCESS'],
                     'msg' => '成功'
-                );
-            } else {
-                $res = array(
-                    'code' => $this->ERROR_CODE_COMMON['DB_ERROR'],
-                    'msg' => $this->ERROR_CODE_COMMON_ZH[$this->ERROR_CODE_COMMON['DB_ERROR']]
                 );
             }
         } else {

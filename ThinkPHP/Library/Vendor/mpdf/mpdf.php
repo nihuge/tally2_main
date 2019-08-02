@@ -8171,7 +8171,11 @@ function SetXY($x,$y)
 	$this->SetX($x);
 }
 
-
+    /**
+     * @param string $name
+     * @param string $dest
+     * @return string
+     */
 function Output($name='',$dest='')
 {
 	//Output PDF to some destination

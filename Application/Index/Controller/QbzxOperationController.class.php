@@ -390,22 +390,28 @@ class QbzxOperationController extends BaseController
                 echo '<script>alert("修改成功");top.location.reload(true);window.close();</script>';
                 exit ();
             } else {
-                // 因对工作中的箱子不允许修改，所以修改的都是已铅封的箱子，所以需要删除原单证，重新生成单证
-                // 根据箱id找出单证
                 $prove = new \Common\Model\QbzxProveModel();
-                $ctn_certify = $prove->where("ctn_id=$ctn_id")->find();
-                // 将原单证备注保存
-                $ccremark = $ctn_certify ['remark'];
-                // 删除原单证
-                $res_d = $prove->where("ctn_id=$ctn_id")->delete();
-                if ($res_d !== false) {
-                    // 重新生成单证
-                    $document = new \Common\Model\QbzxProveModel();
-                    $document->generateDocumentByQbzx($ctn_id, $ccremark);
+                $count = $prove->where(array('ctn_id' => $ctn_id))->count();
+                if ($count > 0) {
+                    //如果已有单证，则删除原单证，重新生成单证
+                    // 根据箱id找出单证
+                    $ctn_certify = $prove->where("ctn_id=$ctn_id")->find();
+                    // 将原单证备注保存
+                    $ccremark = $ctn_certify ['remark'];
+                    // 删除原单证
+                    $res_d = $prove->where("ctn_id=$ctn_id")->delete();
+                    if ($res_d !== false) {
+                        // 重新生成单证
+                        $document = new \Common\Model\QbzxProveModel();
+                        $document->generateDocumentByQbzx($ctn_id, $ccremark);
+                        echo '<script>alert("修改成功");top.location.reload(true);window.close();</script>';
+                        exit ();
+                    } else {
+                        $this->error('修改成功，重新生成单证失败！');
+                    }
+                } else {
                     echo '<script>alert("修改成功");top.location.reload(true);window.close();</script>';
                     exit ();
-                } else {
-                    $this->error('修改成功，重新生成单证失败！');
                 }
             }
         } else {
@@ -540,14 +546,27 @@ class QbzxOperationController extends BaseController
             //铅封，申城单证，改变审核状态
             $operation_id = I('get.operation_id');
 //			$remark = ''; //2019-5-21 读取opration表中记录的批注信息转存进单证表
-            $remark = $operation->field('remark')->where("id='$operation_id'")->find();
+            $remark = $operation->field('examine_remark')->where("id='$operation_id'")->find();
             $prove = new \Common\Model\QbzxProveModel ();
             //判断箱子是否已经生成单证
             $count = $prove->where(array('ctn_id' => $ctn_id))->count();
             if ($count > 0) {
-                $this->error('该箱已有单证！！');
+//                $this->error('该箱已有单证！！');
+                // 因为修改箱子信息时会生成单证，导致无法审核，所以逻辑改为已有单证重新生成单证
+                // 根据箱id找出单证
+                $prove = new \Common\Model\QbzxProveModel();
+                $ctn_certify = $prove->where("ctn_id=$ctn_id")->find();
+                // 将原单证备注保存
+                $ccremark = $ctn_certify ['remark'];
+                // 删除原单证
+                $res_d = $prove->where("ctn_id=$ctn_id")->delete();
+                if ($res_d !== false) {
+                    // 重新生成单证
+                    $res_p = $prove->generateDocumentByQbzx($ctn_id, $ccremark);
+                }
+            } else {
+                $res_p = $prove->generateDocumentByQbzx($ctn_id, $remark);
             }
-            $res_p = $prove->generateDocumentByQbzx($ctn_id, $remark);
             if ($res_p ['code'] == '0') {
                 // 判断指令下的配箱是否都已经完成，都完成将指令状态改为完成
                 $instruction_id = $res['instruction_id'];
@@ -566,7 +585,7 @@ class QbzxOperationController extends BaseController
                 );
                 $operation->where("id='$operation_id'")->save($data_t);
 
-
+                //$this->success('审核成功');
 
 
                 //得到客户的openid
@@ -576,8 +595,8 @@ class QbzxOperationController extends BaseController
                 //得到单证内容
                 $proveMsg = $prove->where(array("ctn_id" => $ctn_id))->find();
 
-
                 #todo 发送微信模板消息
+
                 if ($openid != "") {
                     $data = array();
                     $data['ctnno'] = $proveMsg['ctnno'];
@@ -585,6 +604,13 @@ class QbzxOperationController extends BaseController
                     $data['ctn_master'] = $proveMsg['ctn_master'];;
                     $data['ship_name'] = $proveMsg['ship_name'];;
                     $data['voyage'] = $proveMsg['voyage'];
+                    $content = json_decode($proveMsg['content'], true);
+
+                    $billnos = array();
+                    foreach ($content as $key1 => $value1) {
+                        $billnos[] = $value1['billno'];
+                    }
+                    $data['billno'] = implode(',', $billnos);
 
                     vendor('WeChat.sendWxMsg');
                     $WxMsg = new \sendWxMsg($data, 1);
@@ -595,9 +621,11 @@ class QbzxOperationController extends BaseController
                     } else {
                         $this->success('审核成功，但无法通知状态到' . $customer_info[0]['customer_name'] . "客户绑定的微信");
                     }
+
                 } else {
                     $this->success('审核成功，' . $customer_info[0]['customer_name'] . "客户未绑定微信");
                 }
+
             } else {
 // 				$this->error('生成单证失败，审核操作失败');
                 $this->error($res_p ['msg']);
@@ -707,7 +735,7 @@ class QbzxOperationController extends BaseController
                 $empty_weight_new = I('post.empty_weight');
                 $empty_weight_old = $res_o ['empty_weight'];
                 if ($empty_weight_new != $empty_weight_old) {
-                    //修改铅封号
+                    //修改空箱重
                     $data_s = array(
                         'empty_weight' => $empty_weight_new
                     );
@@ -745,7 +773,7 @@ class QbzxOperationController extends BaseController
                 $cargo_weight_new = I('post.cargo_weight');
                 $cargo_weight_old = $res_o ['cargo_weight'];
                 if ($cargo_weight_new != $cargo_weight_old) {
-                    //修改铅封号
+                    //修改货物重量
                     $data_s = array(
                         'cargo_weight' => $cargo_weight_new
                     );
@@ -779,24 +807,28 @@ class QbzxOperationController extends BaseController
                 $this->error('货物重量不能为空！');
             }
 
-
-            // 因对工作中的箱子不允许修改，所以修改的都是已铅封的箱子，所以需要删除原单证，重新生成单证
-            // 根据箱id找出单证
             $prove = new \Common\Model\QbzxProveModel();
-            $ctn_certify = $prove->where("ctn_id=$ctn_id")->find();
-            // 将原单证备注保存
-            $ccremark = $ctn_certify ['remark'];
-            // 删除原单证
-            $res_d = $prove->where("ctn_id=$ctn_id")->delete();
-            if ($res_d !== false) {
-                // 重新生成单证
-                $prove->generateDocumentByQbzx($ctn_id, $ccremark);
+            $count = $prove->where(array('ctn_id' => $ctn_id))->count();
+            if ($count > 0) {
+                //如果已有单证，则删除原单证，重新生成单证
+                // 根据箱id找出单证
+                $ctn_certify = $prove->where("ctn_id=$ctn_id")->find();
+                // 将原单证备注保存
+                $ccremark = $ctn_certify ['remark'];
+                // 删除原单证
+                $res_d = $prove->where("ctn_id=$ctn_id")->delete();
+                if ($res_d !== false) {
+                    // 重新生成单证
+                    $prove->generateDocumentByQbzx($ctn_id, $ccremark);
+                    echo '<script>alert("修改成功");top.location.reload(true);window.close();</script>';
+                    exit ();
+                } else {
+                    $this->error('修改成功，重新生成单证失败！');
+                }
+            } else {
                 echo '<script>alert("修改成功");top.location.reload(true);window.close();</script>';
                 exit ();
-            } else {
-                $this->error('修改成功，重新生成单证失败！');
             }
-
         } else {
             $this->display();
         }

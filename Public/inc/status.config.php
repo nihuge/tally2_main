@@ -258,7 +258,13 @@ $cfs_step = array(
 define("cfs_step",json_encode($cfs_step));
 
 //图片路径
-define('IMAGE_URL', '/Public/upload'); 
+define('IMAGE_URL', '/Public/upload');
+
+//理货证明签名图片路径
+define('IMAGE_CERT_SIGN', IMAGE_URL.'/cert/sign/');
+//残损证明签名图片路径
+define('IMAGE_CERT_DAMAGESIGN', IMAGE_URL.'/cert/damageSign/');
+
 //起驳装箱
 define('IMAGE_QBZX', IMAGE_URL.'/qbzx');
 define('IMAGE_QBZX_EMPTY',IMAGE_QBZX.'/empty/');

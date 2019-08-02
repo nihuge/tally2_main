@@ -72,6 +72,15 @@ class QbzxSearchController extends BaseController
             $cstatus = I('get.cstatus');
             $where .= " and c.status='$cstatus'";
         }
+
+        //马金虎修改,获取打印记录表单
+        if (I('get.printed')) {
+            $printed = I('get.printed');
+            if (is_numeric($printed)) {
+                $where .= " and c.printed=$printed";
+            }
+        }
+
         $sql = "select i.plan_id,pc.billno,po.name poname,c.*,u.user_name,p.voyage,s.ship_name,l.location_name
 			from tally_qbzx_instruction_ctn c
 			LEFT JOIN tally_qbzx_instruction i on i.id=c.instruction_id
@@ -664,7 +673,7 @@ class QbzxSearchController extends BaseController
             //新建一个ZipArchive的对象
             $img_file = new \ZipArchive();
             //设置.zip下载后的文件名
-            $zname1 = '起驳图片打包' . '.zip';
+            $zname1 = 'Qbzx_img_package' . '.zip';
             if ($img_file->open($zname1, \ZIPARCHIVE::CREATE) === TRUE) {
                 foreach ($ctn_id_list as $o) {
                     //根据箱ID获取指令ID
@@ -878,7 +887,7 @@ aac;
             //渲染过的页面放入pdf
             $mpdf->WriteHTML($html);
             //输出
-            $mpdf->Output();
+            $mpdf->Output("Finish_PDF.pdf", 'I');
 
 
             //不需要后续处理，直接退出
@@ -1389,7 +1398,7 @@ aac;
             }
 
             //输出
-            $mpdf->Output();
+            $mpdf->Output("Danger_report.pdf", 'I');
 
             //不需要后续处理，直接退出
             exit();
@@ -1398,6 +1407,129 @@ aac;
         }
 
 
+    }
+
+
+    //打印单证PDF
+    public function print_realtime_pdf()
+    {
+        layout(false);
+        if (I('post.ctn_id')) {
+            $ctn_id_list = $_POST['ctn_id'];
+            //引入类库
+            Vendor('mpdf.mpdf');
+            //设置中文编码
+            $mpdf = new \mPDF('zh-cn', 'A4', 0, '宋体', 0, 0);
+            //模板
+            $html = <<<aac
+<div style="text-align: center;"><h2>可交箱清单（未铅封）</h2></div>
+<div style="text-align: center;">打印时间:{print_time}</div>
+<div>
+<div>
+	<table width="90%" style="border-collapse: collapse; height: 56px; font-family: 宋体; font-size: 18px; position: relative; margin-left: 40px;">
+		<tbody>
+		<tr style="text-align:center;font-size:14px">
+			<th style="border: 1px solid #ccc;">箱号</th>
+			<th style="border: 1px solid #ccc;">提单号</th>
+			<th style="border: 1px solid #ccc;">箱型尺寸</th>
+			<th style="border: 1px solid #ccc;">铅封号</th>
+			<th style="border: 1px solid #ccc;">票数</th>
+			<th style="border: 1px solid #ccc;">件数</th>
+			<th style="border: 1px solid #ccc;">重量</th>
+			<th style="border: 1px solid #ccc;">残损</th>
+			<th style="border: 1px solid #ccc;">完成时间</th>
+		</tr>
+		
+			{document}
+		</tbody>
+
+	</table>
+</div>
+<div>
+	
+</div>
+</div>
+aac;
+
+            //开始构成表
+
+            $replace_html = "";
+            $prove = new \Common\Model\QbzxProveModel();
+            $instruction_ctn = new \Common\Model\QbzxInstructionCtnModel();
+            foreach ($ctn_id_list as $o) {
+                if (is_numeric($o)) {
+                    $msg_result = $prove->getDocumentByQbzx($o);
+                    if ($msg_result['code'] == 0) {
+                        $msg = $msg_result['data'];
+                        if (!empty($msg)) {
+                            $replace_html .= "<tr style=\"height:32px;text-align:center;font-size:14px\">";
+
+                            //放入箱号
+                            $replace_html .= "<td style=\"border: 1px solid #ccc;font-weight: normal; text-align:center;font-size:14px;\">" . $msg['ctnno'] . "</td>";
+
+                            //放入提单号，可能多个
+                            $billno = "";
+                            $content = $msg['content'];
+                            foreach ($content as $b) {
+                                $billno .= $b['billno'] . "<br/>";
+                            }
+                            $replace_html .= "<td style=\"border: 1px solid #ccc;font-weight: normal; text-align:center;font-size:14px;\">$billno</td>";
+
+                            //放入箱型尺寸
+                            $replace_html .= "<td style=\"border: 1px solid #ccc;font-weight: normal; text-align:center;font-size:14px;\">" . $msg['ctn_type_code'] . "</td>";
+
+                            //放入铅封号
+                            $replace_html .= "<td style=\"border: 1px solid #ccc;font-weight: normal; text-align:center;font-size:14px;\">" . $msg['sealno'] . "</td>";
+
+                            //放入总票数
+                            $replace_html .= "<td style=\"border: 1px solid #ccc;font-weight: normal; text-align:center;font-size:14px;\">" . $msg['total_ticket'] . "</td>";
+
+                            //放入总件数
+                            $replace_html .= "<td style=\"border: 1px solid #ccc;font-weight: normal; text-align:center;font-size:14px;\">" . $msg['total_package'] . "</td>";
+
+                            //放入总重量
+                            $replace_html .= "<td style=\"border: 1px solid #ccc;font-weight: normal; text-align:center;font-size:14px;\">" . $msg['total_weight'] . "</td>";
+
+                            //放入总残损
+                            $replace_html .= "<td style=\"border: 1px solid #ccc;font-weight: normal; text-align:center;font-size:14px;\">" . $msg['damage_num'] . "</td>";
+
+                            //放入完成时间
+                            $replace_html .= "<td style=\"border: 1px solid #ccc;font-weight: normal; text-align:center;font-size:14px;\">" . $msg['createtime'] . "</td>";
+
+                            $replace_html .= "</tr>";
+
+                            $printed = array("printed" => 1);
+
+                            $instruction_ctn->where("id='$o'")->data($printed)->save();
+
+                        } else {
+                            $this->error("没有找到数据，请联系网站管理员");
+                        }
+                    } else {
+                        $this->error($msg_result['msg']);
+                    }
+                } else {
+                    $this->error("请提交正确的数据");
+                }
+
+            }
+            //获得打印时间
+            $print_time = date('Y-m-d h:i:s', time());
+
+            //时间放入模板
+            $html = str_replace("{print_time}", $print_time, $html);
+            //表放入pdf模板
+            $html = str_replace("{document}", $replace_html, $html);
+            //渲染过的页面放入pdf
+            $mpdf->WriteHTML($html);
+            //输出
+            $mpdf->Output("RealTime_PDF.pdf", 'I');
+
+            //不需要后续处理，直接退出
+            exit();
+        } else {
+            $this->error("未选择箱");
+        }
     }
 
 }

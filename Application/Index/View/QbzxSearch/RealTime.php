@@ -56,8 +56,22 @@ $(function(){
 							<option value="1">工作中</option>
 							<option value="2">已铅封</option>
 						</select>&nbsp;&nbsp;&nbsp;&nbsp;
+                        打印记录：<select class="input1" name="printed" style="width: 135px">
+                            <option value="">--默认全部--</option>
+                            <option value="1">已打印</option>
+                            <option value="2">未打印</option>
+                        </select>&nbsp;&nbsp;&nbsp;&nbsp;
 						<input type="submit" value="查询" style="background-color: #3398db !important; border-color: #3398db; color: #fff; font-size: 16px; text-align: center; padding: 3px 15px;">
 					</form>
+                    <br>
+                    <form action="__CONTROLLER__/print_realtime_pdf" method="post" style="float: left;margin-left: 20px;"
+                          id="printpdf_form" target="_blank">
+
+                        <input type="submit"
+                               value="交箱清单"
+                               id="printpdf_btn"
+                               style="background-color: #3398db !important; border-color: #3398db; color: #fff; font-size: 16px; text-align: center; padding: 3px 15px;">
+                    </form>
 				</div>
 				<div style="clear: both;"></div>
 				<div class="row" style="margin-top: 10px">
@@ -65,6 +79,7 @@ $(function(){
 						<table class="table">
 							<thead>
 								<tr>
+                                    <th width="45px"><input id="checkAll" type="checkbox" id="checkAll"/>&nbsp;全选</th>
 									<th>船名</th>
 									<th>航次</th>
 									<th>作业地点</th>
@@ -77,6 +92,7 @@ $(function(){
 									<th>操作人</th>
 									<th>作业开始时间</th>
 									<th>最新操作时间</th>
+                                    <th>打印</th>
 									<th>状态</th>
 									<th>操作</th>
 								</tr>
@@ -84,6 +100,7 @@ $(function(){
 							<tbody>
 								<volist name="list" id="l">
 								<tr>
+                                    <td><input type="checkbox" name="ctn_id[]" value="{$l['id']}" id="choseid"/></td>
 									<td <?php
 									if ($l ['red'] == 1) {
 										echo 'style="color:red;"';
@@ -150,6 +167,18 @@ $(function(){
 										echo 'style="color:red;"';
 									}
 									?> >{$l['newtime']}</td>
+
+                                    <td <?php
+                                    if ($l ['red'] == 1) {
+                                        echo 'style="color:red;"';
+                                    }
+                                    ?> >
+                                        <if condition="$l['printed']==1">
+                                            已打印
+                                            <elseif condition="$l['printed']==2" />
+                                            未打印
+                                        </if></td>
+
 									<td <?php
 									if ($l ['red'] == 1) {
 										echo 'style="color:red;"';
@@ -184,7 +213,53 @@ $(function(){
 		</div>
 	</div>
 <script>
+
+    function checkall(checked) {
+        var input1 = $("input[id='choseid']");
+        input1.each(function () {
+                if (checked == true) {
+                    if ($("input[id='down_pdfid_" + this.defaultValue + "']").length <= 0) {
+                        $("input[id='printpdf_btn']").before("<input type=\"hidden\" name=\"ctn_id[]\" value=\"" + this.defaultValue + "\" id=\"down_pdfid_" + this.defaultValue + "\"/>");
+                    }
+                } else {
+                    $("input[id='down_pdfid_" + this.defaultValue + "']").remove();
+                }
+            }
+        );
+    }
+
+
 $(function(){
+    $("#checkAll").click(function () {
+            $("input[id='choseid']").attr("checked", this.checked);
+            checkall(this.checked);
+
+        }
+    );
+
+    var $cost_id = $("input[id='choseid']");
+
+    $cost_id.click(function () {
+        if (this.checked == true) {
+            if ($("input[id='down_pdfid_" + this.defaultValue + "']").length <= 0) {
+                $("input[id='printpdf_btn']").before("<input type=\"hidden\" name=\"ctn_id[]\" value=\"" + this.defaultValue + "\" id=\"down_pdfid_" + this.defaultValue + "\"/>");
+            }
+        } else {
+            $("input[id='down_pdfid_" + this.defaultValue + "']").remove();
+        }
+
+
+        $("#checkAll").attr("checked", $cost_id.length == $("input[id='choseid']:checked").length ? true : false);
+
+    });
+
+
+
+
+
+
+
+
 	$("#port").bigAutocomplete({
 		width:135,
 		data:[

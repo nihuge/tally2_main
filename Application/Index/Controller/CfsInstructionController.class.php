@@ -603,7 +603,7 @@ class CfsInstructionController extends BaseController
 		// 根据船ID 和航次 判断该指令是否存在
 		$where = array(
 				'ship_id' =>$ship_id,
-				'voyage'  =>$data[0]['oper_out_voyage'],
+				'voyage'  =>$data[0]['oper_in_voyage'],
 			);
 		$ins = M('cfs_instruction')->where($where)->order("id desc")->find();
 
@@ -641,7 +641,7 @@ class CfsInstructionController extends BaseController
 		$entrust_company = $res_c['id'];
 		$res=array(
 				'ship_id'=>$ship_id,
-				'voyage'=>$data[0]['oper_out_voyage'],
+				'voyage'=>$data[0]['oper_in_voyage'],
 				'department_id'=>$department_id,
 				'location_id'=>$location_id,
 				'entrust_company' => $entrust_company,
